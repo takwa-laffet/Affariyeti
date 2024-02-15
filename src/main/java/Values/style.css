@@ -1,0 +1,28 @@
+/* Apply styles to the ListView */
+#LVcmd {
+    -fx-cell-size: 40px; /* Adjust the cell height as needed */
+}
+
+/* Apply styles to each cell in the ListView */
+#LVcmd .list-cell {
+    -fx-padding: 5px;
+    -fx-border-color: #ddd; /* Optional: Add border for better visibility */
+}
+
+/* Apply styles to the first row (titles) */
+#LVcmd .list-cell:first-line {
+    -fx-font-weight: bold;
+    -fx-background-color: rgba(132, 151, 219, 0.9375);
+    -fx-text-fill: white;
+}
+
+/* Apply styles to individual attributes within each cell */
+#LVcmd .list-cell .attribute {
+    -fx-font-weight: bold;
+    -fx-padding: 2px 0;
+}
+
+/* Apply styles to individual values within each cell */
+#LVcmd .list-cell .value {
+    -fx-padding: 2px 0;
+}
