@@ -1,4 +1,4 @@
-package com.example.affariyetii;
+package com.example.affariyetii.test;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

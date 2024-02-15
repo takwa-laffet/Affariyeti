@@ -1,2 +1,4 @@
-package com.example.affariyetii.controllers;public class AjouterEnchere {
+package com.example.affariyetii.controllers;
+
+public class AjouterEnchere {
 }
