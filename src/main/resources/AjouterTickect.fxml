@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.affariyetii.AjouterTickectcontroller">
+    <left>
+        <AnchorPane prefHeight="447.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom right,  #B584DB ,#39CEF3);" styleClass="b" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="64.0" layoutY="26.0" prefHeight="44.0" prefWidth="122.0" text="AFFARIETY">
+                    <font>
+                        <Font name="Andalus" size="26.0" />
+                    </font>
+                </Label>
+
+                <ImageView fitHeight="96.0" fitWidth="85.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="logo.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="16.0" layoutY="161.0" onAction="#openChercherEnchere" prefHeight="28.0" prefWidth="159.0" text="Chercher Enchere">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="15.0" layoutY="202.0" onAction="#openModifierEnchere" prefHeight="28.0" prefWidth="159.0" text="Modifier Enchere">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="15.0" layoutY="245.0" onAction="#openAjouterTickect" prefHeight="25.0" prefWidth="159.0" text="Ajouter ticket">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="16.0" layoutY="288.0" onAction="#openAcher" prefHeight="28.0" prefWidth="155.0" text="Achter un ticket ">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="14.0" layoutY="332.0" onAction="#openAcher" text="Afficher liste des ticket acheter">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="14.0" layoutY="368.0" onAction="#openAcher" prefHeight="28.0" prefWidth="170.0" text="Afficher Ticket v(Admin)">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="298.0" prefWidth="291.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="37.0" layoutY="30.0" prefHeight="45.0" prefWidth="321.0" text="Ajouter Tickets pour Enchère" textAlignment="CENTER">
+                    <font>
+                        <Font name="Andalus" size="26.0" />
+                    </font>
+                </Label>
+
+                <Label layoutX="72.0" layoutY="109.0" text="Nom Enchère">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="nomEnchereTextField" layoutX="154.0" layoutY="106.0" prefHeight="25.0" prefWidth="164.0" />
+                <Label layoutX="52.0" layoutY="145.0" prefHeight="27.0" prefWidth="104.0" text="Nombre de Tickets">
+                <font>
+                    <Font name="Andalus" size="12.0" />
+                </font>
+            </Label>
+                <TextField fx:id="nombreTicketsTextField" layoutX="152.0" layoutY="145.0" prefHeight="25.0" prefWidth="169.0">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="273.0" layoutY="214.0" onAction="#ajouterTickets" text="Ajouter Tickets">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </center>
+
+</BorderPane>

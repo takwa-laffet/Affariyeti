@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.affariyetii.CharcherEncherecontroller">
+   <left>
+      <AnchorPane prefHeight="428.0" prefWidth="231.0" style="-fx-background-color: linear-gradient(to bottom right,  #B584DB ,#39CEF3);" styleClass="b" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="64.0" layoutY="26.0" prefHeight="44.0" prefWidth="122.0" text="AFFARIETY">
+               <font>
+                  <Font name="Andalus" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="96.0" fitWidth="85.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="15.0" layoutY="160.0" onAction="#openAjouterEnchere" prefHeight="28.0" prefWidth="170.0" text="Ajouter Enchere">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+
+            <Button layoutX="15.0" layoutY="202.0" onAction="#openModifierEnchere" prefHeight="28.0" prefWidth="170.0" text="Modifier Enchere">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="15.0" layoutY="245.0" onAction="#openAjouterTickect" prefHeight="25.0" prefWidth="170.0" text="Ajouter ticket">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="288.0" onAction="#openAcher" prefHeight="28.0" prefWidth="170.0" text="Achter un ticket ">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="325.0" onAction="#openAcher" prefHeight="28.0" prefWidth="170.0" text="Afficher liste des ticket acheter">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="16.0" layoutY="366.0" onAction="#openAcher" prefHeight="28.0" prefWidth="170.0" text="Afficher Ticket v(Admin)">
+               <font>
+                  <Font name="Andalus" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+             <HBox fx:id="productBox" prefHeight="393.0" prefWidth="504.0">
+               <children>
+                  <ScrollBar orientation="VERTICAL" />
+               </children></HBox>
+         </top>
+         <bottom>
+             <Button onAction="#chercher" prefHeight="36.0" prefWidth="514.0" text="Chercher">
+                 <graphic>
+                     <TextField fx:id="chercher" alignment="BASELINE_RIGHT" prefWidth="200.0" promptText="Chercher...">
+                         <font>
+                             <Font name="Andalus" size="12.0" />
+                         </font>
+                     </TextField>
+                 </graphic>
+                 <font>
+                     <Font name="Andalus" size="12.0" />
+                 </font>
+             </Button>
+         </bottom>
+      </BorderPane>
+   </center>
+</BorderPane>

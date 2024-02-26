@@ -1,18 +1,26 @@
 package com.example.affariyetii.models;
 
 public class Enchere {
-    private int enchereId,articleId;
-    private String dateDebut,dateFin,nom_enchere;
-    private double montantInitial;
-    public Enchere(int enchereId, int articleId, String dateDebut,String dateFin ,String nom_enchere,double montantInitial){
-        this.enchereId=enchereId;
-        this.articleId=articleId;
+    private int enchereId;
+    private String dateDebut,dateFin,nom_enchere,image;
+    private String montantInitial,montant_final;
+    public Enchere(String image,String dateDebut,String dateFin, String montantInitial,String nom_enchere){
         this.dateDebut=dateDebut;
+        this.image=image;
         this.dateFin=dateFin;
         this.nom_enchere=nom_enchere;
         this.montantInitial=montantInitial;
 
     }
+    public Enchere(String dateDebut,String dateFin ,String montantInitial,String montant_final,String nom_enchere,String image){
+        this.nom_enchere=nom_enchere;
+        this.dateDebut=dateDebut;
+        this.dateFin=dateFin;
+        this.image=image;
+        this.montantInitial=montantInitial;
+        this.montant_final=montant_final;
+    }
+
     public Enchere(){ }
     //getters and setters
     public int getEnchereId() {
@@ -23,14 +31,12 @@ public class Enchere {
         this.enchereId = enchereId;
     }
 
-    public int getArticleId() {
-        return articleId;
+    public String getImage() {
+        return image;
     }
-
-    public void setArticleId(int articleId) {
-        this.articleId = articleId;
+    public void setImage(String image) {
+        this.image = image;
     }
-
     public String getDateDebut() {
         return dateDebut;
     }
@@ -47,11 +53,11 @@ public class Enchere {
         this.dateFin = dateFin;
     }
 
-    public double getMontantInitial() {
+    public String getMontantInitial() {
         return montantInitial;
     }
 
-    public void setMontantInitial(double montantInitial) {
+    public void setMontantInitial(String montantInitial) {
         this.montantInitial = montantInitial;
     }
     public String getNom_enchere() {
@@ -59,18 +65,26 @@ public class Enchere {
     }
 
     public void setNom_enchere(String nom_enchere) {
+
         this.nom_enchere = nom_enchere;
+    }
+    public String getMontant_final() {
+        return montant_final;
+    }
+    public void setMontant_final(String montant_final) {
+        this.montant_final = montant_final;
     }
     // Méthode toString
     @Override
     public String toString() {
         return "Enchere{" +
-                "enchereId=" + enchereId +
-                ", articleId=" + articleId +
+//                "enchereId=" + enchereId +
+                ", image='" + image + '\'' +
                 ", dateDebut='" + dateDebut + '\'' +
                 ", dateFin='" + dateFin + '\'' +
                 ", nom_enchere=" + nom_enchere +
                 ", montantInitial=" + montantInitial +
+                ", montantInitial=" + montant_final +
                 '}';
     }
 
