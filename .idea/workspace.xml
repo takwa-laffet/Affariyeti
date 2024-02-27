@@ -5,15 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/affariyetii/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCategorieCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/EditCategorieCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/EditCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Profile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/main/HelloApplicationUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/models/CategorieCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/models/CodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/Fonctions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCategorieCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/utils/DB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/utils/MailUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/utils/Session.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCategorieCodePromo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/EditCategorieCodePromo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/EditUser.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/inscreption.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/profile.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +59,22 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2cJwN8vwQuLacYge3BgxUHPwJPt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,9 +85,41 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "gestionUser",
+    "last_opened_file_path": "C:/Users/LENOVO/Documents/GitHub/Affariyeti/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\LENOVO\Documents\GitHub\Affariyeti\src\main\resources" />
+      <recent name="C:\Users\LENOVO\Documents\GitHub\Affariyeti\src\main\resources\com\example\test" />
+      <recent name="C:\Users\LENOVO\Documents\GitHub\Affariyeti\src\main\java\com\example\test\utils" />
+      <recent name="C:\Users\LENOVO\Documents\GitHub\Affariyeti\src\main\java\com\example\test" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Affariyeti" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Affariyeti" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -54,8 +128,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707843001533</updated>
+      <workItem from="1709022470924" duration="2117000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
