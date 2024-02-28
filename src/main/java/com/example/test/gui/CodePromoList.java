@@ -22,8 +22,14 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class CodePromoList {
-/*
+public class CodePromoList implements Initializable {
+    @FXML
+    private Button addCodePromoButton;
+    @FXML
+    private Button deleteCodePromoButton;
+    @FXML
+    private Button editCodePromoButton;
+
     @FXML
     private ListView<CodePromo> list;
 
@@ -57,18 +63,15 @@ public class CodePromoList {
 
                             // Add labels for attribute names as titles at the top of each column
                             gridPane.add(new Label("ID"), 0, 0);
-                            gridPane.add(new Label("Value"), 1, 0);
-                            gridPane.add(new Label("Code"), 2, 0);
-                            gridPane.add(new Label("Active"), 3, 0);
-                            gridPane.add(new Label("User ID"), 4, 0);
-                            gridPane.add(new Label("Actions"), 5, 0);
+                            gridPane.add(new Label("User"), 1, 0);
+                            gridPane.add(new Label("Categorie"), 2, 0);
+
 
                             // Add values for each attribute below the titles
                             gridPane.add(new Label(String.valueOf(codePromo.getIdCode())), 0, 1);
-                            gridPane.add(new Label(String.valueOf(codePromo.getValeur())), 1, 1);
-                            gridPane.add(new Label(codePromo.getCode()), 2, 1);
-                            gridPane.add(new Label(String.valueOf(codePromo.getActive())), 3, 1);
-                            gridPane.add(new Label(String.valueOf(codePromo.getUserId())), 4, 1);
+                            gridPane.add(new Label(String.valueOf(codePromo.getUser().getNom())), 1, 1);
+                            gridPane.add(new Label(codePromo.getCategorieCodePromo().getCode()), 2, 1);
+
 
                             // Create edit and delete buttons
                             Button editButton = new Button("Edit");
@@ -126,7 +129,7 @@ public class CodePromoList {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/EditCodePromo.fxml"));
             Parent root = loader.load();
             EditCodePromo editCodePromo = loader.getController();
-            editCodePromo.initData(gs.findById(id));
+            //editCodePromo.initData(gs.findById(id));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
@@ -148,6 +151,6 @@ public class CodePromoList {
             e.printStackTrace();
         }
     }
-    */
+
 
 }

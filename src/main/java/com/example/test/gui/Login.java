@@ -1,6 +1,7 @@
 package com.example.test.gui;
 
 import com.example.test.models.User;
+import com.example.test.services.GestionCategorieCodePromo;
 import com.example.test.services.GestionUser;
 import com.example.test.utils.Session;
 import javafx.event.ActionEvent;
@@ -167,11 +168,12 @@ Session.StartSession(user);
         }
     }
     public void goToCodePromo() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/codePromoList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/SelectCodePROMO.fxml"));
         Parent profileInterface = loader.load();
 
-
-      CodePromoList codePromoListController = loader.getController();
+        GestionCategorieCodePromo gs = new GestionCategorieCodePromo();
+      SelectCodePROMO codePromoListController = loader.getController();
+      codePromoListController.initData(gs.findById(8));
 
 
 

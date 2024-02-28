@@ -85,7 +85,7 @@ public class GestionCodePromo implements Fonctions<CodePromo> {
                     while (rs.next()) {
                         CodePromo codePromo = new CodePromo(
                                 rs.getInt("idCode"),
-                                gu.findById(rs.getInt("idUser")),  // Assuming you have a constructor in User that takes an int
+                                gu.findById(rs.getInt("userId")),  // Assuming you have a constructor in User that takes an int
                                ccp.findById(rs.getInt("idCategorieCode") )// Assuming you have a constructor in CategorieCodePromo.java that takes a String
 
                         );
@@ -112,7 +112,7 @@ public class GestionCodePromo implements Fonctions<CodePromo> {
                     if (rs.next()) {
                         codePromo = new CodePromo(
                                 rs.getInt("idCode"),
-                               gu.findById(rs.getInt("idUser")),  // Assuming you have a constructor in User that takes an int
+                               gu.findById(rs.getInt("userId")),  // Assuming you have a constructor in User that takes an int
                                 ccp.findById(rs.getInt("idCategorieCode"))  // Assuming you have a constructor in CategorieCodePromo.java that takes a String
 
                         );
@@ -124,7 +124,46 @@ public class GestionCodePromo implements Fonctions<CodePromo> {
         }
         return codePromo;
     }
+    public int checkCodePromoByName(CodePromo codePromo,CategorieCodePromo ccp) {
+        int id = 0;
+        try {
+            String sql = "SELECT COUNT(*) AS number FROM codepromo c , categoriecodepromo ccp WHERE ( c.idCategorieCode = ccp.idCcp ) AND\n" +
+                    "ccp.code=? AND c.idCategorieCode=? AND ccp.limite>0 ";
+            try (PreparedStatement st = this.cnx.prepareStatement(sql)) {
+                st.setString(1, ccp.getCode());
+                st.setInt(2, codePromo.getCategorieCodePromo().getIdCcp());
+                try (ResultSet rs = st.executeQuery()) {
+                    if (rs.next()) {
+                        id = rs.getInt("number");
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error finding code promo by name: " + e.getMessage());
+        }
+        return id;
+    }
+    public CodePromo findByCode(String code) throws SQLException {
+        CodePromo codePromo = null;
+        try {
+            String sql = "SELECT c.idCode , c.userId, c.idCategorieCode FROM codepromo c , categoriecodepromo cc WHERE cc.code=? AND c.idCategorieCode= cc.idCcp";
+            GestionUser gu = new GestionUser();
+            GestionCategorieCodePromo  ccp = new GestionCategorieCodePromo();
+            try (PreparedStatement st = this.cnx.prepareStatement(sql)) {
+                st.setString(1, code);
+                try (ResultSet rs = st.executeQuery()) {
+                    if (rs.next()) {
+                        codePromo = new CodePromo(
+                                rs.getInt("idCode"),
+                                gu.findById(rs.getInt("userId")),  // Assuming you have a constructor in User that takes an int
+                                ccp.findById(rs.getInt("idCategorieCode"))  // Assuming you have a constructor in CategorieCodePromo.java that takes a String
 
     // You may add additional methods based on your requirements
-
-}
+                        );
+}}
+                catch (SQLException e){
+                    }
+            }} catch (SQLException e) {
+            System.out.println("Error finding code promo by name: " + e.getMessage());}
+        return codePromo;
+    }}
