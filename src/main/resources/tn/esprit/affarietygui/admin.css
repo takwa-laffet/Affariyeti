@@ -1,0 +1,36 @@
+/* Styling the ListView */
+.list-view {
+    -fx-control-inner-background: #ffffff; /* Violet pastel */
+    -fx-text-fill: black; /* Texte en noir */
+    -fx-font-size: 14px; /* Taille de la police */
+    -fx-font-family: "normal"; /* Police */
+    -fx-padding: 5px; /* Espacement interne */
+    -fx-background-radius: 5px; /* Bord arrondi */
+    -fx-border-radius: 5px; /* Bord arrondi */
+    -fx-border-color: transparent; /* Couleur de la bordure transparente */
+}
+
+/* Styling the ListView cells */
+.list-cell:selected {
+    -fx-background-color: #b19cd9; /* Violet pastel */
+    -fx-font-weight: bold; /* Texte en gras */
+    -fx-text-fill: black; /* Texte en noir */
+}
+
+/* Styling the buttons */
+.button {
+    -fx-padding: 10px 20px;
+    -fx-text-fill: black; /* Texte en noir */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #b19cd9; /* Violet pastel plus foncé au survol */
+}
+
+
+.list-cell:hover {
+    -fx-background-color: #937bb0; /* Violet pastel plus foncé au survol */
+}

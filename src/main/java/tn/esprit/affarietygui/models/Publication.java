@@ -10,6 +10,7 @@ public class Publication {
     public Publication() {
     }
 
+
     public Publication(int id_pub, int id_client, int nb_dislike, int nb_likes, Timestamp date_pub, String contenu , String photo){
         this.id_pub=id_pub;
         this.id_client=id_client;

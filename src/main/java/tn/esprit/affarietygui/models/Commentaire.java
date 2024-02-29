@@ -4,30 +4,29 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 public class Commentaire {
-    private int id_com,id_pub,id_article,id_client;
+    private int id_com,id_pub,id_client;
     private String contenu;
     private Timestamp date_com;
+    private Publication publication;
     public Commentaire() {
     }
-    public Commentaire(int id_com, int id_pub , int id_article, int id_client, String contenu , Timestamp date_com) {
+    public Commentaire(int id_com,Publication publication, int id_client, String contenu , Timestamp date_com) {
         this.id_com=id_com;
-        this.id_pub=id_pub;
-        this.id_article=id_article;
+        this.publication=publication;
         this.id_client=id_client;
         this.contenu=contenu;
         this.date_com=date_com;
     }
-    public Commentaire(int id_com, int id_article, int id_client, String contenu ) {
-        this.id_com=id_com;
-        this.id_article=id_article;
+
+    public Commentaire(Publication publication, int id_client, String contenu ) {
+        this.publication=publication;
         this.id_client=id_client;
         this.contenu=contenu;
         this.date_com=Timestamp.valueOf(LocalDateTime.now());
     }
-    public Commentaire(int id_com, int id_pub , int id_article, int id_client, String contenu ) {
+    public Commentaire(int id_com, int id_pub, int id_client, String contenu ) {
         this.id_com=id_com;
         this.id_pub=id_pub;
-        this.id_article=id_article;
         this.id_client=id_client;
         this.contenu=contenu;
         this.date_com=Timestamp.valueOf(LocalDateTime.now());
@@ -47,14 +46,6 @@ public class Commentaire {
 
     public void setId_pub(int id_pub) {
         this.id_pub = id_pub;
-    }
-
-    public int getId_article() {
-        return id_article;
-    }
-
-    public void setId_article(int id_article) {
-        this.id_article = id_article;
     }
 
     public int getId_client() {
@@ -80,16 +71,22 @@ public class Commentaire {
     public void setDate_com(Timestamp date_com) {
         this.date_com = date_com;
     }
+    public Publication getPublication() {
+        return publication;
+    }
 
+    public void setPublication(Publication publication) {
+        this.publication = publication;
+    }
     @Override
     public String toString() {
-        return "commentaire{" +
-                "id_com=" + id_com +
-                ", id_pub=" + id_pub +
-                ", id_article=" + id_article +
-                ", id_client=" + id_client +
-                ", contenu='" + contenu + '\'' +
-                ", date_com=" + date_com +
+        return  " id_client=" + id_client +" commentaire:  " +
+             //   "id_com=" + id_com +
+               // ", id_pub=" + id_pub +
+
+                contenu + '\'' +
+                "date : " + date_com +
+             //   ",publication=" + (publication != null ? publication : "N/A") +
                 '}';
     }
 }

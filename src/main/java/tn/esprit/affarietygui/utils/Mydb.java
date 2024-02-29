@@ -17,7 +17,6 @@ public class Mydb {
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }
-
     }
     public static Mydb getInstance(){
         if(instance == null)

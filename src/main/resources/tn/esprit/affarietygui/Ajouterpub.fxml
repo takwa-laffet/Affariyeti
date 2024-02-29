@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.Ajouterpub">
+   <children>
+      <ImageView id="background1" fitHeight="155.0" fitWidth="609.0" layoutX="111.0" layoutY="14.0">
+         <image>
+            <Image url="@420135448_224243834104228_1916489513992134241_n.png" />
+         </image>
+      </ImageView>
+      <ImageView id="background2" fitHeight="495.0" fitWidth="830.0">
+         <image>
+            <Image url="@Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="155.0" fitWidth="556.0" layoutX="152.0" layoutY="184.0">
+         <image>
+            <Image url="@Top_Card.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="257.0" layoutY="251.0" mnemonicParsing="false" onAction="#ajouter_photo" prefHeight="47.0" prefWidth="113.0" text="ajouter photo" />
+      <Button layoutX="393.0" layoutY="251.0" mnemonicParsing="false" onAction="#ajouter_pub" prefHeight="47.0" prefWidth="114.0" text="ajouter" />
+      <Button layoutX="528.0" layoutY="251.0" mnemonicParsing="false" onAction="#afficher_pub" prefHeight="47.0" prefWidth="114.0" text="afficher" />
+      <TextField id="txtfieldajouterpub" fx:id="idclientTF" layoutX="203.0" layoutY="213.0" prefHeight="26.0" prefWidth="44.0" promptText="id_client">
+         <font>
+            <Font size="8.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="pubTF" layoutX="257.0" layoutY="207.0" prefHeight="38.0" prefWidth="386.0" promptText="vous cherchez quoi?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Label fx:id="cheminphoto" layoutX="161.0" layoutY="306.0" prefHeight="18.0" prefWidth="523.0" />
+   </children>
+</AnchorPane>
