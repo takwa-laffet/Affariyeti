@@ -4,6 +4,8 @@ import tn.esprit.affariety.utils.MyDatabase;
 import java.sql.Date;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CommandeService implements IService<Commande>{
@@ -45,6 +47,18 @@ public class CommandeService implements IService<Commande>{
 
 
     }
+  public boolean idExists(int id) throws SQLException {
+      try{
+          String req = "SELECT * FROM commande WHERE id=?";
+          PreparedStatement ps = connection.prepareStatement(req);
+          ps.setInt(1, id);
+          ResultSet rs = ps.executeQuery();
+          return rs.next();
+      } catch (SQLException e) {
+          e.printStackTrace();
+          return false;
+      }
+  }
 
     @Override
     public List<Commande> recuperer() throws SQLException {
@@ -65,6 +79,63 @@ public class CommandeService implements IService<Commande>{
     }
 
 
+    public Commande recupererParId(int commandId) throws SQLException {
+        String req = "SELECT * FROM commande WHERE id=?";
+        PreparedStatement ps = connection.prepareStatement(req);
+        ps.setInt(1, commandId);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            Commande commande = new Commande();
+            commande.setId(rs.getInt("id"));
+            commande.setCmd_client(rs.getInt("cmd_client"));
+            commande.setEtat(rs.getString("etat"));
+            commande.setCmd_date(rs.getTimestamp("cmd_date"));
+            return commande;
+        } else {
+            return null; // Retourner null si la commande n'est pas trouvée
+        }
+    }
+    public List<Commande> trierParClient() throws SQLException {
+        List<Commande> commandes = new ArrayList<>();
+        String req = "SELECT * FROM commande ORDER BY cmd_client";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(req);
+        while(rs.next()){
+            Commande commande = new Commande();
+            commande.setId(rs.getInt("id"));
+            commande.setCmd_client(rs.getInt("cmd_client"));
+            commande.setEtat(rs.getString("etat"));
+            commande.setCmd_date(rs.getTimestamp("cmd_date"));
+            commandes.add(commande);
+        }
+        return commandes;
+    }
+    private Commande createCommandeFromResultSet(ResultSet rs) throws SQLException {
+        return new Commande(
+                rs.getInt("id"),
+                rs.getInt("etat"),
+                rs.getString("cmd_client"),
+                rs.getTimestamp("cmd_date")
+
+        );
+    }
+    public List<Commande> tri() throws SQLException {
+        List<Commande> commandes = new ArrayList<>();
+        String req = "SELECT * FROM commande ORDER BY cmd_date DESC";
+        try (Statement st = connection.createStatement();
+             ResultSet rs = st.executeQuery(req)) {
+
+            while (rs.next()) {
+                Commande commande = createCommandeFromResultSet(rs);
+                commandes.add(commande);
+            }
+        }
+
+        // Sort the deliveries by 'datelivraison'
+        Collections.sort(commandes, Comparator.comparing(Commande::getCmd_date));
+
+        return commandes;
+    }
 }
 
 

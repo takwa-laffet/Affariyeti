@@ -1,6 +1,4 @@
 package tn.esprit.affariety.models;
-import java.util.Date;
-
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 

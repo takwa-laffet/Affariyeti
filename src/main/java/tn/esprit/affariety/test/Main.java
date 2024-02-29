@@ -11,10 +11,38 @@ public class Main {
 
 
 
+
         // Créer une instance de la classe Publication avec les informations de la nouvelle publication
        //Commande nouvellecmd = new Commande(1,"en cours");
        CommandeService commandeService = new CommandeService();
         DetailsCommandeService detailsCommandeService = new DetailsCommandeService();
+        //ajout1
+      /*  try {
+            detailsCommandeService.ajouter1(new DetailsCommande(33,9,10,"produit 1", 10.0f, 20.0f));
+            System.out.println("details commande ajoute avec succes");
+        }catch (SQLException e) {
+            System.out.println("Erreur lors de l'ajout de la details commande : " + e.getMessage());
+        }*/
+        try {
+            Commande commande = new Commande(); // Assuming you have a way to create a Publication object
+            commande.setId(54); // Set publication ID
+
+            // Create a new Commentaire object with the provided details
+            DetailsCommande detailsCommande = new DetailsCommande(commande,3,1,"vase",123,543);
+            // Set the publication associated with the commentaire
+            detailsCommande.setCommande(commande);
+
+
+            // Call the ajouter method of CommentaireService to add the new Commentaire to the database
+            detailsCommandeService.ajouter(detailsCommande);
+            System.out.println("commande added successfully.");
+            System.out.println(detailsCommandeService.recuperer());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+      /*
         // Créer une instance de la classe PublicationService
         System.out.println(commandeService.recuperer());
         try {
@@ -65,7 +93,7 @@ public class Main {
         }catch (SQLException e) {
             System.out.println("Erreur lors de recuperation de la details commande : " + e.getMessage());
         }
-
+*/
     }
 
     }
