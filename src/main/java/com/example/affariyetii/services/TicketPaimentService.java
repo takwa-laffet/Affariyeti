@@ -1,10 +1,9 @@
 package com.example.affariyetii.services;
 
 import com.example.affariyetii.models.Enchere;
+import com.example.affariyetii.models.Ticket;
 import com.example.affariyetii.models.TicketPaiment;
 import com.example.affariyetii.utils.MyDatabase;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -78,6 +77,10 @@ public class TicketPaimentService implements Tpservice<TicketPaiment> {
         return tickets;
     }
 
+    @Override
+    public List<Ticket> reuperercl(String clientName) {
+        return null;
+    }
 
 
     public TicketPaiment rechercher(int ticketId) {
@@ -117,22 +120,47 @@ public class TicketPaimentService implements Tpservice<TicketPaiment> {
         }
         return ticketPaiments;
     }
-    //chercher le min prix de ticket
-    public double minPrix() {
-        double minPrix = 0;
-        String query = "SELECT MIN(prix) AS min_prix FROM ticket_enchere";
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
+    //chercher les tickets avec le nom de l'enchere i just have the name from the min to max et avec le id du client et afficher le date de l'enchere le montantintial et le prix tickect tous le table encherre de se id
+    public List<Enchere> getEncheresParticipatedByUser(String clientName, String clientPrenom) {
+        List<Enchere> participatedEncheres = new ArrayList<>();
+        String query = "SELECT e.* FROM enchere e " +
+                "INNER JOIN ticketp t ON e.enchere_id = t.enchere_id " +
+                "INNER JOIN user u ON t.client_id = u.id " +
+                "WHERE u.role = 'client' AND u.nom = ? AND u.prenom = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, clientName);
+            ps.setString(2, clientPrenom);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                minPrix = rs.getDouble("min_prix");
+            while (rs.next()) {
+                Enchere enchere = new Enchere();
+                enchere.setEnchereId(rs.getInt("enchere_id"));
+                enchere.setImage(rs.getString("image"));
+                enchere.setMontantInitial(rs.getString("montant_initial"));
+                enchere.setNom_enchere(rs.getString("nom_enchere"));
+                enchere.setDateDebut(rs.getString("date_debut"));
+                enchere.setDateFin(rs.getString("date_fin"));
+                participatedEncheres.add(enchere);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return minPrix;
+        return participatedEncheres;
     }
-    //chercher les tickets avec le nom de l'enchere i just have the name from the min to max et avec le id du client et afficher le date de l'enchere le montantintial et le prix tickect tous le table encherre de se id
 
-
+    public List<Integer> getUnlinkedTicketIds() {
+        List<Integer> unlinkedTicketIds = new ArrayList<>();
+        String query = "SELECT te.ticket_id FROM ticket_enchere te " +
+                "LEFT JOIN ticketp t ON te.ticket_id = t.ticket_id " +
+                "WHERE t.ticket_id IS NULL";
+        try (
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                unlinkedTicketIds.add(resultSet.getInt("ticket_id"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Handle or log the exception as needed
+        }
+        return unlinkedTicketIds;
+    }
 }

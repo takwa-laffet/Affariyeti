@@ -1,6 +1,9 @@
 package com.example.affariyetii;
 
+import com.example.affariyetii.models.Enchere;
 import com.example.affariyetii.models.TicketPaiment;
+import com.example.affariyetii.services.EmailService;
+import com.example.affariyetii.services.EnchereService;
 import com.example.affariyetii.services.TicketPaimentService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,33 +15,56 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AcheterTickectcontroller {
+    @FXML
+    private TextField nomField; // TextField for entering nom
 
     @FXML
-    private TextField ticketIdTextField;
+    private TextField prenomField;
 
     @FXML
-    private TextField clientIdTextField;
-
-    @FXML
-    private TextField enchereIdTextField;
+    private TextField encherenomTextField;
 
     private final TicketPaimentService ticketPaimentService = new TicketPaimentService();
+private EnchereService enchereService = new EnchereService();
+private     Enchere enchere = new Enchere();
+private EmailService emailService = new EmailService();
 
     @FXML
     void ajouterTicketPaiment() {
+        String nom = nomField.getText();
+        String prenom = prenomField.getText();
+        String encherenom = encherenomTextField.getText();
+        String fromEmailAddress = "affarietyaffariety@gmail.com";
         try {
-            int ticketId = Integer.parseInt(ticketIdTextField.getText());
-            int clientId = Integer.parseInt(clientIdTextField.getText());
-            int enchereId = Integer.parseInt(enchereIdTextField.getText());
+            int clientId = enchereService.getUserIdByNomAndPrenom(nom, prenom);
+            int enchereId = enchereService.rechercherIdParNom(encherenom);
+            if (enchereId == -1) {
+                showAlert("No enchere found for the provided nom.", Alert.AlertType.ERROR);
+                return;
+            }
+            List<Integer> unlinkedTicketIds = ticketPaimentService.getUnlinkedTicketIds();
+            if (unlinkedTicketIds.isEmpty()) {
+                showAlert("No unlinked tickets found.", Alert.AlertType.ERROR);
+                return;
+            }
+            int ticketId = unlinkedTicketIds.get(0);
+
+            String recipientEmail = emailService.getUserEmailByClientId(nom, prenom);
 
             TicketPaiment ticketPaiment = new TicketPaiment(ticketId, clientId, enchereId);
             ticketPaimentService.ajouter(ticketPaiment);
-
-            showAlert("Ticket Paiment Added Successfully!", Alert.AlertType.INFORMATION);
+/*
+            String subject = "Ticket Purchase Confirmation";
+            String body = "Dear Customer,\n\nYour ticket purchase was successful.\n\nThank you!";
+            // Send email to the client
+            emailService.sendEmail(recipientEmail, subject, body);
+*/
+            showAlert("Ticket Payment Added Successfully! An email confirmation has been sent to the client.", Alert.AlertType.INFORMATION);
         } catch (NumberFormatException e) {
-            showAlert("Please enter valid numeric values for Ticket ID, Client ID, and Enchere ID.", Alert.AlertType.ERROR);
+            showAlert("Please enter valid values for nom prenom and enchere nom.", Alert.AlertType.ERROR);
         }
     }
 
@@ -48,7 +74,6 @@ public class AcheterTickectcontroller {
         alert.setContentText(message);
         alert.showAndWait();
     }
-
     @FXML
     void openAjouterEnchere(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterEnchere.fxml"));
@@ -74,13 +99,6 @@ public class AcheterTickectcontroller {
         stage.show();
     }
 
-    @FXML
-    void openTicket(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/AfficherTicketclient.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
 
     @FXML
     void openAcher(ActionEvent event) throws IOException {

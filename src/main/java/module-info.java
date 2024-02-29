@@ -3,6 +3,13 @@ module com.example.affariyetii {
     requires javafx.fxml;
     requires java.sql;
 
+    requires java.mail;
+    requires org.apache.commons.codec;
+    requires com.google.api.client;
+    requires com.google.api.client.json.jackson2;
+    requires com.google.api.client.auth;
+    requires google.api.client;
+
 
     opens com.example.affariyetii to javafx.fxml;
     exports com.example.affariyetii;

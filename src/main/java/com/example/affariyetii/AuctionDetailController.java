@@ -28,6 +28,7 @@ public class AuctionDetailController {
     @FXML
     private Label Datefin;
 
+
     public void initialize(Enchere enchere) {
         auctionImageView.setImage(new Image(enchere.getImage()));
         nameLabel.setText(enchere.getNom_enchere());
@@ -38,16 +39,24 @@ public class AuctionDetailController {
     }
     @FXML
     private void participateAction() {
+        
         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SearchTicket.fxml"));
+            Parent root = loader.load();
 
-            Parent root = FXMLLoader.load(getClass().getResource("/AcheterTickect.fxml"));
+            SearchTicketController controller = loader.getController();
+          Enchere enchere = new Enchere();
+            controller.initData(enchere); // Pass auction details to the search ticket controller
+
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-        }catch (IOException e)
-        {            e.printStackTrace();
-
-
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Error", "Failed to open search ticket interface.");
         }
     }
+
+    private void showAlert(String error, String s) {
     }
+}
