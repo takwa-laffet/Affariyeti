@@ -4,6 +4,7 @@ import com.example.test.models.CategorieCodePromo;
 import com.example.test.models.CodePromo;
 import com.example.test.models.Discount;
 import com.example.test.models.User;
+import com.example.test.services.GestionCategorieCodePromo;
 import com.example.test.services.GestionCodePromo;
 import com.example.test.services.GestionDiscount;
 import com.example.test.utils.Session;
@@ -31,8 +32,11 @@ public class SelectCodePROMO {
 
            if (cp.checkCodePromoByName(c,this.ccp)==1) {
                GestionDiscount gs = new GestionDiscount();
-
+               GestionCategorieCodePromo gc = new GestionCategorieCodePromo();
+               this.ccp.setLimite(this.ccp.getLimite()-1);
                gs.Create(new Discount(this.user,c ));
+               gc.update(this.ccp);
+
         }else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Code Promo expired ");

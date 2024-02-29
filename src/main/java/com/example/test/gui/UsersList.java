@@ -54,20 +54,20 @@ public class UsersList implements Initializable {
                             gridPane.setVgap(5);
 
                             // Add labels for attribute names as titles at the top of each column
-                            gridPane.add(new Label("ID"), 0, 0);
+
                             gridPane.add(new Label("Nom"), 1, 0);
                             gridPane.add(new Label("Prénom"), 2, 0);
                             gridPane.add(new Label("Status"), 3, 0);
-                            gridPane.add(new Label("MDP"), 4, 0);
+
 
                             gridPane.add(new Label("Actions"), 7, 0);
 
                             // Add values for each attribute below the titles
-                            gridPane.add(new Label(String.valueOf(user.getId())), 0, 1);
+
                             gridPane.add(new Label(user.getNom()), 1, 1);
                             gridPane.add(new Label(user.getPrenom()), 2, 1);
                             gridPane.add(new Label(String.valueOf(user.getStatus())), 3, 1);
-                            gridPane.add(new Label(user.getMdp()), 4, 1);
+
 
                             // Create edit and delete buttons
                             Button editButton = new Button("Edit");
@@ -76,7 +76,11 @@ public class UsersList implements Initializable {
                             // Set actions for edit and delete buttons
                             editButton.setOnAction(event -> {
                                 // Handle edit action here
-                                editUser(user.getId());
+                                try {
+                                    editUser(user.getId());
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
                             });
 
                             deleteButton.setOnAction(event -> {
@@ -119,18 +123,17 @@ public class UsersList implements Initializable {
         populateListView();
     }
 
-    private void editUser(int id) {
+    private void editUser(int id) throws IOException {
         GestionUser gs = new GestionUser();
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/profile.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-            initializeListView();
-            populateListView();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        User user = new User();
+        user = gs.findById(id);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/editUser.fxml"));
+        Parent profileInterface = loader.load();
+        EditUser profileController = loader.getController();
+        profileController.initData(user);
+        Scene profileScene = new Scene(profileInterface);
+        Stage profileStage = new Stage();
+        profileStage.setScene(profileScene);
+        profileStage.show();
     }
 }

@@ -168,12 +168,12 @@ Session.StartSession(user);
         }
     }
     public void goToCodePromo() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/SelectCodePROMO.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/DashboardAdmin.fxml"));
         Parent profileInterface = loader.load();
 
-        GestionCategorieCodePromo gs = new GestionCategorieCodePromo();
-      SelectCodePROMO codePromoListController = loader.getController();
-      codePromoListController.initData(gs.findById(8));
+
+      DashboardAdmin codePromoListController = loader.getController();
+
 
 
 

@@ -8,9 +8,8 @@ import com.example.test.models.User;
 import com.example.test.utils.DB;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.sql.Date;
+import java.util.*;
 
 public class GestionUser implements Fonctions<User> {
     Connection cnx;
@@ -36,7 +35,7 @@ public class GestionUser implements Fonctions<User> {
             try (PreparedStatement st = this.cnx.prepareStatement(sql)) {
                 st.setString(1, user.getEmail());
                 st.setString(2, user.getMdp());
-                st.setBoolean(3, user.getStatus());
+                st.setBoolean(3, true);
                 st.setString(4, user.getNom());
                 st.setString(5, user.getPrenom());
                 st.setString(6, generatedString);
@@ -274,6 +273,51 @@ public class GestionUser implements Fonctions<User> {
             user.add(us);
         }
         return user;
+    }
+//////////////////stats/////////////////////////////////
+    public Map<Date, Integer> getUserDataByDate() {
+        Map<Date, Integer> userDataByDate = new HashMap<>();
+        String query = "SELECT date, COUNT(*) AS user_count FROM user where role='client' GROUP BY date ";
+
+        try (
+                PreparedStatement statement = cnx.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                Date dateRegistered = resultSet.getDate("date");
+                int userCount = resultSet.getInt("user_count");
+                userDataByDate.put(dateRegistered, userCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQLException appropriately
+        }
+
+        return userDataByDate;
+    }
+
+
+
+    public Map<String, Integer> getUserDataByStatus() {
+        Map<String, Integer> userDataByStatus = new HashMap<>();
+        String query = "SELECT status, COUNT(*) AS status_count FROM user GROUP BY status";
+
+        try (
+                PreparedStatement statement = cnx.prepareStatement(query);
+                ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                int isActive = resultSet.getInt("status");
+                String status = (isActive == 1) ? "Active" : "Inactive";
+                int statusCount = resultSet.getInt("status_count");
+                userDataByStatus.put(status, statusCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Handle SQLException appropriately
+        }
+
+        return userDataByStatus;
     }
 }
 

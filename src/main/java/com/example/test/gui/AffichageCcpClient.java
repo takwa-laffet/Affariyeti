@@ -69,18 +69,14 @@ public class AffichageCcpClient implements Initializable {
 
 
                             // Create edit and delete buttons
-                            Button editButton = new Button("Edit");
+                            Button editButton = new Button("Select");
 
                             // Set actions for edit and delete buttons
 
 
                             editButton.setOnAction(event -> {
 
-                                try {
-                                    editCodePromo(codePromo.getIdCcp());
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e);
-                                }
+                                goToAdd(codePromo.getIdCcp());
 
 
                             });
@@ -128,15 +124,25 @@ public class AffichageCcpClient implements Initializable {
         codeList.addAll(gestionCodePromo.findAll());
     }
 
-public void goToAdd(){
+public void goToAdd(int id){
 
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/AddCategorieCodePromo.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/SelectCodePROMO.fxml"));
         Parent profileInterface = loader.load();
+
+        GestionCategorieCodePromo gs = new GestionCategorieCodePromo();
+        SelectCodePROMO codePromoListController = loader.getController();
+        codePromoListController.initData(gs.findById(id));
+
+
+
+
         Scene profileScene = new Scene(profileInterface);
         Stage profileStage = new Stage();
         profileStage.setScene(profileScene);
         profileStage.show();
+
+
        // Stage currentStage = (Stage) listView.getScene().getWindow();
         //currentStage.close();
     } catch (IOException e) {

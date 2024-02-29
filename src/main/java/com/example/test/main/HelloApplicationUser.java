@@ -31,7 +31,6 @@ public class HelloApplicationUser extends Application {
         d.setCodePromo(cp.findById(32));
         d.setIdD(1);
         CategorieCodePromo c = cc.findById(9);
-        System.out.println( cp.findByCode("10"));
 
             //gs.delete(d);
 
