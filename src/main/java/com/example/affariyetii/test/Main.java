@@ -1,17 +1,17 @@
 package com.example.affariyetii.test;
 
-import com.example.affariyetii.models.Enchere;
-import com.example.affariyetii.models.Ticket;
+import com.example.affariyetii.services.Chat;
 import com.example.affariyetii.services.EnchereService;
 import com.example.affariyetii.services.TicketPaimentService;
 import com.example.affariyetii.services.TicketService;
-import com.example.affariyetii.utils.MyDatabase;
 
 public class Main {
     public static void main(String[] args){
         EnchereService enchere = new EnchereService();
         TicketService ticket =new TicketService();
         TicketPaimentService ticketPaiment = new TicketPaimentService();
+        Chat chat = new Chat();
+        System.out.println(chat.chatGPT("hello"));
      //   ticketPaiment.reuperer("en1",12);
         //ticket.ajouter(new Ticket(10,12,5,30,"2023-12-12 15:30:00"));
         //ticket.modifier(new Ticket(1,12,5,5,"2023-12-12 15:30:00"))

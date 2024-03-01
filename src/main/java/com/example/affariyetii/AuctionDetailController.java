@@ -2,6 +2,7 @@ package com.example.affariyetii;
 
 import com.example.affariyetii.models.Enchere;
 
+import com.example.affariyetii.services.EnchereService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,15 +29,14 @@ public class AuctionDetailController {
     @FXML
     private Label Datefin;
 
-
     public void initialize(Enchere enchere) {
         auctionImageView.setImage(new Image(enchere.getImage()));
         nameLabel.setText(enchere.getNom_enchere());
-        Datedebut.setText("Date debut: " + enchere.getDateDebut() );
-        Datefin.setText("Date fin: " + enchere.getDateFin() );
+        Datedebut.setText("Date debut: " + enchere.getDateDebut());
+        Datefin.setText("Date fin: " + enchere.getDateFin());
         priceLabel.setText("Montant initial: " + enchere.getMontantInitial() + " dt");
-
     }
+
     @FXML
     private void participateAction() {
         
@@ -59,4 +59,11 @@ public class AuctionDetailController {
 
     private void showAlert(String error, String s) {
     }
+    @FXML
+    private void deleteAction() {
+        Enchere enchere = new Enchere(); // Remove this line
+        EnchereService enchereService = new EnchereService();
+        enchereService.supprimer(enchere.getEnchereId()); // Pass the correct ID to delete
+    }
+
 }
