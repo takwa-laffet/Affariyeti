@@ -12,16 +12,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import tn.esprit.affarietygui.models.Commentaire;
 import tn.esprit.affarietygui.models.Publication;
 import tn.esprit.affarietygui.services.CommentaireService;
+import tn.esprit.affarietygui.services.GrosMotsService;
 import tn.esprit.affarietygui.services.PublicationService;
 
+import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -35,7 +38,15 @@ public class UserAffichePub {
     private TextField searchField;
     @FXML
     private VBox notificationBox;
+    @FXML
+    private Label cheminphoto;
 
+    @FXML
+    private TextField idclientTF;
+
+    @FXML
+    private TextArea pubTF;
+    private String photoPath;
     private final PublicationService publicationService = new PublicationService();
     private List<Publication> publications;
 
@@ -43,6 +54,11 @@ public class UserAffichePub {
     public void initialize() {
         // Au chargement de la vue, récupérer et afficher les publications
         afficherPublications();
+        try {
+            supprimerPublicationsAvecGrosMots();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         // Ajouter un écouteur d'événements sur le champ de recherche
         searchField.setOnKeyPressed(event -> {
@@ -60,6 +76,113 @@ public class UserAffichePub {
                 afficherPublications(filteredPublications);
             }
         });
+    }
+    @FXML
+    void ajouter_photo(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une photo");
+        // Filtres pour les fichiers image
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.gif")
+        );
+        // Afficher la boîte de dialogue de sélection de fichier
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            // Enregistrer le chemin de la photo sélectionnée
+            photoPath = selectedFile.getAbsolutePath();
+            cheminphoto.setText(photoPath);
+        }}
+
+
+
+    @FXML
+    void ajouter_pub(ActionEvent event) {
+        // Vérifier si les champs sont vides
+        if (idclientTF.getText().isEmpty() || pubTF.getText().isEmpty() || cheminphoto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "entrez votre demande et donnez un exemple.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            return; // Sortir de la méthode si un champ est vide
+        }
+
+        // Récupérer les valeurs depuis les champs de l'interface utilisateur
+        int idClient = Integer.parseInt(idclientTF.getText());
+        String contenu = pubTF.getText();
+        String cheminPhoto = cheminphoto.getText(); // Assurez-vous que la label cheminphoto contient le chemin de la photo sélectionnée
+
+        // Vérifier si le contenu de la publication contient des gros mots
+        GrosMotsService grosMotsService = new GrosMotsService();
+        List<String> grosMots = grosMotsService.getGrosMots();
+        for (String mot : grosMots) {
+            if (contenu.toLowerCase().contains(mot.toLowerCase())) {
+                // Afficher un message d'erreur
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText(null);
+                alert.setContentText("Le contenu de la publication contient des gros mots. Veuillez le modifier.");
+                alert.showAndWait();
+                return; // Sortir de la méthode si un gros mot est trouvé
+            }
+        }
+
+
+        // Créer une instance de Publication avec les valeurs récupérées
+        Publication nouvellePublication = new Publication();
+        nouvellePublication.setId_client(idClient);
+        nouvellePublication.setContenu(contenu);
+        nouvellePublication.setPhoto(cheminPhoto);
+        nouvellePublication.setNb_likes(0); // Mettre nb_likes à 0
+        nouvellePublication.setNb_dislike(0); // Mettre nb_dislike à 0
+
+        // Créer une boîte de dialogue de confirmation
+        Alert confirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmationDialog.setTitle("Confirmation de publication");
+        confirmationDialog.setHeaderText("Êtes-vous sûr de vouloir publier cette publication ?");
+
+        // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+        confirmationDialog.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                // Utiliser PublicationService pour ajouter la nouvelle publication à la base de données
+                PublicationService publicationService = new PublicationService();
+                try {
+                    publicationService.ajouter(nouvellePublication);
+                    Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                    successAlert.setTitle("Publié");
+                    successAlert.setHeaderText(null);
+                    successAlert.setContentText("La publication a été ajoutée avec succès !");
+                    successAlert.showAndWait();
+                    initialize();
+                } catch (SQLException e) {
+                    System.err.println("Erreur lors de l'ajout de la publication : " + e.getMessage());
+                }
+            }
+        });}
+
+    @FXML
+    void supprimerPublicationsAvecGrosMots() throws SQLException {
+        // Récupérer les publications existantes depuis la base de données
+        List<Publication> publications = publicationService.recuperer();
+
+        // Récupérer les gros mots depuis la base de données
+        GrosMotsService grosMotsService = new GrosMotsService();
+        List<String> grosMots = grosMotsService.getGrosMots();
+
+        // Parcourir toutes les publications
+        for (Publication publication : publications) {
+            // Vérifier si le contenu de la publication contient des gros mots
+            for (String mot : grosMots) {
+                if (publication.getContenu().toLowerCase().contains(mot.toLowerCase())) {
+                    // Si un gros mot est trouvé, supprimer la publication de la base de données
+                    try {
+                        publicationService.supprimer(publication.getId_pub());
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        // Gérer l'erreur de suppression de la publication
+                    }
+                    afficherPublications();
+                    // Sortir de la boucle pour passer à la publication suivante
+                    break;
+                }
+            }
+        }
     }
 
     private void afficherPublications() {
@@ -84,6 +207,7 @@ public class UserAffichePub {
 
     private void afficherPublications(List<Publication> publicationsToDisplay) {
         publicationContainer.getChildren().clear();
+        Image backgroundImage = new Image("file:C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\Card.png");
 
         for (Publication publication : publicationsToDisplay) {
             Label contenuLabel = new Label(publication.getContenu());
@@ -92,7 +216,7 @@ public class UserAffichePub {
             Label dateLabel = new Label("Date: " + publication.getDate_pub().toString());
 
             ImageView imageView = new ImageView(publication.getPhoto());
-            imageView.setFitWidth(300);
+            imageView.setFitWidth(358);
             imageView.setFitHeight(200);
 
             Label likesLabel = new Label("\uD83D\uDC4D:" + publication.getNb_likes());
@@ -113,7 +237,7 @@ public class UserAffichePub {
             modifierMenuItem.setOnAction(this::ModifierPublication);
             optionsButton.getItems().addAll(supprimerMenuItem, modifierMenuItem);
 
-            HBox likesDislikesBox = new HBox(65);
+            HBox likesDislikesBox = new HBox(90);
             likesDislikesBox.getChildren().addAll(likesLabel, dislikesLabel);
 
             Button commentButton = new Button("Commentaires");
@@ -128,8 +252,66 @@ public class UserAffichePub {
             publicationBox.setId("publicationBox_" + publication.getId_pub());
             publicationBox.getChildren().addAll(contenuLabel, imageView, likesDislikesBox, likeDislikeBox, commentOptionsBox, dateLabel);
 
+            publicationBox.setBackground(new Background(new BackgroundImage(backgroundImage,
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
+
+            // Set the absolute path of the like image
+            String likeImagePath = "C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\like.png";
+            File likeImageFile = new File(likeImagePath);
+            if (likeImageFile.exists()) {
+                Image likeImage = new Image(likeImageFile.toURI().toString());
+                ImageView likeImageView = new ImageView(likeImage);
+                likeImageView.setFitWidth(22.0);
+                likeImageView.setFitHeight(22.0);
+                likeButton.setGraphic(likeImageView);
+            } else {
+                System.out.println("File not found: " + likeImagePath);
+            }
+
+            // Set the absolute path of the dislike image
+            String dislikeImagePath = "C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\dislike.png";
+            File dislikeImageFile = new File(dislikeImagePath);
+            if (dislikeImageFile.exists()) {
+                Image dislikeImage = new Image(dislikeImageFile.toURI().toString());
+                ImageView dislikeImageView = new ImageView(dislikeImage);
+                dislikeImageView.setFitWidth(22.0);
+                dislikeImageView.setFitHeight(22.0);
+                dislikeButton.setGraphic(dislikeImageView);
+            } else {
+                System.out.println("File not found: " + dislikeImagePath);
+            }
+
+            // Set the absolute path of the comment image
+            String commentImagePath = "C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\commenter.png";
+            File commentImageFile = new File(commentImagePath);
+            if (commentImageFile.exists()) {
+                Image commentImage = new Image(commentImageFile.toURI().toString());
+                ImageView commentImageView = new ImageView(commentImage);
+                commentImageView.setFitWidth(22.0);
+                commentImageView.setFitHeight(22.0);
+                commentButton.setGraphic(commentImageView);
+            } else {
+                System.out.println("File not found: " + commentImagePath);
+            }
+
+// Set the absolute path of the option image
+            String optionImagePath = "C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\reglages.png";
+            File optionImageFile = new File(optionImagePath);
+            if (optionImageFile.exists()) {
+                Image optionImage = new Image(optionImageFile.toURI().toString());
+                ImageView optionImageView = new ImageView(optionImage);
+                optionImageView.setFitWidth(22.0);
+                optionImageView.setFitHeight(22.0);
+                optionsButton.setGraphic(optionImageView);
+            } else {
+                System.out.println("File not found: " + optionImagePath);
+            }
+
+
             publicationContainer.getChildren().add(publicationBox);
         }
+
     }
 
     @FXML
@@ -150,14 +332,16 @@ public class UserAffichePub {
             // Modifier la publication dans la base de données
             try {
                 publicationService.modifier(publicationSelectionnee);
+
             } catch (SQLException e) {
                 e.printStackTrace(); // Gérer l'exception
             }
 
             // Actualiser l'affichage
             afficherPublications();
-            afficherNotification("Vous avez reçu un like sur votre publication");
+
         }
+        afficherNotification("Vous avez reçu un like sur votre publication");
     }
 
     @FXML
@@ -184,8 +368,8 @@ public class UserAffichePub {
 
             // Actualiser l'affichage
             afficherPublications();
-            afficherNotification("Vous avez reçu un dislike sur votre publication");
         }
+        afficherNotification("Vous avez reçu un dislike sur votre publication");
     }
 
     @FXML

@@ -9,32 +9,55 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="610.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.UserModifCom">
-    <left>
-        <AnchorPane prefHeight="289.0" prefWidth="202.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane prefHeight="84.0" prefWidth="202.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
-                    <children>
-                        <Label layoutX="65.0" layoutY="27.0" prefHeight="29.0" prefWidth="122.0" text="AFFARIETY">
-                            <font>
-                                <Font name="Andalus" size="26.0" />
-                            </font>
-                        </Label>
-                        <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-8.0" layoutY="-20.0" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../../Images/logo.png" />
-                            </image>
-                        </ImageView>
-                    </children>
-                </AnchorPane>
-            </children>
-        </AnchorPane>
-    </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="506.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.UserModifCom">
    <center>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="commentTextArea" layoutX="14.0" layoutY="39.0" prefHeight="42.0" prefWidth="382.0" />
-            <Button layoutX="146.0" layoutY="90.0" mnemonicParsing="false" onAction="#ModifierCommentaire" prefHeight="44.0" prefWidth="99.0" text="Modifier" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView id="background2" fitHeight="269.0" fitWidth="512.0" layoutX="4.0" layoutY="1.0">
+               <image>
+                  <Image url="@Rectangle.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="171.0" fitWidth="377.0" layoutX="72.0" layoutY="50.0">
+               <image>
+                  <Image url="@Top_Card.png" />
+               </image>
+            </ImageView>
+            <TextArea fx:id="commentTextArea" layoutX="83.0" layoutY="88.0" prefHeight="42.0" prefWidth="354.0" />
+            <Button layoutX="144.0" layoutY="139.0" mnemonicParsing="false" onAction="#ModifierCommentaire" prefHeight="44.0" prefWidth="126.0" text="Enregistrer">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@9135401-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label layoutX="90.0" layoutY="66.0" prefHeight="18.0" prefWidth="142.0" text="Modifier le commentaire">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="65.0" fitWidth="102.0" layoutX="-10.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../Images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="45.0" layoutY="20.0" prefHeight="26.0" prefWidth="130.0" text="AFFARIETY">
+               <font>
+                  <Font name="Andalus" size="22.0" />
+               </font>
+            </Label>
+            <Button layoutX="281.0" layoutY="139.0" mnemonicParsing="false" onAction="#Annuler" prefHeight="44.0" prefWidth="113.0" text="Annuler">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@9079476-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>

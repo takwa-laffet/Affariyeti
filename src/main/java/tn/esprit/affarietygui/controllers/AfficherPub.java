@@ -1,6 +1,7 @@
 package tn.esprit.affarietygui.controllers;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -152,6 +153,29 @@ public class AfficherPub {
             }
         }
     }
+
+    public void StatistiqueBtn(ActionEvent actionEvent) {
+        try {
+            // Charger le fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/affarietygui/Statistique.fxml"));
+            Parent root = loader.load();
+
+            // Obtenir la scène depuis le bouton source
+            Scene scene = ((Node) actionEvent.getSource()).getScene();
+
+            // Obtenir la fenêtre actuelle et la cacher
+            Stage currentStage = (Stage) scene.getWindow();
+            currentStage.hide();
+
+            // Afficher la nouvelle interface utilisateur dans une nouvelle fenêtre
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception en affichant la trace
+        }
+    }
+
     private static class PublicationCellFactory implements Callback<ListView<Publication>, ListCell<Publication>> {
         @Override
         public ListCell<Publication> call(ListView<Publication> param) {

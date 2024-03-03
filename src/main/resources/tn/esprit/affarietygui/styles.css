@@ -46,7 +46,6 @@
 /* Styling the buttons */
 .button {
     -fx-padding: 10px 20px;
-    -fx-background-color: #b19cd9; /* Violet pastel */
     -fx-text-fill: black; /* Texte en noir */
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
@@ -54,12 +53,13 @@
 }
 
 .button:hover {
-    -fx-background-color: #937bb0; /* Violet pastel plus foncé au survol */
+    -fx-background-color: #b19cd9; /* Violet pastel plus foncé au survol */
 }
 
+
+
 .menu-button {
-    -fx-padding: 7px 10px;
-    -fx-background-color: #b19cd9; /* Violet pastel */
+    -fx-padding: 7px 10px; /* Violet pastel */
     -fx-text-fill: black; /* Texte en noir */
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
@@ -67,7 +67,7 @@
 }
 
 .menu-button:hover {
-    -fx-background-color: #937bb0; /* Violet pastel plus foncé au survol */
+    -fx-background-color: #b19cd9; /* Violet pastel plus foncé au survol */
 }
 
 /* Styling the notification box */
@@ -78,3 +78,13 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
     -fx-margin-top: 20px;
 }
+.menu-bar {
+    -fx-background-color: rgba(132, 151, 219, 0.9375); /* Couleur de fond */
+}
+.menu-bar > .container {
+    -fx-alignment: center-right;
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+
+

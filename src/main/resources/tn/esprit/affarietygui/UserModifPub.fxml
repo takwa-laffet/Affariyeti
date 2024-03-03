@@ -8,30 +8,62 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="401.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.UserModifPub">
+<AnchorPane prefHeight="260.0" prefWidth="506.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.UserModifPub">
     <children>
-        <ImageView id="background1" fitHeight="155.0" fitWidth="609.0" layoutX="6.0">
-            <image>
-                <Image url="@420135448_224243834104228_1916489513992134241_n.png" />
-            </image>
-        </ImageView>
-        <ImageView id="background2" fitHeight="402.0" fitWidth="626.0" layoutX="-2.0" layoutY="-1.0">
-            <image>
-                <Image url="@Rectangle.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="115.0" fitWidth="350.0" layoutX="140.0" layoutY="197.0">
-            <image>
-                <Image url="@Top_Card.png" />
-            </image>
-        </ImageView>
-        <TextField fx:id="pubTF" layoutX="157.0" layoutY="209.0" prefHeight="38.0" prefWidth="324.0" promptText="vous cherchez quoi?">
-            <font>
-                <Font size="17.0" />
-            </font>
-        </TextField>
-        <Button layoutX="220.0" layoutY="251.0" mnemonicParsing="false" onAction="#ajouter_photo" prefHeight="26.0" prefWidth="90.0" text="ajouter photo" />
-        <Label fx:id="cheminphoto" layoutX="146.0" layoutY="285.0" prefHeight="18.0" prefWidth="339.0" />
-        <Button layoutX="368.0" layoutY="251.0" mnemonicParsing="false" onAction="#confirmermodification" prefHeight="26.0" prefWidth="90.0" text="enregistrer " />
+      <ImageView id="background2" fitHeight="260.0" fitWidth="506.0">
+         <image>
+            <Image url="@Rectangle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="171.0" fitWidth="377.0" layoutX="68.0" layoutY="46.0">
+         <image>
+            <Image url="@Top_Card.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="pubTF" layoutX="77.0" layoutY="77.0" prefHeight="38.0" prefWidth="350.0" promptText="vous cherchez quoi?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button layoutX="77.0" layoutY="119.0" mnemonicParsing="false" onAction="#ajouter_photo" prefHeight="43.0" prefWidth="101.0" text="photo">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@photo.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label fx:id="cheminphoto" layoutX="81.0" layoutY="172.0" prefHeight="26.0" prefWidth="339.0" />
+      <Button layoutX="182.0" layoutY="119.0" mnemonicParsing="false" onAction="#confirmermodification" prefHeight="43.0" prefWidth="130.0" text="Enregistrer">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@9135401-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="316.0" layoutY="119.0" mnemonicParsing="false" onAction="#annuler" prefHeight="43.0" prefWidth="110.0" text="Annuler">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@9079476-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="80.0" layoutY="56.0" prefHeight="18.0" prefWidth="130.0" text="Modifier la publication">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="65.0" fitWidth="102.0" layoutX="-20.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Images/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="35.0" layoutY="10.0" prefHeight="26.0" prefWidth="130.0" text="AFFARIETY">
+         <font>
+            <Font name="Andalus" size="22.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

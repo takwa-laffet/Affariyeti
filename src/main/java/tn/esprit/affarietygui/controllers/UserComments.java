@@ -5,18 +5,23 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tn.esprit.affarietygui.models.Commentaire;
 import tn.esprit.affarietygui.models.Publication;
 import tn.esprit.affarietygui.services.CommentaireService;
+import tn.esprit.affarietygui.services.GrosMotsService;
+import tn.esprit.affarietygui.services.PublicationService;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -45,6 +50,9 @@ public class UserComments {
         this.publicationSelectionnee = publication;
         commentContainer.getChildren().clear(); // Clear existing comments
 
+        // Load the image
+        Image backgroundImage = new Image("file:C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\Top_Card1.png");
+
         for (Commentaire commentaire : commentaires) {
             String clientId = Integer.toString(commentaire.getId_client());
             Label label1 = new Label("Client: ");
@@ -54,15 +62,14 @@ public class UserComments {
             Label label2 = new Label("date: ");
             Label labelDate = new Label();
 
-            // Appliquer le style CSS pour mettre le texte qui est en gras à normal et vice versa
+            // Apply the CSS style to make the text bold or italic
             label1.setStyle("-fx-font-weight: bold;");
             labelClientId.setStyle("-fx-font-style: italic;");
             label.setStyle("-fx-font-weight: bold;");
             labelContenu.setStyle("-fx-font-style: italic;");
             label2.setStyle("-fx-font-weight: bold;");
 
-
-            // Définir le texte de labelDate
+            // Set the text for labelDate
             labelDate.setText(String.valueOf(commentaire.getDate_com()));
             labelDate.setStyle("-fx-font-style: italic;");
 
@@ -73,14 +80,39 @@ public class UserComments {
             modifierMenuItem.setOnAction(this::ModifierCommentaire);
             optionsButton.getItems().addAll(supprimerMenuItem, modifierMenuItem);
 
+            optionsButton.setStyle("-fx-font-size: 10px;");
+
             HBox clientcontenubox = new HBox(10);
             clientcontenubox.getChildren().addAll(label1, labelClientId, label, labelContenu, label2, labelDate);
+
+            // Create a VBox to hold the comment and set its background image
             VBox commentbox = new VBox(10);
             commentbox.setId("commentbox" + commentaire.getId_com());
-            commentbox.getChildren().addAll(clientcontenubox,optionsButton);
+            commentbox.setAlignment(Pos.CENTER_LEFT); // Align children to the left
+            commentbox.setSpacing(5); // Set spacing between children
+            commentbox.getChildren().addAll(clientcontenubox, optionsButton);
+
+            // Set the background image for the VBox
+            commentbox.setBackground(new Background(new BackgroundImage(backgroundImage,
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
+                    BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT)));
 
 
-            // Ajouter le commentbox à la commentContainer
+            // Set the height of the comment box
+            commentbox.setMinHeight(100); // Set the desired height
+            String optionImagePath = "C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\reglages.png";
+            File optionImageFile = new File(optionImagePath);
+            if (optionImageFile.exists()) {
+                Image optionImage = new Image(optionImageFile.toURI().toString());
+                ImageView optionImageView = new ImageView(optionImage);
+                optionImageView.setFitWidth(22.0);
+                optionImageView.setFitHeight(22.0);
+                optionsButton.setGraphic(optionImageView);
+            } else {
+                System.out.println("File not found: " + optionImagePath);
+            }
+
+            // Add the comment box to the commentContainer
             commentContainer.getChildren().add(commentbox);
         }
     }
@@ -101,6 +133,21 @@ public class UserComments {
             String clientText = idclientfield.getText();
             String commentaireText = commentTextArea.getText();
             if (!commentaireText.isEmpty()) {
+                // Vérifier les gros mots
+                GrosMotsService grosMotsService = new GrosMotsService();
+                List<String> grosMots = grosMotsService.getGrosMots();
+                for (String mot : grosMots) {
+                    if (commentaireText.toLowerCase().contains(mot.toLowerCase())) {
+                        // Afficher un message d'erreur
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Erreur");
+                        alert.setHeaderText(null);
+                        alert.setContentText("Le commentaire contient des gros mots. Veuillez le modifier.");
+                        alert.showAndWait();
+                        return; // Sortir de la méthode si un gros mot est trouvé
+                    }
+                }
+
                 // Afficher une boîte de dialogue de confirmation
                 Alert confirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
                 confirmationDialog.setTitle("Confirmation");
@@ -156,6 +203,7 @@ public class UserComments {
             alert.showAndWait();
         }
     }
+
 
 
     public void SupprimerCommentaire(ActionEvent actionEvent) {
@@ -238,5 +286,9 @@ public class UserComments {
         } catch (SQLException e) {
             e.printStackTrace(); // Handle the exception appropriately
         }
+    }
+
+    public void retour(ActionEvent actionEvent) {
+        commentTextArea.getScene().getWindow().hide();
     }
 }

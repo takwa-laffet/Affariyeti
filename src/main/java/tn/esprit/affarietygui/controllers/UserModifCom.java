@@ -67,4 +67,8 @@ public class UserModifCom {
             // Afficher un message d'erreur si aucun commentaire n'est sélectionné
             System.out.println("Aucun commentaire sélectionné.");
         }}
+
+    public void Annuler(ActionEvent actionEvent) {
+        commentTextArea.getScene().getWindow().hide();
+    }
 }

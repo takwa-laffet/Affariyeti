@@ -15,6 +15,7 @@ import tn.esprit.affarietygui.models.Publication;
 import tn.esprit.affarietygui.services.PublicationService;
 import tn.esprit.affarietygui.test.HelloApplication;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -60,7 +61,7 @@ public class Ajouterpub {
     void ajouter_pub(ActionEvent event) {
         // Vérifier si les champs sont vides
         if (idclientTF.getText().isEmpty() || pubTF.getText().isEmpty() || cheminphoto.getText().isEmpty()) {
-            System.err.println("Veuillez remplir tous les champs.");
+            JOptionPane.showMessageDialog(null, "entrez votre demande et donnez un exemple.", "Erreur", JOptionPane.ERROR_MESSAGE);
             return; // Sortir de la méthode si un champ est vide
         }
 

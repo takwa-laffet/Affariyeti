@@ -60,12 +60,13 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="searchTextField" layoutX="434.0" layoutY="456.0" prefHeight="26.0" prefWidth="193.0" promptText="🔎 Rechercher des publications..." />
+            <TextField fx:id="searchTextField" layoutX="438.0" layoutY="66.0" prefHeight="26.0" prefWidth="188.0" promptText="🔎 Rechercher des publications..." />
             <ListView fx:id="lvpub" layoutX="282.0" layoutY="99.0" prefHeight="295.0" prefWidth="534.0" />
-            <Button fx:id="modifybutton" layoutX="312.0" layoutY="406.0" mnemonicParsing="false" onAction="#modifierPub" text="modifier publication" />
-            <Button layoutX="470.0" layoutY="406.0" mnemonicParsing="false" onAction="#afficherCommentaire" text="afficher commentaires" />
-            <Button layoutX="639.0" layoutY="406.0" mnemonicParsing="false" onAction="#supprimerPub" text="supprimer publication" />
-            <Label alignment="TOP_CENTER" layoutX="261.0" layoutY="27.0" prefHeight="47.0" prefWidth="568.0" text="GESTION PUBLICATIONS" textFill="#89408c">
+            <Button layoutX="712.0" layoutY="55.0" mnemonicParsing="false" onAction="#StatistiqueBtn" prefHeight="38.0" prefWidth="105.0" text="Statistique" />
+            <Button fx:id="modifybutton" layoutX="282.0" layoutY="406.0" mnemonicParsing="false" onAction="#modifierPub" prefHeight="38.0" prefWidth="150.0" text="modifier publication" />
+            <Button layoutX="441.0" layoutY="406.0" mnemonicParsing="false" onAction="#afficherCommentaire" prefHeight="38.0" prefWidth="157.0" text="afficher commentaires" />
+            <Button layoutX="607.0" layoutY="406.0" mnemonicParsing="false" onAction="#supprimerPub" prefHeight="38.0" prefWidth="158.0" text="supprimer publication" />
+            <Label alignment="TOP_CENTER" layoutX="265.0" layoutY="14.0" prefHeight="47.0" prefWidth="568.0" text="GESTION PUBLICATIONS" textFill="#89408c">
                <font>
                   <Font name="Amiri Regular" size="32.0" />
                </font>

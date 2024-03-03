@@ -89,4 +89,8 @@ public class UserModifPub {
         cheminphoto.setText(publication.getPhoto());
         // Autres champs à initialiser si nécessaire
     }
+
+    public void annuler(ActionEvent actionEvent) {
+        cheminphoto.getScene().getWindow().hide();
+    }
 }
