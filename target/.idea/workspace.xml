@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7f72ee9-6a96-45cd-8e82-43096609f880" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/target.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/hello-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/models/Categorie.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/models/Produit.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/services/CategorieService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/services/IService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/services/ProduitService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/test/HelloApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/test/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/classes/tn/esprit/affariety/utils/MyDataBase.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +14,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitToolBoxStore">
@@ -69,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "produit",
-    "last_opened_file_path": "C:/Users/Lenovo/IdeaProjects/Affariety",
+    "last_opened_file_path": "C:/Users/Lenovo/IdeaProjects",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,7 +88,8 @@
       <updated>1707860402812</updated>
       <workItem from="1707860404131" duration="19000" />
       <workItem from="1707860653158" duration="84000" />
-      <workItem from="1708001728616" duration="1061000" />
+      <workItem from="1708001728616" duration="2308000" />
+      <workItem from="1708007961759" duration="15000" />
     </task>
     <servers />
   </component>
