@@ -42,6 +42,12 @@
             <version>8.0.3</version>
         </dependency>
         <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>9.0.10</version> <!-- Or specify the version you want to use -->
+        </dependency>
+
+        <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
             <version>1.31.0</version>

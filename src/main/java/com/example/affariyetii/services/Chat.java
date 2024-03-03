@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
+
 public class Chat {
 
     private final Connection connection;
@@ -20,8 +21,9 @@ public class Chat {
     // Method to send email
     public String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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"; // API key goes here
-        String model = "gpt-3.5-turbo"; // current model of chatgpt api
+        String apiKey = "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";
+        String model = "gpt-3.5-turbo";
+
 
         try {
             // Create the HTTP POST request
@@ -39,7 +41,6 @@ public class Chat {
             writer.flush();
             writer.close();
 
-            // Get the response
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
@@ -48,7 +49,6 @@ public class Chat {
             }
             in.close();
 
-            // returns the extracted contents of the response.
             return extractContentFromResponse(response.toString());
 
         } catch (IOException e) {
@@ -62,7 +62,39 @@ public class Chat {
         int endMarker = response.indexOf("\"", startMarker); // Marker for where the content ends.
         return response.substring(startMarker, endMarker); // Returns the substring containing only the response.
     }
+    public String repondreQuestion(String question) {
+        return chatGPT(question);
+    }
+
+    public String assistanceEncherir(String itemId, double montantEnchere) {
+        String question = "Comment puis-je enchérir sur l'article " + itemId + " avec un montant de " + montantEnchere + " ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+    public String alerteEncheres(String itemId) {
+        String question = "Pouvez-vous m'alerter lorsque l'enchère pour l'article " + itemId + " est sur le point de se terminer ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+    public String suivreEncheres(String itemId) {
+        String question = "Pouvez-vous me donner des mises à jour sur l'enchère pour l'article " + itemId + " ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+    public  String obtenirFAQ() {
+        String question = "Pouvez-vous me donner des informations sur la procédure d'enchères ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+    public  String collecterCommentaires() {
+        String question = "Pouvez-vous me demander ce que je pense de mon expérience aux enchères ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+    public String interactionPersonnalisee(String donneesUtilisateur) {
+        String question = "Pouvez-vous me fournir des suggestions personnalisées en fonction de " + donneesUtilisateur + " ?";
+        String completion = chatGPT(question);
+        return completion;
+    }
+
 }
-
-
-

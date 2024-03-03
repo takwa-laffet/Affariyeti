@@ -11,16 +11,17 @@ import java.io.IOException;
 public class MainJavafx extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MainJavafx.class.getResource("/AjouterEnchere.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainJavafx.class.getResource("/Chatboot.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene =new Scene(root);
-        //Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("AFFARIYETI");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {
         launch();
     }
+
 }

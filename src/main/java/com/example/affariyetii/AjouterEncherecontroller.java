@@ -1,7 +1,9 @@
 package com.example.affariyetii;
 
 import com.example.affariyetii.models.Enchere;
+import com.example.affariyetii.models.Ticket;
 import com.example.affariyetii.services.EnchereService;
+import com.example.affariyetii.services.TicketService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,6 +73,21 @@ public class AjouterEncherecontroller implements Initializable {
             showAlert(AlertType.ERROR, "Erreur", "Une erreur est survenue lors de l'ajout de l'enchere : " + e.getMessage());
 
         }
+        int enchereId = enchereService.rechercherIdParNom(nomEnchereTextField.getText());
+
+        // Create TicketService instance to add tickets
+        TicketService ticketService = new TicketService();
+
+        // Add the specified number of tickets for the given Enchere ID
+        for (int i = 0; i < 10; i++) {
+            Ticket ticket = new Ticket();
+            ticket.setEnchereId(enchereId);
+            ticket.setPrix(10);
+            // You may set other properties of the ticket if needed
+            ticketService.ajouter(ticket);
+        }
+
+        System.out.println( " tickets added successfully for the auction: " );
     }
 
     @FXML

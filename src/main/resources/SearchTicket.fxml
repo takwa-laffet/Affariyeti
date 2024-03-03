@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.*?>
 
 
-    <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.affariyetii.SearchTicketController">
+    <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
         <!-- Your search interface design here -->
         <TextField fx:id="nomField" promptText="Nom"/>
         <TextField fx:id="prenomField" promptText="Prénom"/>
-        <Button text="Search" onAction="#searchTickets"/>
+        <Button text="Search" />
         <TableView fx:id="ticketTableView"/>
     </AnchorPane>

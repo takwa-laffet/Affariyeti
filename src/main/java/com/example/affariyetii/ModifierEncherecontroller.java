@@ -41,21 +41,26 @@ public class ModifierEncherecontroller {
         }
         @FXML
         void modifierEnchere(ActionEvent event) {
+                EnchereService enchere = new EnchereService();
+                int id = enchere.rechercherIdParNom(nomEnchereTextField.getText());
                 String nomEnchere = nomEnchereTextField.getText();
                 String nouvelleImage = image.getText();
                 String nouvelleDateDebut = nouvelleDateDebutTextField.getText();
                 String nouvelleDateFin = nouvelleDateFinTextField.getText();
                 String nouveauMontantInitial = nouveauMontantInitialTextField.getText();
-
                 EnchereService enchereService = new EnchereService();
-                Enchere newEnchere = new Enchere();
-                newEnchere.setImage(nouvelleImage);
-                newEnchere.setDateDebut(nouvelleDateDebut);
-                newEnchere.setDateFin(nouvelleDateFin);
-                newEnchere.setMontantInitial(nouveauMontantInitial);
+                if (id == enchereService.rechercherIdParNom(nomEnchere)) {
+                        enchereService = new EnchereService();
+                        Enchere newEnchere = new Enchere();
+                        newEnchere.setImage(nouvelleImage);
+                        newEnchere.setDateDebut(nouvelleDateDebut);
+                        newEnchere.setDateFin(nouvelleDateFin);
+                        newEnchere.setMontantInitial(nouveauMontantInitial);
+                        enchereService.modifierEnchere(id, newEnchere);
+                }
+                else {
+                        System.out.println("Enchere not found");
+                }
 
-                enchereService.modifierEnchere(nomEnchere, newEnchere);
-
-                // Add any additional logic or UI updates here
         }
 }

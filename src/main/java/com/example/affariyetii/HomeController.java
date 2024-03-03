@@ -39,8 +39,6 @@ public class HomeController {
             stage.show();
         }catch (IOException e)
         {            e.printStackTrace();
-
-
         }
     }
 

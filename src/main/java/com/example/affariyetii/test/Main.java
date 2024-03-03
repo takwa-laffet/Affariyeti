@@ -11,7 +11,7 @@ public class Main {
         TicketService ticket =new TicketService();
         TicketPaimentService ticketPaiment = new TicketPaimentService();
         Chat chat = new Chat();
-        System.out.println(chat.chatGPT("hello"));
+        System.out.println(chat.repondreQuestion("hello"));
      //   ticketPaiment.reuperer("en1",12);
         //ticket.ajouter(new Ticket(10,12,5,30,"2023-12-12 15:30:00"));
         //ticket.modifier(new Ticket(1,12,5,5,"2023-12-12 15:30:00"))

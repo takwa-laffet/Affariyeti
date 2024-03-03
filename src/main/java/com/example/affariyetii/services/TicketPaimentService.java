@@ -163,4 +163,61 @@ public class TicketPaimentService implements Tpservice<TicketPaiment> {
         }
         return unlinkedTicketIds;
     }
+    public List<Ticket> searchTicketsByNomAndPrenom(String nom, String prenom) {
+        List<Ticket> tickets = new ArrayList<>();
+        try {
+            String query = "SELECT * FROM ticketp WHERE client_id IN (SELECT id FROM user WHERE nom = ? AND prenom = ? )";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, nom);
+            ps.setString(2, prenom);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Ticket ticket = new Ticket();
+                ticket.setEnchereId(rs.getInt("enchere_id"));
+                ticket.setTicketId(rs.getInt("ticket_id"));
+                ticket.setPrix(rs.getDouble("prix"));
+                tickets.add(ticket);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tickets;
+    }
+    public int reuperercl(String clientName,String clintprenom) {
+        List<Ticket> tickets = new ArrayList<>();
+        String query = "SELECT ticketp_id FROM ticketp WHERE client_id IN ( SELECT id FROM user WHERE nom = ? AND prenom = ? )";
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement(query);
+            ps.setString(1, clientName);
+            ps.setString(2, clintprenom);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Ticket ticket = new Ticket();
+                ticket.setTicketId(rs.getInt("ticket_id"));
+                tickets.add(ticket);  }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return tickets.size();}
+
+    // afficher le nombre de ticketp for enchere
+    public int countTicketByEnchereId(String encherenom) {
+        int count = 0;
+        try {
+            String query = "SELECT COUNT(*) FROM ticketp WHERE enchere_id IN (SELECT enchere_id FROM enchere WHERE nom_enchere = ?)";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1, encherenom);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return count;
+    }
+
+
 }

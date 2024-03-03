@@ -5,14 +5,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/ChatbotController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Chatboot.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Enchereclient.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/add1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/backup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/burger.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dash.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dash1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/menu1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/report.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/report1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/setting.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/user.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AcheterTickectcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AcheterTickectcontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterEncherecontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterTickectcontroller.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/CharcherEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/CharcherEncherecontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/Enchereencherecreatercontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/MainJavafx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/MainJavafx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/ModifierEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/ModifierEncherecontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/SearchTicketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/models/TicketPaiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/models/TicketPaiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EnchereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EnchereService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Eservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Eservice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketPaimentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketPaimentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/test/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/420437812_397039396144701_5918151331745243813_n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/images/Untitled_Project__2_-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/420437812_397039396144701_5918151331745243813_n.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/EnchereDetailView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EnchereDetailView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterTickect.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ChercherEnchere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ChercherEnchere.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Enchereencherecreater.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Enchereencherecreater.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/SearchTicket.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/SearchTicket.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +71,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,22 +120,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/takwa/IdeaProjects/affariyetii&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/takwa/OneDrive/Bureau/Slider",
+    "project.structure.last.edited": "Global Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "scala_project_settings_configurable.last_selected_tab_index": "0",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.affariyetii.services" />
@@ -101,6 +144,7 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\takwa\IdeaProjects\affariyetii\src\main\resources" />
+      <recent name="C:\Users\takwa\IdeaProjects\affariyetii\src\main\java\com\example\affariyetii" />
       <recent name="C:\Users\takwa\IdeaProjects\affariyetii\src\main\java\com\example\affariyetii\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

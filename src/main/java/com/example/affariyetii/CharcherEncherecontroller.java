@@ -11,7 +11,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -57,7 +56,7 @@ public class CharcherEncherecontroller implements Initializable {
             ImageView imageView = new ImageView(enchere.getImage());
             imageView.setFitWidth(100);
             imageView.setFitHeight(100);
-
+           enchere.getEnchereId();
             Text itemNameText = new Text(enchere.getNom_enchere());
             itemNameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 

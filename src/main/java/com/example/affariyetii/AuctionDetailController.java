@@ -1,7 +1,6 @@
 package com.example.affariyetii;
 
 import com.example.affariyetii.models.Enchere;
-
 import com.example.affariyetii.services.EnchereService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,21 +38,16 @@ public class AuctionDetailController {
 
     @FXML
     private void participateAction() {
-        
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SearchTicket.fxml"));
-            Parent root = loader.load();
 
-            SearchTicketController controller = loader.getController();
-          Enchere enchere = new Enchere();
-            controller.initData(enchere); // Pass auction details to the search ticket controller
-
+            Parent root = FXMLLoader.load(getClass().getResource("/SearchTicket.fxml"));
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-            showAlert("Error", "Failed to open search ticket interface.");
+        }catch (IOException e)
+        {            e.printStackTrace();
+
+
         }
     }
 

@@ -15,7 +15,7 @@ public interface Eservice<T> {
 
     List<T> reuperer();
 
-    void modifierEnchere(String nom, Enchere newEnchere);
+    void modifierEnchere(int id, Enchere newEnchere);
 
     // Add this method to your EnchereService class
     int rechercherIdParNom(String nomEnchere);

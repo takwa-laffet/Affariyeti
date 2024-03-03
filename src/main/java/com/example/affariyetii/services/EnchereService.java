@@ -170,9 +170,9 @@ public class EnchereService implements Eservice<Enchere> {
     }
 
     @Override
-    public void modifierEnchere(String nom, Enchere newEnchere) {
+    public void modifierEnchere(int id, Enchere newEnchere) {
         try {
-            String req = "UPDATE enchere SET image = ?, date_debut = ?, heured = ?, date_fin = ?,heuref = ?, montant_initial = ? WHERE nom_enchere = ?";
+            String req = "UPDATE enchere SET image = ?, date_debut = ?, heured = ?, date_fin = ?,heuref = ?, montant_initial = ? WHERE enchere_id = ?";
             PreparedStatement ps = connection.prepareStatement(req);
             ps.setString(1, newEnchere.getImage());
             ps.setString(2, newEnchere.getDateDebut());
@@ -180,7 +180,7 @@ public class EnchereService implements Eservice<Enchere> {
             ps.setString(3, newEnchere.getDateFin());
             ps.setString(3, newEnchere.getHeuref());
             ps.setString(4, newEnchere.getMontantInitial());
-            ps.setString(5, nom);
+            ps.setInt(5, id);
             ps.executeUpdate();
             System.out.println("Enchere updated successfully!");
         } catch (SQLException e) {
@@ -247,6 +247,31 @@ public class EnchereService implements Eservice<Enchere> {
         throw new IllegalArgumentException("Enchere with name " + nom + " not found");
 
     }
-    //get m
+
+    // chercher les encheres created by user id
+    public List<Enchere> getEncheresByUserId(int userId) {
+        List<Enchere> encheres = new ArrayList<>();
+        String query = "SELECT * FROM enchere WHERE idclcreree = ?";
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Enchere enchere = new Enchere();
+                enchere.setEnchereId(rs.getInt("enchere_id"));
+                enchere.setImage(rs.getString("image"));
+                enchere.setDateDebut(rs.getString("date_debut"));
+                enchere.setHeured(rs.getString("heured"));
+                enchere.setDateFin(rs.getString("date_fin"));
+                enchere.setHeuref(rs.getString("heuref"));
+                enchere.setMontantInitial(rs.getString("montant_initial"));
+                enchere.setNom_enchere(rs.getString("nom_enchere"));
+                encheres.add(enchere);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return encheres;
+    }
+
 }
 

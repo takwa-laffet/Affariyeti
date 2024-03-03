@@ -34,7 +34,6 @@ private     Enchere enchere = new Enchere();
         String nom = nomField.getText();
         String prenom = prenomField.getText();
         String encherenom = encherenomTextField.getText();
-        String fromEmailAddress = "affarietyaffariety@gmail.com";
         try {
             int clientId = enchereService.getUserIdByNomAndPrenom(nom, prenom);
             int enchereId = enchereService.rechercherIdParNom(encherenom);
