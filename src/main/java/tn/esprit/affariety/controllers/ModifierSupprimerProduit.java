@@ -3,6 +3,7 @@ package tn.esprit.affariety.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import tn.esprit.affariety.models.Categorie;
@@ -12,15 +13,17 @@ import tn.esprit.affariety.services.ProduitService;
 import tn.esprit.affariety.test.HelloApplication;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class ModifierSupprimerProduit {
+public class ModifierSupprimerProduit implements Initializable {
     @FXML
     private TextField descriptionTF;
 
     @FXML
     private TextField idTF;
-
+private  int prouitsid;
     @FXML
     private TextField nom_cTF;
 
@@ -30,7 +33,21 @@ public class ModifierSupprimerProduit {
 
     @FXML
     private TextField prixTF;
+    public  ModifierSupprimerProduit(){
 
+    }
+    public ModifierSupprimerProduit(int productId) {
+        this.prouitsid = productId;
+    }
+    public void setProduit(int produit) {
+        this.prouitsid = produit;
+    }
+    public int getId(){
+        return  this.prouitsid;
+    }
+    public void initializeDetails() {
+        System.out.println(this.prouitsid);
+    }
     @FXML
     void modifierProduit(ActionEvent event) {
         ProduitService produitService = new ProduitService();
@@ -142,5 +159,10 @@ public class ModifierSupprimerProduit {
             System.err.println(e.getMessage());
         }
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initializeDetails();
     }
 }

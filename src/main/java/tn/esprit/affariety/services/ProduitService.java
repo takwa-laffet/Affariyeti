@@ -155,6 +155,7 @@ public class ProduitService implements IService<Produit> {
                Produit produit = new Produit();
                produit.setId_p(rs.getInt("id_p"));
                produit.setNom_p(rs.getString("nom_p"));
+
                produit.setDescription_p(rs.getString("description_p"));
                produit.setPrix_p(rs.getFloat("prix_p"));
                produit.setImage_p(rs.getString("image_p"));
@@ -193,6 +194,7 @@ public class ProduitService implements IService<Produit> {
         return null;
     }*/
    public Produit getProduitById(int produitId) throws SQLException {
+       System.out.println(produitId);
        String req = "SELECT p.*, c.id_c " +
                "FROM produit p " +
                "JOIN categorie c ON p.id_c = c.id_c " +
@@ -208,7 +210,9 @@ public class ProduitService implements IService<Produit> {
                    produit.setId_p(rs.getInt("id_p"));
                    produit.setNom_p(rs.getString("nom_p"));
                    produit.setDescription_p(rs.getString("description_p"));
+                   produit.setImage_p(rs.getString("image_p"));
                    produit.setPrix_p(rs.getFloat("prix_p"));
+
                    produit.setCategorie(cs.getCategoryById(rs.getInt("id_c")));
 
                    return produit;

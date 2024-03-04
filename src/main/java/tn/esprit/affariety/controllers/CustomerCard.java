@@ -1,5 +1,6 @@
 package tn.esprit.affariety.controllers;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -30,12 +31,13 @@ public class CustomerCard extends Pane {
     protected final Label visits;
     protected final Label label0;
     protected final HBox iconContainer;
+
     protected final Button deleteButton;
     protected final Button modifyButton;
     private int ID;
 
     public CustomerCard(int Id, String Name, Float Prix, String Image) {
-
+        setLayoutY(10.0);
         photo = new ImageView();
         name = new Label();
         mobile = new Label();
@@ -107,24 +109,28 @@ public class CustomerCard extends Pane {
         modifyButton.setPrefWidth(85);
         modifyButton.getStyleClass().add("modify-button");
         modifyButton.setOnAction(e -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/affariety/de"));
-            Parent root = null;
             try {
-                root = loader.load();
+                int productId = Integer.parseInt(getId());
+                System.out.println(productId);
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/affariety/DetailsProduits.fxml"));
+
+                Parent root = loader.load();
+
+               // DetailsProduits detailsProduit = new DetailsProduits(productId);
+
+                Scene scene = new Scene(root);
+
+                Stage stage = (Stage) modifyButton.getScene().getWindow();
+                stage.setScene(scene);
+                DetailsProduits detailsProduitsController = loader.getController();
+                detailsProduitsController.setProduit(productId);
+                detailsProduitsController.initializeDetails();
+                stage.show();
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                ex.printStackTrace();
             }
-
-        loader.getController();
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-
-
-            Stage currentStage = (Stage) modifyButton.getScene().getWindow();
-            currentStage.close();
         });
+
 
         iconContainer.getChildren().addAll(deleteButton, modifyButton);
 

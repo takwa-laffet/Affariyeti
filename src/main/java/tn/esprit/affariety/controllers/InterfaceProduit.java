@@ -32,7 +32,7 @@ public class InterfaceProduit {
     private TextField descriptionTF;
     @FXML
     private ImageView imageTF;
-
+private int prouitsid;
     @FXML
     private ListView<Produit> listView;
 
@@ -45,7 +45,12 @@ public class InterfaceProduit {
 
     @FXML
     private TextField prixTF;
-
+    public void setProduit(int produit) {
+        this.prouitsid = produit;
+    }
+    public int getId(){
+        return  this.prouitsid;
+    }
     @FXML
     void initialize() {
         ProduitService produitService = new ProduitService();
@@ -109,41 +114,42 @@ public class InterfaceProduit {
         }
 
 
-        @FXML
-        void modifierProduit(ActionEvent event) {
-            ProduitService produitService = new ProduitService();
-            Produit produit = new Produit();
-            Categorie c = new Categorie();
-            CategorieService cs = new CategorieService();
-            try {
-                c = cs.getCategoryByName(nomCTF.getText());
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+    @FXML
+    void modifierProduit(ActionEvent event) {
+        try {
 
-            // Set the ID of the product
-            produit.setId_p(listView.getSelectionModel().getSelectedItem().getId_p());
+            int productId = listView.getSelectionModel().getSelectedItem().getId_p();
+            System.out.println(productId);
 
-            produit.setNom_p(nomTF.getText());
-            produit.setCategorie(c);
-            produit.setDescription_p(descriptionTF.getText());
-            produit.setPrix_p(Float.parseFloat(prixTF.getText()));
 
-            try {
-                produitService.modifier(produit);
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Succes");
-                alert.setContentText("Produit modifié");
-                alert.showAndWait();
-            } catch (SQLException e) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Erreur");
-                alert.setContentText(e.getMessage());
-                alert.showAndWait();
-            }
-            initialize();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/affariety/ModifierSupprimerProduit.fxml"));
+            Parent root = loader.load();
+
+
+            Scene scene = new Scene(root);
+
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+
+            stage.setScene(scene);
+
+
+            ModifierSupprimerProduit modifierSupprimerProduit = loader.getController();
+
+
+            modifierSupprimerProduit.setProduit(productId);
+
+
+            modifierSupprimerProduit.initializeDetails();
+
+
+            stage.show();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+
         }
-
+    }
 
     @FXML
         void supprimerProduit (ActionEvent event){

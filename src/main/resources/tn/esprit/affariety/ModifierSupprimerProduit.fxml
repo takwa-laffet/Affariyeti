@@ -30,17 +30,14 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="160.0" layoutY="93.0" text="Id Produit:" />
       <Label layoutX="160.0" layoutY="135.0" text="Nom Ctégorie:" />
       <Label layoutX="160.0" layoutY="182.0" text="Nom Produit:" />
       <Label layoutX="160.0" layoutY="224.0" text="Description Produit:" />
       <Label layoutX="159.0" layoutY="306.0" text="Prix Produit:" />
-      <TextField fx:id="idTF" layoutX="289.0" layoutY="89.0" />
       <TextField fx:id="nom_cTF" layoutX="290.0" layoutY="131.0" />
       <TextField fx:id="nomTF" layoutX="291.0" layoutY="178.0" />
       <TextField fx:id="descriptionTF" layoutX="291.0" layoutY="220.0" prefHeight="70.0" />
       <TextField fx:id="prixTF" layoutX="291.0" layoutY="302.0" />
-      <Button layoutX="498.0" layoutY="89.0" mnemonicParsing="false" onAction="#trouverProduit" text="Trouver" />
       <Button layoutX="258.0" layoutY="348.0" mnemonicParsing="false" onAction="#modifierProduit" text="Modifier" />
       <Button layoutX="369.0" layoutY="348.0" mnemonicParsing="false" onAction="#supprimerProduit" text="Supprimer" />
       <Button layoutX="498.0" layoutY="348.0" mnemonicParsing="false" onAction="#afficherProduit" text="Afficher" />
