@@ -262,4 +262,21 @@ public void ajouterTicketPaiment(int ticketId ,int clientId, int enchereId) {
         return encheres;
 
 }
+// get encher_id from ticketp table
+    public int getEnchereIdinTicketp(int encher_id) {
+        String query = "SELECT enchere_id FROM ticketp WHERE enchere_id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, encher_id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("enchere_id");
+            }else {
+                return -1;
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

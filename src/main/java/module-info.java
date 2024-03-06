@@ -11,6 +11,7 @@ module com.example.affariyetii {
     requires google.api.client;
     requires org.controlsfx.controls;
     requires commons.lang3;
+    requires restfb;
 
 
     opens com.example.affariyetii to javafx.fxml;

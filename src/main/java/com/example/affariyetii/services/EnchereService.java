@@ -78,31 +78,7 @@ public class EnchereService implements Eservice<Enchere> {
         }
 
     }
-//chercher par id
-    public List<Enchere> chercher(int id) {
-        String query = "SELECT * FROM enchere WHERE enchere_id = ?";
-        List<Enchere> encheres = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Enchere enchere = new Enchere();
-                enchere.setImage(rs.getString("image"));
-                enchere.setMontantInitial(rs.getString("montant_initial"));
-                enchere.setNom_enchere(rs.getString("nom_enchere"));
-                enchere.setDateDebut(rs.getString("date_debut"));
-                enchere.setHeured(rs.getString("heured"));
-                enchere.setDateFin(rs.getString("date_fin"));
-                enchere.setHeuref(rs.getString("heuref"));
-                enchere.setMontant_final(rs.getString("montant_final"));
-                enchere.setIdclcreree(rs.getInt("idclcreree"));
-                encheres.add(enchere);
-            }
-        }catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return encheres;}
+
     /*to do create 30 ticket autoumatique */
 
 
@@ -227,42 +203,7 @@ public class EnchereService implements Eservice<Enchere> {
         }
         throw new IllegalArgumentException("Enchere with name " + nomEnchere + " not found");
     }
-    public List<String> getTicketpEnchereIds() {
-        List<String> enchereIds = new ArrayList<>();
-        PreparedStatement statement = null;
-        ResultSet resultSet = null;
 
-        try {
-            // Prepare SQL query
-            String query = "SELECT enchere_id FROM ticketp";
-            statement = connection.prepareStatement(query);
-
-            // Execute query
-            resultSet = statement.executeQuery();
-
-            // Retrieve IDs and add to the list
-            while (resultSet.next()) {
-                String enchereId = resultSet.getString("enchere_id");
-                enchereIds.add(enchereId);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            // Close resources
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return enchereIds;
-    }
 
     @Override
     public List<Enchere> getTopSaleAuctions() {

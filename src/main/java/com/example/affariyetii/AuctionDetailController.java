@@ -2,17 +2,14 @@ package com.example.affariyetii;
 
 import com.example.affariyetii.models.Enchere;
 import com.example.affariyetii.services.EnchereService;
+import com.example.affariyetii.services.SocialMediaSharing;
+import com.example.affariyetii.services.TicketPaimentService;
+import com.example.affariyetii.services.TicketService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.util.List;
+import javafx.scene.layout.VBox;
 
 public class AuctionDetailController {
     @FXML
@@ -24,6 +21,8 @@ public class AuctionDetailController {
     @FXML
     private Label priceLabel;
 
+     @FXML
+     private VBox Vbox;
     @FXML
     private Label Datedebut;
     @FXML
@@ -39,33 +38,33 @@ public class AuctionDetailController {
 
     @FXML
     private void participateAction() {
-        try {
-
-            Parent root = FXMLLoader.load(getClass().getResource("/SearchTicket.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        }catch (IOException e)
-        {            e.printStackTrace();
-
-
-        }
     }
-
     private void showAlert(String error, String s) {
     }
     @FXML
     private void deleteAction() {
+        Enchere enchere = new Enchere();
         EnchereService enchereService = new EnchereService();
-        List<Enchere> allEncheres = enchereService.reuperer(); // Retrieve all auctions
-        List<String> ticketpEnchereIds = enchereService.getTicketpEnchereIds(); // Retrieve IDs of auctions in ticketp
+        TicketService ticketService = new TicketService();
+        TicketPaimentService ticketPaimentService = new TicketPaimentService();
+        int id= enchereService.rechercherIdParNom(nameLabel.getText());
 
-        for (Enchere enchere : allEncheres) {
-            String enchereId = String.valueOf(enchere.getEnchereId());
-            if (!ticketpEnchereIds.contains(enchereId)) { // If the auction ID is not in ticketp
-                enchereService.supprimer(Integer.parseInt(enchereId)); // Delete the auction
-            }
-        }
+       if (ticketPaimentService.getEnchereIdinTicketp(id) == id){
+           showAlert("error","Enchere est deja payé");
+       }
+       else{
+           ticketService.supprimer(id);
+           enchereService.supprimer(id);
+       }
 
+    }
+    public void shareOnSocialMedia() {
+        Enchere enchere = new Enchere();
+        enchere.setNom_enchere(nameLabel.getText()); // Obtenez le nom de l'enchère à partir de votre Label
+        enchere.setMontantInitial(String.valueOf(Double.parseDouble(priceLabel.getText().replace("Montant initial: ", "").replace(" dt", "")))); // Obtenez le montant initial de l'enchère à partir de votre Label
+        enchere.setDateDebut(Datedebut.getText().replace("Date debut: ", "")); // Obtenez la date de début de l'enchère à partir de votre Label
+        enchere.setDateFin(Datefin.getText().replace("Date fin: ", "")); // O
+        SocialMediaSharing socialMediaSharing = new SocialMediaSharing();
+        socialMediaSharing.shareOnFacebook(enchere);
     }
 }

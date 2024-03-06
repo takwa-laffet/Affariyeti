@@ -50,7 +50,7 @@ public class TicketService implements Tservice<Ticket> {
     @Override
     public void supprimer(int id) {
         try {
-            String query = "DELETE FROM ticket_enchere WHERE ticket_id = ? ";
+            String query = "DELETE FROM ticket_enchere WHERE enchere_id = ? ";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setInt(1,id);
             ps.executeUpdate();

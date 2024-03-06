@@ -5,30 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionControllerclientcontroller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionControllerenchere.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/NotificationFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/NotificationForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/SocialMediaSharing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AcheterTickectcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AcheterTickectcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AfficherTicketscontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AfficherTicketscontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterEncherecontroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/MainJavafx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/MainJavafx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EnchereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EnchereService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketPaimentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketPaimentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AfficherTicketclient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AfficherTicketclient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Enchereclient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Enchereclient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Enchereclients.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Enchereencherecreater.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Enchereencherecreater.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/EnchereDetailView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EnchereDetailView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
