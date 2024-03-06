@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="612.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.affariyetii.AjouterEncherecontroller" >
+    <left>
+        <AnchorPane prefHeight="447.0" prefWidth="200.0" style="-fx-background-color: linear-gradient(to bottom right,  #B584DB ,#39CEF3);" styleClass="b" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="64.0" layoutY="26.0" prefHeight="44.0" prefWidth="122.0" text="AFFARIETY">
+                    <font>
+                        <Font name="Andalus" size="26.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="96.0" fitWidth="85.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="logo.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="15.0" layoutY="121.0" onAction="#openAjouterEnchere" prefHeight="28.0" prefWidth="161.0" text="Ajouter Enchere">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="16.0" layoutY="161.0" onAction="#openChercherEnchere" prefHeight="28.0" prefWidth="159.0" text="Chercher Enchere">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="15.0" layoutY="202.0" onAction="#openModifierEnchere" prefHeight="28.0" prefWidth="159.0" text="Modifier Enchere">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="15.0" layoutY="245.0" onAction="#openAjouterTickect" prefHeight="25.0" prefWidth="159.0" text="Ajouter ticket">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="16.0" layoutY="288.0" onAction="#openAcher" prefHeight="28.0" prefWidth="155.0" text="Achter un ticket ">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="14.0" layoutY="332.0" onAction="#openAcher" text="Afficher liste des ticket acheter">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="14.0" layoutY="368.0" onAction="#openAcher" prefHeight="28.0" prefWidth="170.0" text="Afficher Ticket v(Admin)">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="298.0" prefWidth="291.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="146.0" layoutY="31.0" prefHeight="45.0" prefWidth="181.0" text="Ajouter Enchère" textAlignment="CENTER">
+                    <font>
+                        <Font name="Andalus" size="26.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="nomEnchereTextField" layoutX="154.0" layoutY="106.0" prefHeight="25.0" prefWidth="164.0" />
+                <Label layoutX="101.0" layoutY="108.0" text="Article">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+                <DatePicker fx:id="dateDebutPicker" layoutX="152.0" layoutY="145.0" prefHeight="25.0" prefWidth="169.0" />
+                <DatePicker fx:id="dateFinPicker" layoutX="152.0" layoutY="181.0" prefHeight="25.0" prefWidth="168.0"  />
+                <Button layoutX="152.0" layoutY="219.0"  onAction="#chooseFile" prefHeight="25.0" prefWidth="170.0" text="Choisir une image">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <TextField fx:id="montantInitialTextField" layoutX="152.0" layoutY="254.0" prefHeight="25.0" prefWidth="169.0" />
+                <Button layoutX="37.0" layoutY="332.0" onAction="#annuler" text="Annuler">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Button layoutX="327.0" layoutY="334.0" onAction="#ajouterEnchere" text="Ajouter">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Button>
+                <Label layoutX="34.0" layoutY="144.0" prefHeight="27.0" prefWidth="104.0" text="Date debut et l'heure">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="49.0" layoutY="184.0" text="Date Fin et l'heure">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="52.0" layoutY="223.0" text="Image de l'article">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="63.0" layoutY="257.0" text="Montant Intiale">
+                    <font>
+                        <Font name="Andalus" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

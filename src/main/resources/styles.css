@@ -1,0 +1,90 @@
+/* Define styles for the container */
+#special-price {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Style the heading */
+#special-price h4 {
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the button group */
+#filters {
+    text-align: right;
+}
+
+#filters button {
+    font-family: 'Baloo', sans-serif;
+    font-size: 16px;
+    padding: 8px 15px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#filters button.is-checked {
+    background-color: #dc3545;
+}
+
+/* Style the grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+/* Style the grid items */
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Style the product name */
+.product h6 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* Style the rating */
+.rating {
+    color: #ffc107;
+}
+
+/* Style the price */
+.price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Style the buttons */
+button.btn {
+    font-family: 'Baloo', sans-serif;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.btn-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button.btn-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+
+button.btn:disabled {
+    background-color: #6c757d;
+    color: #fff;
+    cursor: not-allowed;
+}

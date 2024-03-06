@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.affariyetii.HomeController"
+      alignment="CENTER"
+      spacing="10">
+
+    <Button text="Ajouter Enchere" onAction="#openAjouterEnchere"/>
+    <Button text="Chercher Enchere" onAction="#openChercherEnchere"/>
+    <Button text="Modifier Enchere" onAction="#openModifierEnchere"/>
+    <Button text="Ajouter ticket" onAction="#openAjouterTickect"/>
+
+    <Button text="Achter un ticket " onAction="#openAcher"/>
+
+</VBox>
