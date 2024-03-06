@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="659.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.AfficherDetailsCommande">
+   <children>
+      <Label layoutX="388.0" layoutY="83.0" prefHeight="35.0" prefWidth="287.0" text="Listes des details Commandes">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <ListView fx:id="lvdCmd" layoutX="296.0" layoutY="165.0" prefHeight="262.0" prefWidth="471.0" />
+
+      <AnchorPane layoutX="-3.0" layoutY="106.0" prefHeight="557.0" prefWidth="272.0" style="-fx-background-color: rgb(132,151,219,0.9375);">
+         <children>
+            <Button layoutX="16.0" layoutY="40.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion des utilisateurs" />
+            <Button layoutX="16.0" layoutY="111.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion produit et categories" />
+            <Button layoutX="14.0" layoutY="183.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion commandes" />
+            <Button layoutX="16.0" layoutY="259.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion livraison" />
+            <Button layoutX="16.0" layoutY="334.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion avis" />
+            <Button layoutX="14.0" layoutY="412.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion d'enchere" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-3.0" layoutY="-1.0" prefHeight="106.0" prefWidth="272.0" style="-fx-background-color: rgb(150,163,207,0.9375);">
+         <children>
+            <ImageView fitHeight="58.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@422005695_1067403267916521_708312912658606799_n-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="56.0" layoutY="33.0" prefHeight="39.0" prefWidth="182.0" text="AFFARIYETI">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

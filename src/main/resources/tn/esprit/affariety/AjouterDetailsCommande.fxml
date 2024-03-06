@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="621.0" prefWidth="739.0" style="-fx-background-color: fffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.AjouterDetailsCommande">
+   <children>
+      <Label layoutX="306.0" layoutY="37.0" prefHeight="34.0" prefWidth="353.0" text="Ajouter Details Commande" textFill="#0923defc">
+         <font>
+            <Font name="Arial Narrow Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="306.0" layoutY="190.0" prefHeight="18.0" prefWidth="98.0" text="Numero Article:" />
+      <TextField fx:id="num_articleTF" layoutX="370.0" layoutY="222.0" />
+      <Label layoutX="315.0" layoutY="281.0" prefHeight="18.0" prefWidth="83.0" text="Nom Article:" />
+      <TextField fx:id="nom_articleTF" layoutX="377.0" layoutY="311.0" />
+      <Label layoutX="322.0" layoutY="347.0" prefHeight="18.0" prefWidth="55.0" text="Quantite:" />
+      <TextField fx:id="quantiteTF" layoutX="377.0" layoutY="374.0" />
+      <Label layoutX="322.0" layoutY="413.0" text="Prix_unitaire:" />
+      <TextField fx:id="prix_unitaireTF" layoutX="377.0" layoutY="441.0" />
+      <Label layoutX="329.0" layoutY="474.0" prefHeight="18.0" prefWidth="55.0" text="total:" />
+      <TextField fx:id="sous_totalTF" layoutX="377.0" layoutY="499.0" />
+      <Button layoutX="331.0" layoutY="579.0" mnemonicParsing="false" onAction="#ajouterDetailsCommande" prefHeight="47.0" prefWidth="74.0" text="Ajouter" />
+      <Button layoutX="492.0" layoutY="579.0" mnemonicParsing="false" onAction="#afficherDetailsCommande" prefHeight="47.0" prefWidth="74.0" text="Afficher" />
+      <Label layoutX="306.0" layoutY="118.0" prefHeight="18.0" prefWidth="74.0" text="Commande:" />
+      <AnchorPane layoutX="-3.0" layoutY="100.0" prefHeight="574.0" prefWidth="271.0" style="-fx-background-color: rgb(132,151,219,0.9375);">
+         <children>
+            <Button layoutX="16.0" layoutY="40.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion des utilisateurs" />
+            <Button layoutX="16.0" layoutY="111.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion produit et categories" />
+            <Button layoutX="14.0" layoutY="183.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion commandes" />
+            <Button layoutX="16.0" layoutY="259.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion livraison" />
+            <Button layoutX="16.0" layoutY="334.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion avis" />
+            <Button layoutX="14.0" layoutY="412.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="210.0" text="Gestion d'enchere" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="-3.0" layoutY="-3.0" prefHeight="104.0" prefWidth="271.0" style="-fx-background-color: rgb(150,163,207,0.9375);">
+         <children>
+            <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@422005695_1067403267916521_708312912658606799_n-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="63.0" layoutY="24.0" prefHeight="39.0" prefWidth="182.0" text="AFFARIYETI">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="233.0" fitWidth="150.0" layoutX="550.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+        
+      </ImageView>
+      <ComboBox fx:id="id_cmdTF" layoutX="357.0" layoutY="152.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
