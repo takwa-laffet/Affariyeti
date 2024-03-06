@@ -14,8 +14,8 @@ module com.example.affariyetii {
     requires restfb;
 
 
-    opens tn.esprit.gestion to javafx.fxml;
-    exports tn.esprit.gestion;
-    exports tn.esprit.gestion.test;
-    opens tn.esprit.gestion.test to javafx.fxml;
+    opens com.example.affariyetii to javafx.fxml;
+    exports com.example.affariyetii;
+    exports com.example.affariyetii.test;
+    opens com.example.affariyetii.test to javafx.fxml;
 }

@@ -5,37 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/StatistiqueAdmine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/StatistiqueAdmine.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-api-1.7-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-api-1.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-impl-1.7-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-impl-1.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-spi-1.7-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-spi-1.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-util-0.9.0.M2-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-util-0.9.0.M2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-util-1.7-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aether-util-1.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/animal-sniffer-annotations-1.14-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/animal-sniffer-annotations-1.14.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/antlr-2.7.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/aopalliance-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-4.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-7.0-beta-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-7.0-beta.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-9.2-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-9.2-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-9.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-analysis-4.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-analysis-4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-tree-4.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-tree-4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-util-4.1-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/asm-util-4.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/cdi-api-1.0-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/cdi-api-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/checker-compat-qual-2.0.0-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/checker-compat-qual-2.0.0.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AcheterTickectcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AcheterTickectcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AfficherTicketscontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AfficherTicketscontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AjouterEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AjouterEncherecontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionControllerclientcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionControllerclientcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionControllerenchere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionControllerenchere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/AuctionDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionDetailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/CharcherEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/CharcherEncherecontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/ChatbotController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/ChatbotController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/MainJavafx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/MainJavafx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/ModifierEncherecontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/ModifierEncherecontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/NotificationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/NotificationFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/models/Enchere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/Enchere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/models/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/models/TicketPaiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/TicketPaiment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/EnchereService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/EnchereService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Eservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Eservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/SocialMediaSharing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/SocialMediaSharing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketPaimentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/TicketPaimentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Tpservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Tpservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/services/Tservice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Tservice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/test/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/test/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/utils/MyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/utils/MyDatabase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AcheterTickectcontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AfficherTicketscontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AjouterEncherecontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionControllerclientcontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionControllerenchere.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/AuctionDetailController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/CharcherEncherecontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/ChatbotController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/MainJavafx.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/ModifierEncherecontroller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/NotificationFormController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/StatistiqueAdmine.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/Enchere.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/Ticket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/models/TicketPaiment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Chat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/EnchereService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Eservice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/SocialMediaSharing.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/TicketPaimentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/TicketService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Tpservice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/services/Tservice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/test/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tn/esprit/gestion/utils/MyDatabase.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AcheterTickect.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AfficherTicketclient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AfficherTicketclient.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/AjouterEnchere.fxml" afterDir="false" />
@@ -48,6 +79,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/resources/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/ModifierEnchere.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ModifierEnchere.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/NotificationForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/NotificationForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/StatistiqueAdmine.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/StatistiqueAdmine.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
