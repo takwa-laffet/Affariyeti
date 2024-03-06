@@ -80,11 +80,11 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
     -fx-margin-top: 20px;
 }
-.menu-bar {
+.tool-bar {
     -fx-background-color: rgba(132, 151, 219, 0.9375); /* Couleur de fond */
 
 }
-.menu-bar > .container {
+.tool-bar > .container {
     -fx-alignment: center-right;
     -fx-background-color: white;
     -fx-background-radius: 5px;

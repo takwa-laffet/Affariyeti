@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
@@ -23,12 +21,12 @@
     <left>
         <AnchorPane prefHeight="330.0" prefWidth="146.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="178.0" fitWidth="164.0" layoutX="-17.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="199.0" fitWidth="164.0" layoutX="4.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@82250-removebg-preview.png" />
                </image>
             </ImageView>
-            <Button layoutX="16.0" layoutY="54.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="114.0" text="Tous les publications">
+            <Button layoutX="20.0" layoutY="49.0" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="124.0" text="Tous les publications">
                <font>
                   <Font size="8.0" />
                </font>
@@ -40,7 +38,7 @@
                   </InnerShadow>
                </effect>
             </Button>
-            <MenuButton layoutX="11.0" layoutY="4.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" text="filtrer par date">
+            <MenuButton layoutX="19.0" layoutY="4.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="126.0" text="filtrer par date">
                <items>
                   <MenuItem onAction="#filtrerParPlusRecentes" text="Les plus récentes" />
                   <MenuItem onAction="#filtrerParPlusAnciennes" text="Les plus anciennes" />
@@ -56,14 +54,12 @@
                      </image>
                   </ImageView>
                </graphic>
-               <effect>
-                  <InnerShadow choke="0.28" height="28.02" radius="20.5275" width="56.09">
-                     <color>
-                        <Color red="0.6324599981307983" green="0.13279999792575836" blue="0.8299999833106995" opacity="0.5934650301933289" />
-                     </color>
-                  </InnerShadow>
-               </effect>
             </MenuButton>
+            <ImageView fitHeight="120.0" fitWidth="129.0" layoutX="38.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@commentaires.png" />
+               </image>
+            </ImageView>
          </children>
         </AnchorPane>
     </left>
@@ -124,48 +120,35 @@
         <VBox fx:id="notificationsBox" alignment="CENTER" />
     </right>
    <top>
-      <AnchorPane prefHeight="69.0" prefWidth="597.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="67.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-12.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-12.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Images/logo.png" />
                </image>
             </ImageView>
-            <Label layoutX="61.0" layoutY="26.0" prefHeight="32.0" prefWidth="127.0" text="AFFARIETY">
+            <Label layoutX="60.0" layoutY="23.0" prefHeight="23.0" prefWidth="127.0" text="AFFARIETY">
                <font>
                   <Font name="Andalus" size="26.0" />
                </font>
             </Label>
-            <MenuBar layoutX="225.0" layoutY="25.0" prefHeight="32.0" prefWidth="374.0">
-               <menus>
-                  <Menu mnemonicParsing="false" text="Acceuil">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Tous les articles">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Demande ">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Enchère">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Aide">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Close" />
-                     </items>
-                  </Menu>
-               </menus>
-            </MenuBar>
+            <MenuButton layoutX="519.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="42.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Articles" />
+                  <MenuItem mnemonicParsing="false" text="Panier" />
+                  <MenuItem mnemonicParsing="false" text="Livraison" />
+                  <MenuItem mnemonicParsing="false" text="Enchère" />
+                  <MenuItem mnemonicParsing="false" text="Demande" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@buttonoption.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
          </children>
       </AnchorPane>
    </top>

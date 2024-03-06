@@ -132,8 +132,6 @@ public class GestionCom {
         }
     }
 
-
-
     private static class CommentaireCellFactory implements Callback<ListView<Commentaire>, ListCell<Commentaire>> {
         @Override
         public ListCell<Commentaire> call(ListView<Commentaire> param) {

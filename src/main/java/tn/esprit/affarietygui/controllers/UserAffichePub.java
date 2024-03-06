@@ -35,7 +35,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class UserAffichePub {
+public class
+UserAffichePub {
 
     @FXML
     private VBox publicationContainer; // Pour contenir toutes les publications
@@ -48,7 +49,8 @@ public class UserAffichePub {
 
     @FXML
     private TextField idclientTF;
-
+    @FXML
+    private Menu accueilMenu;
     @FXML
     private TextArea pubTF;
     private String photoPath;
@@ -59,6 +61,8 @@ public class UserAffichePub {
 
     @FXML
     public void initialize() {
+
+
         // Au chargement de la vue, récupérer et afficher les publications
         afficherPublications();
         try {
@@ -232,7 +236,7 @@ public class UserAffichePub {
         }
     }
 
-    @FXML
+   @FXML
     void supprimerPublicationsAvecGrosMots() throws SQLException {
         // Récupérer les publications existantes depuis la base de données
         List<Publication> publications = publicationService.recuperer();
@@ -255,7 +259,7 @@ public class UserAffichePub {
                                 .creator(
                                         new com.twilio.type.PhoneNumber("+21697161495"),
                                         new com.twilio.type.PhoneNumber("+12232049811"),
-                                            "la publication de mr/mme" + publication.getUser().getPrenom().toUpperCase() + " qui contient un contenu haineux a été supprimé avec succés"
+                                        "la publication de mr/mme" + publication.getUser().getPrenom().toUpperCase() + " qui contient un contenu haineux a été supprimé avec succés"
                                 )
                                 .create();
 
@@ -331,15 +335,20 @@ public class UserAffichePub {
 
             Button commentButton = new Button("Commentaires");
             commentButton.setOnAction(this::ClickComments);
+            Button traduireButton = new Button("Traduction");
+            traduireButton.setOnAction(this::Traduire);
             HBox likeDislikeBox = new HBox(10);
             likeDislikeBox.getChildren().addAll(likeButton, dislikeButton);
-
+            
             HBox commentOptionsBox = new HBox(10);
             commentOptionsBox.getChildren().addAll(commentButton, optionsButton);
+            
+            HBox TraductionContenuBox = new HBox(200);
+            TraductionContenuBox.getChildren().addAll(contenuLabel, traduireButton);
 
             VBox publicationBox = new VBox(10);
             publicationBox.setId("publicationBox_" + publication.getId_pub());
-            publicationBox.getChildren().addAll(nomprenomlabel,contenuLabel, imageView, likesDislikesBox, likeDislikeBox, commentOptionsBox, dateLabel);
+            publicationBox.getChildren().addAll(nomprenomlabel,TraductionContenuBox, imageView, likesDislikesBox, likeDislikeBox, commentOptionsBox, dateLabel);
 
             publicationBox.setBackground(new Background(new BackgroundImage(backgroundImage,
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
@@ -401,6 +410,66 @@ public class UserAffichePub {
             publicationContainer.getChildren().add(publicationBox);
         }
 
+    }
+
+    @FXML
+    public void Traduire(ActionEvent actionEvent) {
+        // Vérifier si la source de l'événement est bien un bouton
+        if (!(actionEvent.getSource() instanceof Button)) {
+            return;
+        }
+
+        Button traduireBtn = (Button) actionEvent.getSource();
+        // Vérifier si le parent du bouton est bien un HBox
+        if (!(traduireBtn.getParent() instanceof HBox)) {
+            return;
+        }
+
+        HBox hbox = (HBox) traduireBtn.getParent();
+        // Vérifier si le parent du HBox est bien un VBox
+        if (!(hbox.getParent() instanceof VBox)) {
+            return;
+        }
+
+        VBox vbox = (VBox) hbox.getParent(); // Get the parent VBox
+
+        // Get the index of the VBox in the container
+        int index = publicationContainer.getChildren().indexOf(vbox);
+        Publication publicationSelectionnee = null;
+
+        if (index >= 0 && index < publications.size()) {
+            publicationSelectionnee = publications.get(index);
+        }
+
+        // Vérifier si la publication sélectionnée n'est pas null
+        if (publicationSelectionnee != null) {
+            // Utiliser le service Chat pour traduire le contenu de la publication
+            Chat chat = new Chat();
+            String contenuTraduit = chat.traduire(publicationSelectionnee.getContenu());
+
+            // Créer une boîte de dialogue personnalisée pour afficher le contenu traduit
+            Dialog<String> dialog = new Dialog<>();
+            dialog.setTitle("Contenu traduit");
+            dialog.setHeaderText(null);
+
+            // Bouton pour fermer la boîte de dialogue
+            ButtonType closeButton = new ButtonType("Fermer", ButtonBar.ButtonData.CANCEL_CLOSE);
+            dialog.getDialogPane().getButtonTypes().add(closeButton);
+
+            // Afficher le contenu traduit dans une étiquette dans la boîte de dialogue
+            Label label = new Label("Le contenu traduit de la publication est :\n" + contenuTraduit);
+            dialog.getDialogPane().setContent(label);
+
+            // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+            dialog.showAndWait();
+        } else {
+            // Si la publication sélectionnée est null, afficher un message d'erreur
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Publication introuvable.");
+            alert.showAndWait();
+        }
     }
 
     @FXML
@@ -610,5 +679,11 @@ public class UserAffichePub {
                 snakeGame.start(gameStage);
             }
         });
+    }
+
+    public void accueil(ActionEvent actionEvent) {
+
+            System.out.println("presssed");
+
     }
 }

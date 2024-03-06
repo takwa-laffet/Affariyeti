@@ -21,7 +21,7 @@ public class Chat {
 
     public String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
+        String apiKey = "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";
         String model = "gpt-3.5-turbo";
 
         try {
@@ -65,13 +65,25 @@ public class Chat {
     }
 
     public String badword(String message) {
-        String question = "detecter si le discours de contenu de la publication est haineux ou non si il ya haineux votre reponse doit etre 100% correcte afficher 1 si non afficher 0 just dit 0 ou 1 idont need anything else  " + message ;
+        String question = "detecter si le message est haineux ou non , si il ya haineux retourner 1 si non retourner 0 juste dire 0 ou 1" + message ;
         try {
             String completion = chatGPT(question);
             return completion;
         } catch (RuntimeException e) {
             // Gérer les erreurs liées à l'API ChatGPT
             System.err.println("Erreur lors de la détection de mots grossiers : " + e.getMessage());
+            return "-1"; // Retourner une valeur d'erreur spécifique
+        }
+    }
+
+    public String traduire(String message) {
+        String question = "Traduire cette phrase du français en arabe : " + message;
+        try {
+            String completion = chatGPT(question);
+            return completion;
+        } catch (RuntimeException e) {
+            // Gérer les erreurs liées à l'API ChatGPT
+            System.err.println("Erreur lors de la traduction : " + e.getMessage());
             return "-1"; // Retourner une valeur d'erreur spécifique
         }
     }
