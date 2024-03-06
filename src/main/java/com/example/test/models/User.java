@@ -10,9 +10,9 @@ public class User {
     private String nom;
     private String prenom;
     private String role;
+    private String image;
 
-
-    public User(int id, String email, String mdp, boolean status, String nom, String prenom,String role) {
+    public User(int id, String email, String mdp, boolean status, String nom, String prenom,String role,String image) {
 
         this.id = id;
         this.email = email;
@@ -21,6 +21,7 @@ public class User {
         this.nom = nom;
         this.prenom = prenom;
         this.role = role;
+        this.image = image;
     }
     public User() {
 
@@ -38,7 +39,7 @@ public class User {
     }
 
     private String verificationCode;
-    public User(String email, String mdp, boolean status, String nom, String prenom,String role) {
+    public User(String email, String mdp, boolean status, String nom, String prenom,String role,String image) {
 
         this.email = email;
         this.mdp = mdp;
@@ -46,6 +47,7 @@ public class User {
         this.nom = nom;
         this.prenom = prenom;
         this.role=role;
+        this.image=image;
     }
 
 
@@ -104,6 +106,14 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getVerificationCode() {

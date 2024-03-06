@@ -19,7 +19,19 @@ public class GestionUser implements Fonctions<User> {
         this.cnx = DB.getInstance().getConnection();
         this.gestionCodePromo = new GestionCodePromo();
     }
+    public void updateImage(User user, String image) {
+        String query = "UPDATE user SET image = ? WHERE id = ?";
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(query);
+            preparedStatement.setString(1, image);
+            preparedStatement.setInt(2, user.getId());
+            preparedStatement.executeUpdate();
 
+        } catch (java.sql.SQLException ex) {
+
+            System.out.println(ex.getMessage());
+        }
+    }
     public void Create(User user) {
         int leftLimit = 97; // letter 'a'
         int rightLimit = 122; // letter 'z'
@@ -182,7 +194,8 @@ public class GestionUser implements Fonctions<User> {
                                 rs.getBoolean("status"),
                                 rs.getString("nom"),
                                 rs.getString("prenom"),
-                                rs.getString("role")
+                                rs.getString("role"),
+                                rs.getString("image")
 
                         );
                         user.setId(rs.getInt("id"));
@@ -211,7 +224,8 @@ public class GestionUser implements Fonctions<User> {
                                 rs.getBoolean("status"),
                                 rs.getString("nom"),
                                 rs.getString("prenom"),
-                                rs.getString("role")
+                                rs.getString("role"),
+                                rs.getString("image")
 
                                 // Ajoutez d'autres attributs si nécessaire
                         );
@@ -246,7 +260,8 @@ public class GestionUser implements Fonctions<User> {
                         rs.getBoolean("status"),
                         rs.getString("nom"),
                         rs.getString("prenom"),
-                        rs.getString("role")
+                        rs.getString("role"),
+                        rs.getString("image")
                 );
             }
 

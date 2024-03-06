@@ -67,7 +67,7 @@ public class Signup {
                     System.out.printf(hashedPassword);
 
                     // Créer un utilisateur et l'ajouter à la base de données
-                    User user = new User(email, hashedPassword, false, name, firstname, "client");
+                    User user = new User(email, hashedPassword, false, name, firstname, "client",null);
                     gs.Create(user);
 
                     // Afficher un message de réussite

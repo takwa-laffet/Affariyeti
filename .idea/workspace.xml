@@ -5,27 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/profileeeeeee.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/profile.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/profile.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>

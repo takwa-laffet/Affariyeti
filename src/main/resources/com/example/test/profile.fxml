@@ -1,35 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test.gui.Profile">
-   <Pane layoutY="-1.0" prefHeight="400.0" prefWidth="229.0" style="-fx-background-color: #8C9EE0;">
-      <children>
-         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../../images/logo.png" />
-            </image>
-         </ImageView>
-      </children>
-   </Pane>
-   <Label layoutX="276.0" layoutY="100.0" text="Nom" />
-   <TextField fx:id="nom" disable="true" layoutX="338.0" layoutY="96.0" />
-   <Label layoutX="276.0" layoutY="162.0" text="Prenom" />
-   <TextField fx:id="prenom" disable="true" layoutX="338.0" layoutY="158.0" />
-   <Label layoutX="276.0" layoutY="210.0" text="Email" />
-   <TextField fx:id="email" disable="true" layoutX="338.0" layoutY="206.0" />
-   <Label layoutX="354.0" layoutY="22.0" prefHeight="17.0" prefWidth="117.0" text="Profile">
-      <font>
-         <Font size="24.0" />
-      </font>
-   </Label>
-   <Button layoutX="528.0" layoutY="27.0" mnemonicParsing="false" onAction="#enabelEditing" text="Edit" />
-   <Button fx:id="updateButton" layoutX="387.0" layoutY="318.0" mnemonicParsing="false" onAction="#UpdateData" text="Update" visible="false" />
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example."
+            prefHeight="400.0" prefWidth="600.0">
+
 </AnchorPane>

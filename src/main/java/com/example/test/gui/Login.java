@@ -1,12 +1,12 @@
 package com.example.test.gui;
 
 import com.example.test.models.User;
-import com.example.test.services.GestionCategorieCodePromo;
 import com.example.test.services.GestionUser;
 import com.example.test.utils.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +15,11 @@ import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class Login {
+public class Login  implements Initializable {
 
     private GestionUser gs = new GestionUser();
 
@@ -146,7 +148,7 @@ Session.StartSession(user);
     }
     public void goToProfile() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/AffichageCcpClient.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/profileeeeeee.fxml"));
             Parent profileInterface = loader.load();
 
             // Get the controller instance
@@ -192,4 +194,9 @@ Session.StartSession(user);
         profileStage.show();
 
 }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Session.clearSession();
+    }
 }
