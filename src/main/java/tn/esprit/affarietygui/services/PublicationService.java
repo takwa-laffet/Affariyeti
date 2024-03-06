@@ -1,6 +1,7 @@
 package tn.esprit.affarietygui.services;
 
 import tn.esprit.affarietygui.models.Publication;
+import tn.esprit.affarietygui.models.User;
 import tn.esprit.affarietygui.utils.Mydb;
 
 import java.sql.*;
@@ -61,8 +62,8 @@ public class PublicationService implements IService<Publication> {
     }
 
 
-
-    @Override
+//version1
+   /* @Override
     public List<Publication> recuperer() throws SQLException {
         List<Publication> publications=new ArrayList<>();
         String req ="SELECT * FROM publication";
@@ -82,6 +83,36 @@ public class PublicationService implements IService<Publication> {
 
         }
 
+        return publications;
+    }*/
+
+    //version2
+    @Override
+    public List<Publication> recuperer() throws SQLException {
+        List<Publication> publications = new ArrayList<>();
+        String req = "SELECT p.*, u.nom AS user_nom, u.prenom AS user_prenom  " +
+                "FROM publication p " +
+                "JOIN user u ON p.id_client = u.id";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(req);
+        while(rs.next()) {
+            Publication publication = new Publication();
+            publication.setId_pub(rs.getInt("id_pub"));
+            publication.setId_client(rs.getInt("id_client"));
+            publication.setContenu(rs.getString("contenu"));
+            publication.setNb_likes(rs.getInt("nb_likes"));
+            publication.setNb_dislike(rs.getInt("nb_dislike"));
+            publication.setPhoto(rs.getString("photo"));
+            publication.setDate_pub(rs.getTimestamp("date_pub"));
+
+            // Créez un objet User pour stocker les informations de l'utilisateur
+            tn.esprit.affarietygui.models.User user = new User();
+            user.setNom(rs.getString("user_nom")); // Assurez-vous que le setter du nom de l'utilisateur est présent dans la classe User
+            user.setPrenom(rs.getString("user_prenom"));
+            // Associez l'utilisateur au commentaire
+            publication.setUser(user);
+            publications.add(publication);
+        }
         return publications;
     }
     public Publication getPublicationById(int id_pub) throws SQLException {
@@ -104,8 +135,30 @@ public class PublicationService implements IService<Publication> {
             return null;
         }
     }
+    public List<Publication> filtrerParDate(Date date) throws SQLException {
+        List<Publication> publications = new ArrayList<>();
+        String req = "SELECT p.*, u.nom AS user_nom, u.prenom AS user_prenom " +
+                "FROM publication p " +
+                "JOIN user u ON p.id_client = u.id " +
+                "WHERE DATE(p.date_pub) = DATE(?)";
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
+        preparedStatement.setDate(1, date);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            Publication publication = new Publication();
+            publication.setId_pub(rs.getInt("id_pub"));
+            publication.setId_client(rs.getInt("id_client"));
+            publication.setContenu(rs.getString("contenu"));
+            publication.setNb_likes(rs.getInt("nb_likes"));
+            publication.setNb_dislike(rs.getInt("nb_dislike"));
+            publication.setPhoto(rs.getString("photo"));
+            publication.setDate_pub(rs.getTimestamp("date_pub"));
 
-
+            // Ajoutez la publication à la liste des publications
+            publications.add(publication);
+        }
+        return publications;
+    }
 
 
 

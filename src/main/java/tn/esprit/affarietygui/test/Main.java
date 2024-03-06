@@ -2,6 +2,7 @@ package tn.esprit.affarietygui.test;
 
 import tn.esprit.affarietygui.models.Commentaire;
 import tn.esprit.affarietygui.models.Publication;
+import tn.esprit.affarietygui.services.Chat;
 import tn.esprit.affarietygui.services.CommentaireService;
 import tn.esprit.affarietygui.services.PublicationService;
 import tn.esprit.affarietygui.utils.Mydb;
@@ -16,7 +17,8 @@ public class Main {
         PublicationService publicationService = new PublicationService();
         CommentaireService commentaireService = new CommentaireService();
 //recuperer_pub
-            /*
+/*
+
         try {
             System.out.println(publicationService.recuperer());
             System.out.println("Publication recupéré avec succès !");
@@ -24,8 +26,10 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("Erreur " + e.getMessage());
         }
+*/
 
- */
+        Chat chat = new Chat();
+        System.out.println(chat.badword("fuck"));
         /*Mydb db=Mydb.getInstance();
         Mydb db2=Mydb.getInstance();
         System.out.println(db);
@@ -137,15 +141,15 @@ public class Main {
         }
         */
 //recuperer_commentaire
-/*
-        try {
-            System.out.println(commentaireService.recuperer(27));
+
+      /*  try {
+            System.out.println(commentaireService.recuperer(39));
             System.out.println("commentaire recupéré avec succès !");
 
         } catch (SQLException e) {
             System.out.println("Erreur " + e.getMessage());
-        }
-        */
+        }*/
+
 
     }
 

@@ -21,11 +21,40 @@
    <left>
       <AnchorPane prefHeight="392.0" prefWidth="216.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="375.0" fitWidth="218.0" layoutX="7.0" layoutY="33.0">
+            <ImageView fitHeight="318.0" fitWidth="222.0" layoutX="2.0" layoutY="119.0">
                <image>
                   <Image url="@Hand_holding_mobile_phone_with_chat_messages_on_screen-removebg-preview.png" />
                </image>
             </ImageView>
+            <MenuButton layoutX="1.0" layoutY="7.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="142.0" text="filtrer par date">
+               <items>
+                  <MenuItem onAction="#filtrerParPlusRecentes" text="Les plus récentes" />
+                  <MenuItem onAction="#filtrerParPlusAnciennes" text="Les plus anciennes" />
+                  <MenuItem onAction="#clearFilter" text=" " />
+               </items>
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Capture_d_écran_2024-03-04_122315-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+            <Button layoutX="1.0" layoutY="59.0" mnemonicParsing="false" onAction="#jouer" prefHeight="43.0" prefWidth="142.0" text="S'amuser ">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Capture_d_écran_2024-03-05_234857-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children></AnchorPane>
    </left>
    <center>
@@ -151,7 +180,7 @@
          <children>
             <AnchorPane layoutX="207.0" prefHeight="58.0" prefWidth="251.0">
                <children>
-                  <TextField fx:id="searchField" layoutX="35.0" layoutY="13.0" prefHeight="33.0" prefWidth="194.0" promptText="🔎 Rechercher des publications..." />
+                  <TextField fx:id="searchField" layoutX="11.0" layoutY="13.0" prefHeight="34.0" prefWidth="213.0" promptText="🔎 Rechercher des publications..." />
                </children>
             </AnchorPane>
             <Label layoutX="51.0" layoutY="16.0" prefHeight="32.0" prefWidth="127.0" text="AFFARIETY">

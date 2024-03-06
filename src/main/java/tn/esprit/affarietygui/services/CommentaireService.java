@@ -2,11 +2,15 @@ package tn.esprit.affarietygui.services;
 
 import tn.esprit.affarietygui.models.Commentaire;
 import tn.esprit.affarietygui.models.Publication;
+import tn.esprit.affarietygui.models.User;
 import tn.esprit.affarietygui.utils.Mydb;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CommentaireService implements IService<Commentaire>{
     private Connection connection;
@@ -84,8 +88,8 @@ public class CommentaireService implements IService<Commentaire>{
         */return null;
     }
 
-
-    public List<Commentaire> recuperer(int id_pub) throws SQLException {
+//version 1
+   /* public List<Commentaire> recuperer(int id_pub) throws SQLException {
         List<Commentaire> commentaires = new ArrayList<>();
         String req = "SELECT c.*, p.* FROM commentaire c JOIN publication p ON c.id_pub = p.id_pub WHERE c.id_pub = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(req);
@@ -104,7 +108,38 @@ public class CommentaireService implements IService<Commentaire>{
             commentaires.add(commentaire);
         }
         return commentaires;
+    }*/
+
+    //version2
+    public List<Commentaire> recuperer(int id_pub) throws SQLException {
+        List<Commentaire> commentaires = new ArrayList<>();
+        String req = "SELECT c.*, p.*, u.nom AS nom_utilisateur ,u.prenom AS prenom_utilisateur  FROM commentaire c " +
+                "JOIN publication p ON c.id_pub = p.id_pub " +
+                "JOIN user u ON c.id_client = u.id " +
+                "WHERE c.id_pub = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(req);
+        preparedStatement.setInt(1, id_pub);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            Commentaire commentaire = new Commentaire();
+            commentaire.setId_com(rs.getInt("id_com"));
+            commentaire.setId_pub(rs.getInt("id_pub"));
+            commentaire.setId_client(rs.getInt("id_client"));
+            commentaire.setContenu(rs.getString("contenu"));
+            commentaire.setDate_com(rs.getTimestamp("date_com"));
+
+            // Créez un objet User pour stocker les informations de l'utilisateur
+            User user = new User();
+            user.setNom(rs.getString("nom_utilisateur")); // Assurez-vous que le setter du nom de l'utilisateur est présent dans la classe User
+            user.setPrenom(rs.getString("prenom_utilisateur"));
+            // Associez l'utilisateur au commentaire
+            commentaire.setUser(user);
+
+            commentaires.add(commentaire);
+        }
+        return commentaires;
     }
+
     public Commentaire getCommentsById(int id_com) throws SQLException {
         String req = "SELECT * FROM Commentaire WHERE id_com = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(req);
@@ -122,5 +157,79 @@ public class CommentaireService implements IService<Commentaire>{
             // Handle the case where no publication with the given ID was found
             return null;
         }
-}}
+}
+    public Map<String, Integer> getCommentCountsPerUser() throws SQLException {
+        Map<String, Integer> commentCountsPerUser = new HashMap<>();
+
+        String query = "SELECT u.nom, u.prenom, COUNT(c.id_com) AS comment_count " +
+                "FROM commentaire c " +
+                "JOIN user u ON c.id_client = u.id " +
+                "GROUP BY u.nom, u.prenom";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                String userPrenom = resultSet.getString("prenom");
+                String userName = resultSet.getString("nom");
+                int commentCount = resultSet.getInt("comment_count");
+                commentCountsPerUser.put(userPrenom + " " + userName, commentCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return commentCountsPerUser;
+    }
+    // Method to retrieve the number of comments per date
+    public Map<Timestamp, Integer> getCommentCountsPerDate() throws SQLException {
+        Map<Timestamp, Integer> commentCountsPerDate = new HashMap<>();
+
+        String query = "SELECT DATE(date_com) AS comment_date, COUNT(id_com) AS comment_count " +
+                "FROM commentaire " +
+                "GROUP BY DATE(date_com)";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                Timestamp commentDate = resultSet.getTimestamp("comment_date");
+                int commentCount = resultSet.getInt("comment_count");
+                commentCountsPerDate.put(commentDate, commentCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return commentCountsPerDate;
+    }
+    // Method to retrieve the number of comments per publication of each user
+    public Map<String, Integer> getCommentCountsPerUserAndPublication() throws SQLException {
+        Map<String, Integer> commentCountsPerUser = new HashMap<>();
+
+        String query = "SELECT CONCAT(u.nom, ' ', u.prenom) AS user_name, COUNT(c.id_com) AS comment_count " +
+                "FROM commentaire c " +
+                "JOIN publication p ON c.id_pub = p.id_pub " +
+                "JOIN user u ON p.id_client = u.id " +
+                "GROUP BY user_name";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+            while (resultSet.next()) {
+                String userName = resultSet.getString("user_name");
+                int commentCount = resultSet.getInt("comment_count");
+                String key = userName + ":" + commentCount;
+                commentCountsPerUser.put(key, commentCount);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw e;
+        }
+
+        return commentCountsPerUser;
+    }
+
+
+}
+
 

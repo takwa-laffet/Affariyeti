@@ -7,7 +7,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.fxml.FXMLLoader;
 import javafx.event.ActionEvent;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import javafx.collections.FXCollections;
@@ -176,6 +179,28 @@ public class AfficherPub {
         }
     }
 
+    public void AjouterPub(ActionEvent actionEvent) {
+        try {
+            // Charger le fichier FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/tn/esprit/affarietygui/UserAffichePub.fxml"));
+            Parent root = loader.load();
+
+            // Obtenir la scène depuis le bouton source
+            Scene scene = ((Node) actionEvent.getSource()).getScene();
+
+            // Obtenir la fenêtre actuelle et la cacher
+            Stage currentStage = (Stage) scene.getWindow();
+            currentStage.hide();
+
+            // Afficher la nouvelle interface utilisateur dans une nouvelle fenêtre
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace(); // Gérer l'exception en affichant la trace
+        }
+    }
+
     private static class PublicationCellFactory implements Callback<ListView<Publication>, ListCell<Publication>> {
         @Override
         public ListCell<Publication> call(ListView<Publication> param) {
@@ -192,19 +217,53 @@ public class AfficherPub {
 
                         Separator separator = new Separator();
                         separator.setMaxWidth(Double.MAX_VALUE);
+                        ImageView imageView = new ImageView(publication.getPhoto());
+                        imageView.setFitWidth(100);
+                        imageView.setFitHeight(100);
 
-                        // Text
-                        String publicationText = "\nContenu: " + publication.getContenu() +
-                                "\nLikes: " + publication.getNb_likes() +
-                                "\nDislikes: " + publication.getNb_dislike() +
-                                "\nDate: " + publication.getDate_pub() +
-                                "\nPhoto: " + publication.getPhoto();
+                        TextFlow textFlow = new TextFlow();
 
-                        vBox.getChildren().addAll(new Label(publicationText), separator);
+                        // User
+                        Text userText = new Text("User: ");
+                        userText.setStyle("-fx-font-weight: bold;");
+                        Text userNameText = new Text(publication.getUser().getPrenom() + " " + publication.getUser().getNom() + "\n");
+                        userNameText.setStyle("-fx-font-weight: normal;");
+                        textFlow.getChildren().addAll(userText, userNameText);
+
+                        // Contenu
+                        Text contenuText = new Text("Contenu: ");
+                        contenuText.setStyle("-fx-font-weight: bold;");
+                        Text contenuValueText = new Text(publication.getContenu() + "\n");
+                        contenuValueText.setStyle("-fx-font-weight: normal;");
+                        textFlow.getChildren().addAll(contenuText, contenuValueText);
+
+                        // Likes
+                        Text likesText = new Text("Likes: ");
+                        likesText.setStyle("-fx-font-weight: bold;");
+                        Text likesValueText = new Text(String.valueOf(publication.getNb_likes()) + "\n");
+                        likesValueText.setStyle("-fx-font-weight: normal;");
+                        textFlow.getChildren().addAll(likesText, likesValueText);
+
+                        // Dislikes
+                        Text dislikesText = new Text("Dislikes: ");
+                        dislikesText.setStyle("-fx-font-weight: bold;");
+                        Text dislikesValueText = new Text(String.valueOf(publication.getNb_dislike()) + "\n");
+                        dislikesValueText.setStyle("-fx-font-weight: normal;");
+                        textFlow.getChildren().addAll(dislikesText, dislikesValueText);
+
+                        // Date
+                        Text dateText = new Text("Date: ");
+                        dateText.setStyle("-fx-font-weight: bold;");
+                        Text dateValueText = new Text(publication.getDate_pub() + "\n");
+                        dateValueText.setStyle("-fx-font-weight: normal;");
+                        textFlow.getChildren().addAll(dateText, dateValueText);
+
+                        vBox.getChildren().addAll(textFlow,imageView, separator);
                         setGraphic(vBox);
                     }
                 }
             };
         }
+
     }
 }

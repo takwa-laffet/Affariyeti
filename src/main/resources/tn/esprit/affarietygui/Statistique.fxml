@@ -2,9 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,20 +16,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneaff" prefHeight="481.0" prefWidth="793.0" stylesheets="@admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.GestionCom">
+<AnchorPane prefHeight="523.0" prefWidth="806.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.Statistique">
     <children>
-      <ImageView id="background2" fitHeight="512.0" fitWidth="593.0" layoutX="238.0">
+      <ImageView id="background2" fitHeight="523.0" fitWidth="917.0">
          <image>
             <Image url="@Rectangle.png" />
          </image>
       </ImageView>
-      <AnchorPane prefHeight="512.0" prefWidth="236.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+      <BarChart fx:id="barchart" layoutX="304.0" layoutY="286.0" prefHeight="230.0" prefWidth="314.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <PieChart fx:id="pubPiedislike" layoutX="671.0" layoutY="298.0" prefHeight="180.0" prefWidth="227.0" />
+      <Label layoutX="682.0" layoutY="489.0" text="Nombre de j'aimes pas par publication">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <PieChart fx:id="pubPielike" layoutX="673.0" layoutY="108.0" prefHeight="180.0" prefWidth="227.0" />
+      <Label alignment="TOP_CENTER" layoutX="348.0" layoutY="18.0" prefHeight="56.0" prefWidth="436.0" text="  Dashboard Publications" textFill="#89408c">
+         <font>
+            <Font name="Amiri Regular" size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="696.0" layoutY="284.0" text="Nombre de j'aimes par publication">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <LineChart fx:id="linechartpub" layoutX="299.0" layoutY="101.0" prefHeight="180.0" prefWidth="314.0">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <AnchorPane layoutY="-2.0" prefHeight="523.0" prefWidth="236.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
          <children>
-            <VBox layoutX="-10.0" layoutY="1.0" prefHeight="504.0" prefWidth="248.0">
+            <VBox layoutY="1.0" prefHeight="510.0" prefWidth="236.0">
                <children>
                   <HBox prefHeight="70.0" prefWidth="216.0" styleClass="hbox">
                      <children>
-                        <AnchorPane prefHeight="70.0" prefWidth="253.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+                        <AnchorPane prefHeight="75.0" prefWidth="235.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
                            <children>
                               <Label layoutX="65.0" layoutY="16.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
                                  <font>
@@ -66,36 +103,20 @@
                         <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                      </padding>
                   </Button>
+                   
                </children>
             </VBox>
          </children>
       </AnchorPane>
-        <ListView fx:id="lvcom" layoutX="272.0" layoutY="117.0" prefHeight="295.0" prefWidth="533.0" />
-        <Button layoutX="366.0" layoutY="420.0" mnemonicParsing="false" onAction="#supprimerCom" prefHeight="44.0" prefWidth="118.0">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@d.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-        <Label alignment="TOP_CENTER" layoutX="332.0" layoutY="48.0" prefHeight="52.0" prefWidth="381.0" text="GESTION COMMENTAIRES" textFill="#89408c">
-            <font>
-                <Font name="Amiri Regular" size="32.0" />
-            </font>
-        </Label>
-      <Button layoutX="558.0" layoutY="420.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="38.0" prefWidth="118.0">
-         <graphic>
-            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@p.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="734.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="70.0" fitWidth="76.0" layoutX="798.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Capture_d_écran_2024-03-05_215553-removebg-preview.png" />
+            <Image url="@stat.png" />
          </image>
       </ImageView>
+      <Button fx:id="dashboardCom" layoutX="747.0" layoutY="74.0" mnemonicParsing="false" onAction="#DashboardCommentaires" prefHeight="32.0" prefWidth="153.0" text="Dashboard Commentaires">
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </Button>
     </children>
 </AnchorPane>

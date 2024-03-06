@@ -9,68 +9,101 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="481.0" prefWidth="793.0" stylesheets="@admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affarietygui.controllers.AfficherPub">
    <children>
-      <ImageView id="background2" fitHeight="506.0" fitWidth="578.0" layoutX="244.0">
+      <ImageView id="background2" fitHeight="510.0" fitWidth="595.0" layoutX="232.0" layoutY="-3.0">
          <image>
             <Image url="@Rectangle.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="AnchorPaneaff" layoutX="-17.0" layoutY="-5.0">
+      <AnchorPane fx:id="AnchorPaneaff" layoutX="-17.0" layoutY="-5.0" prefHeight="503.0" prefWidth="834.0">
          <children>
-            <AnchorPane layoutX="17.0" layoutY="100.0" prefHeight="410.0" prefWidth="246.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+            <AnchorPane layoutX="14.0" prefHeight="512.0" prefWidth="236.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
                <children>
-                  <Button fx:id="USER" layoutX="22.0" layoutY="30.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Gestion des utilisateurs">
-                     <padding>
-                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="PRODUITS" layoutX="22.0" layoutY="78.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="COMMANDES" layoutX="22.0" layoutY="126.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text=" Gestion des commandes">
-                     <padding>
-                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="LIVRAISON" layoutX="22.0" layoutY="174.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" text="Gestion des livraisons">
-                     <padding>
-                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-                     </padding>
-                  </Button>
-                  <Button fx:id="AVIS" layoutX="22.0" layoutY="223.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" text="Gestion des avis et demandes" />
-                  <Button fx:id="ENCHERE" layoutX="22.0" layoutY="273.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Gestion  d’enchères " />
+                  <VBox layoutY="1.0" prefHeight="510.0" prefWidth="236.0">
+                     <children>
+                        <HBox prefHeight="70.0" prefWidth="216.0" styleClass="hbox">
+                           <children>
+                              <AnchorPane prefHeight="75.0" prefWidth="235.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+                                 <children>
+                                    <Label layoutX="65.0" layoutY="16.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
+                                       <font>
+                                          <Font name="Amiri Bold" size="27.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="-30.0" layoutY="-42.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0">
+                                       <image>
+                                          <Image url="@../../../Images/logo.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <Button fx:id="COMMANDES" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text=" Gestion des commandes">
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="AVIS" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des avis et demandes" />
+                        <Button fx:id="ENCHERE" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion  d’enchères " />
+                        <Button fx:id="LIVRAISON" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des livraisons">
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="PRODUITS" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                           <cursor>
+                              <Cursor fx:constant="DEFAULT" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="USER" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des utilisateurs">
+                           <padding>
+                              <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                           </padding>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#AjouterPub" prefHeight="38.0" prefWidth="246.0" text="Ajouter publication" />
+                     </children>
+                  </VBox>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="17.0" prefHeight="102.0" prefWidth="246.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
-               <children>
-                  <Label layoutX="67.0" layoutY="25.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
-                     <font>
-                        <Font name="Amiri Bold" size="27.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="-28.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0">
+            <TextField fx:id="searchTextField" layoutX="440.0" layoutY="64.0" prefHeight="26.0" prefWidth="188.0" promptText="🔎 Rechercher des publications..." />
+            <ListView fx:id="lvpub" layoutX="282.0" layoutY="99.0" prefHeight="295.0" prefWidth="534.0" />
+            <Button layoutX="676.0" layoutY="409.0" mnemonicParsing="false" onAction="#StatistiqueBtn" prefHeight="46.0" prefWidth="126.0" text="Statistique" />
+            <Button fx:id="modifybutton" layoutX="296.0" layoutY="410.0" mnemonicParsing="false" onAction="#modifierPub" prefHeight="45.0" prefWidth="87.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../Images/logo.png" />
+                        <Image url="@p.png" />
                      </image>
                   </ImageView>
-               </children>
-            </AnchorPane>
-            <TextField fx:id="searchTextField" layoutX="438.0" layoutY="66.0" prefHeight="26.0" prefWidth="188.0" promptText="🔎 Rechercher des publications..." />
-            <ListView fx:id="lvpub" layoutX="282.0" layoutY="99.0" prefHeight="295.0" prefWidth="534.0" />
-            <Button layoutX="712.0" layoutY="55.0" mnemonicParsing="false" onAction="#StatistiqueBtn" prefHeight="38.0" prefWidth="105.0" text="Statistique" />
-            <Button fx:id="modifybutton" layoutX="282.0" layoutY="406.0" mnemonicParsing="false" onAction="#modifierPub" prefHeight="38.0" prefWidth="150.0" text="modifier publication" />
-            <Button layoutX="441.0" layoutY="406.0" mnemonicParsing="false" onAction="#afficherCommentaire" prefHeight="38.0" prefWidth="157.0" text="afficher commentaires" />
-            <Button layoutX="607.0" layoutY="406.0" mnemonicParsing="false" onAction="#supprimerPub" prefHeight="38.0" prefWidth="158.0" text="supprimer publication" />
-            <Label alignment="TOP_CENTER" layoutX="265.0" layoutY="14.0" prefHeight="47.0" prefWidth="568.0" text="GESTION PUBLICATIONS" textFill="#89408c">
+               </graphic></Button>
+            <Button layoutX="483.0" layoutY="409.0" mnemonicParsing="false" onAction="#afficherCommentaire" prefHeight="46.0" prefWidth="188.0" text="afficher commentaires" />
+            <Button layoutX="390.0" layoutY="410.0" mnemonicParsing="false" onAction="#supprimerPub" prefHeight="46.0" prefWidth="87.0">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@d.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Label alignment="TOP_CENTER" layoutX="355.0" layoutY="13.0" prefHeight="47.0" prefWidth="351.0" text="GESTION PUBLICATIONS" textFill="#89408c">
                <font>
                   <Font name="Amiri Regular" size="32.0" />
                </font>
             </Label>
+            <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="744.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Capture_d_écran_2024-03-05_215553-removebg-preview.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
 

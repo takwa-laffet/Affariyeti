@@ -1,5 +1,7 @@
 package tn.esprit.affarietygui.controllers;
 
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -19,14 +21,17 @@ import javafx.scene.input.KeyCode;
 import javafx.util.Duration;
 import tn.esprit.affarietygui.models.Commentaire;
 import tn.esprit.affarietygui.models.Publication;
+import tn.esprit.affarietygui.services.Chat;
 import tn.esprit.affarietygui.services.CommentaireService;
 import tn.esprit.affarietygui.services.GrosMotsService;
 import tn.esprit.affarietygui.services.PublicationService;
 
+import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -49,6 +54,8 @@ public class UserAffichePub {
     private String photoPath;
     private final PublicationService publicationService = new PublicationService();
     private List<Publication> publications;
+    public static final String ACCOUNT_SID = "AC0e50a95d059ca72acfdba6ebe123798f";
+    public static final String AUTH_TOKEN = "00f511bca710adcb6c72eb7a17250f26";
 
     @FXML
     public void initialize() {
@@ -95,7 +102,7 @@ public class UserAffichePub {
 
 
 
-    @FXML
+    /*@FXML
     void ajouter_pub(ActionEvent event) {
         // Vérifier si les champs sont vides
         if (idclientTF.getText().isEmpty() || pubTF.getText().isEmpty() || cheminphoto.getText().isEmpty()) {
@@ -107,9 +114,9 @@ public class UserAffichePub {
         int idClient = Integer.parseInt(idclientTF.getText());
         String contenu = pubTF.getText();
         String cheminPhoto = cheminphoto.getText(); // Assurez-vous que la label cheminphoto contient le chemin de la photo sélectionnée
-
+        Chat chat =new Chat() ;
         // Vérifier si le contenu de la publication contient des gros mots
-        GrosMotsService grosMotsService = new GrosMotsService();
+       *//* GrosMotsService grosMotsService = new GrosMotsService();
         List<String> grosMots = grosMotsService.getGrosMots();
         for (String mot : grosMots) {
             if (contenu.toLowerCase().contains(mot.toLowerCase())) {
@@ -121,7 +128,7 @@ public class UserAffichePub {
                 alert.showAndWait();
                 return; // Sortir de la méthode si un gros mot est trouvé
             }
-        }
+        }*//*
 
 
         // Créer une instance de Publication avec les valeurs récupérées
@@ -155,6 +162,75 @@ public class UserAffichePub {
                 }
             }
         });}
+*/
+    @FXML
+    void ajouter_pub(ActionEvent event) {
+        // Vérifier si les champs sont vides
+        if (idclientTF.getText().isEmpty() || pubTF.getText().isEmpty() || cheminphoto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Entrez votre demande et donnez un exemple.", "Erreur", JOptionPane.ERROR_MESSAGE);
+            return; // Sortir de la méthode si un champ est vide
+        }
+
+        // Récupérer les valeurs depuis les champs de l'interface utilisateur
+        int idClient = Integer.parseInt(idclientTF.getText());
+        String contenu = pubTF.getText();
+        String cheminPhoto = cheminphoto.getText(); // Assurez-vous que la label cheminphoto contient le chemin de la photo sélectionnée
+
+        // Utiliser le service Chat pour détecter les mots haineux dans le contenu de la publication
+        Chat chat = new Chat();
+        String resultatDetection = chat.badword(contenu);
+
+        // Vérifier le résultat de la détection des mots haineux
+        if (resultatDetection.equals("1")) {
+            // Afficher un message d'erreur si le contenu contient un discours haineux
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Le contenu de la publication contient un discours haineux. Veuillez le modifier.");
+            alert.showAndWait();
+        } else if (resultatDetection.equals("0")) {
+            // Si le contenu ne contient pas de discours haineux, ajouter la publication normalement
+
+            // Créer une instance de Publication avec les valeurs récupérées
+            Publication nouvellePublication = new Publication();
+            nouvellePublication.setId_client(idClient);
+            nouvellePublication.setContenu(contenu);
+            nouvellePublication.setPhoto(cheminPhoto);
+            nouvellePublication.setNb_likes(0); // Mettre nb_likes à 0
+            nouvellePublication.setNb_dislike(0); // Mettre nb_dislike à 0
+
+            // Créer une boîte de dialogue de confirmation
+            Alert confirmationDialog = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmationDialog.setTitle("Confirmation de publication");
+            confirmationDialog.setHeaderText("Êtes-vous sûr de vouloir publier cette publication ?");
+
+            // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+            confirmationDialog.showAndWait().ifPresent(response -> {
+                if (response == ButtonType.OK) {
+                    // Utiliser PublicationService pour ajouter la nouvelle publication à la base de données
+                    PublicationService publicationService = new PublicationService();
+                    try {
+                        publicationService.ajouter(nouvellePublication);
+                        Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                        successAlert.setTitle("Publié");
+                        successAlert.setHeaderText(null);
+                        successAlert.setContentText("La publication a été ajoutée avec succès !");
+                        successAlert.showAndWait();
+                        initialize();
+                    } catch (SQLException e) {
+                        System.err.println("Erreur lors de l'ajout de la publication : " + e.getMessage());
+                    }
+                }
+            });
+        } else if (resultatDetection.equals("-1")) {
+            // Gérer les cas où la détection des mots haineux a échoué ou a rencontré une erreur
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText(null);
+            alert.setContentText("Une erreur s'est produite lors de la détection des mots haineux.");
+            alert.showAndWait();
+        }
+    }
 
     @FXML
     void supprimerPublicationsAvecGrosMots() throws SQLException {
@@ -173,6 +249,17 @@ public class UserAffichePub {
                     // Si un gros mot est trouvé, supprimer la publication de la base de données
                     try {
                         publicationService.supprimer(publication.getId_pub());
+                        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+                        Message message = Message
+                                .creator(
+                                        new com.twilio.type.PhoneNumber("+21697161495"),
+                                        new com.twilio.type.PhoneNumber("+12232049811"),
+                                            "la publication de mr/mme" + publication.getUser().getPrenom().toUpperCase() + " qui contient un contenu haineux a été supprimé avec succés"
+                                )
+                                .create();
+
+                        System.out.println(message.getSid());
                     } catch (SQLException e) {
                         e.printStackTrace();
                         // Gérer l'erreur de suppression de la publication
@@ -210,9 +297,11 @@ public class UserAffichePub {
         Image backgroundImage = new Image("file:C:\\Users\\marie\\IdeaProjects\\AffarietyGUI\\src\\main\\resources\\tn\\esprit\\affarietygui\\Card.png");
 
         for (Publication publication : publicationsToDisplay) {
+            String client = publication.getUser().getPrenom() + " " + publication.getUser().getNom();
+            Label nomprenomlabel =new Label (client);
             Label contenuLabel = new Label(publication.getContenu());
-            contenuLabel.setStyle("-fx-font-weight: bold;");
-
+            nomprenomlabel.setStyle("-fx-font-weight: bold;");
+            contenuLabel.setStyle("-fx-font-style: italic;");
             Label dateLabel = new Label("Date: " + publication.getDate_pub().toString());
 
             ImageView imageView = new ImageView(publication.getPhoto());
@@ -250,7 +339,7 @@ public class UserAffichePub {
 
             VBox publicationBox = new VBox(10);
             publicationBox.setId("publicationBox_" + publication.getId_pub());
-            publicationBox.getChildren().addAll(contenuLabel, imageView, likesDislikesBox, likeDislikeBox, commentOptionsBox, dateLabel);
+            publicationBox.getChildren().addAll(nomprenomlabel,contenuLabel, imageView, likesDislikesBox, likeDislikeBox, commentOptionsBox, dateLabel);
 
             publicationBox.setBackground(new Background(new BackgroundImage(backgroundImage,
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT,
@@ -482,5 +571,44 @@ public class UserAffichePub {
         } else {
             return null; // Retourner null si l'index est invalide
         }
+    }
+
+    public void filtrerParPlusRecentes(ActionEvent actionEvent) {
+        // Sort the publications by date in descending order (most recent first)
+        List<Publication> filteredPublications = publications.stream()
+                .sorted(Comparator.comparing(Publication::getDate_pub).reversed())
+                .collect(Collectors.toList());
+
+        // Display the filtered publications
+        afficherPublications(filteredPublications);
+    }
+
+    public void filtrerParPlusAnciennes(ActionEvent actionEvent) {
+        // Sort the publications by date in ascending order (oldest first)
+        List<Publication> filteredPublications = publications.stream()
+                .sorted(Comparator.comparing(Publication::getDate_pub))
+                .collect(Collectors.toList());
+
+        // Display the filtered publications
+        afficherPublications(filteredPublications);
+    }
+
+    public void clearFilter(ActionEvent actionEvent) {
+        afficherPublications(publications);
+    }
+
+    public void jouer(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Jouer à X/O");
+        alert.setHeaderText("Voulez-vous jouer à un jeu X/O avec nous ?");
+        alert.setContentText("Cliquez sur OK pour jouer à X/O ou Annuler pour ignorer.");
+
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                TicTacToeGame snakeGame = new TicTacToeGame();
+                Stage gameStage = new Stage();
+                snakeGame.start(gameStage);
+            }
+        });
     }
 }

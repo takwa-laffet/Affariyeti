@@ -8,6 +8,7 @@
     -fx-background-radius: 5px; /* Bord arrondi */
     -fx-border-radius: 5px; /* Bord arrondi */
     -fx-border-color: transparent; /* Couleur de la bordure transparente */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
 }
 
 /* Styling the ListView cells */
@@ -24,6 +25,7 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
 }
 
 .button:hover {
@@ -33,4 +35,33 @@
 
 .list-cell:hover {
     -fx-background-color: #937bb0; /* Violet pastel plus foncé au survol */
+}
+
+/* Apply background color to the VBox */
+.vbox {
+    -fx-background-color: #f0f0f0; /* Choose your desired background color */
+}
+.hbox {
+    -fx-border-style: solid;
+    -fx-border-color: #cccccc; /* Couleur de la bordure */
+    -fx-border-width: 0 0 1 0; /* Seule la bordure inférieure */
+}
+/* Style the buttons inside the VBox */
+.button {
+    -fx-background-color: #ffffff; /* Button background color */
+    -fx-text-fill: #333333; /* Button text color */
+    -fx-font-size: 14px; /* Button font size */
+    -fx-font-family: "Arial"; /* Button font family */
+    -fx-padding: 10px 20px; /* Button padding */
+    -fx-border-radius: 5px; /* Button border radius */
+    -fx-border-color: #cccccc; /* Button border color */
+    -fx-border-width: 1px; /* Button border width */
+    -fx-cursor: hand; /* Cursor style */
+}
+.label {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
+}
+
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
 }

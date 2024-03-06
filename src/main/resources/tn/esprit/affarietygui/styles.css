@@ -50,6 +50,7 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
 }
 
 .button:hover {
@@ -64,6 +65,7 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-cursor: hand;
+
 }
 
 .menu-button:hover {
@@ -80,11 +82,17 @@
 }
 .menu-bar {
     -fx-background-color: rgba(132, 151, 219, 0.9375); /* Couleur de fond */
+
 }
 .menu-bar > .container {
     -fx-alignment: center-right;
     -fx-background-color: white;
     -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
 }
 
 
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
+}
+.text-area{  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */}

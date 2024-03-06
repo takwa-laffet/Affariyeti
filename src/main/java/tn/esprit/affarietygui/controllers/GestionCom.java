@@ -131,6 +131,9 @@ public class GestionCom {
             e.printStackTrace(); // Handle the exception appropriately
         }
     }
+
+
+
     private static class CommentaireCellFactory implements Callback<ListView<Commentaire>, ListCell<Commentaire>> {
         @Override
         public ListCell<Commentaire> call(ListView<Commentaire> param) {
@@ -148,7 +151,7 @@ public class GestionCom {
 
                         // Ajouter le contenu du commentaire
                         Separator separator = new Separator();
-                        String publicationText = "\nContenu: " + commentaire.getContenu() +
+                        String publicationText ="\nUser: " + commentaire.getUser().getPrenom() + " " + commentaire.getUser().getNom() + "\nContenu: " + commentaire.getContenu() +
                                 "\nDate: " + formatDate(commentaire.getDate_com());
                         vbox.getChildren().addAll(new Label(publicationText), separator);
 

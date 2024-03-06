@@ -23,12 +23,12 @@
     <left>
         <AnchorPane prefHeight="330.0" prefWidth="146.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="178.0" fitWidth="164.0" layoutX="-17.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="178.0" fitWidth="164.0" layoutX="-17.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@82250-removebg-preview.png" />
                </image>
             </ImageView>
-            <Button layoutX="15.0" layoutY="4.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="114.0" text="Tous les publications">
+            <Button layoutX="16.0" layoutY="54.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="114.0" text="Tous les publications">
                <font>
                   <Font size="8.0" />
                </font>
@@ -40,6 +40,30 @@
                   </InnerShadow>
                </effect>
             </Button>
+            <MenuButton layoutX="11.0" layoutY="4.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="124.0" text="filtrer par date">
+               <items>
+                  <MenuItem onAction="#filtrerParPlusRecentes" text="Les plus récentes" />
+                  <MenuItem onAction="#filtrerParPlusAnciennes" text="Les plus anciennes" />
+                  <MenuItem onAction="#clearFilter" text=" " />
+               </items>
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Capture_d_écran_2024-03-04_122315-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <effect>
+                  <InnerShadow choke="0.28" height="28.02" radius="20.5275" width="56.09">
+                     <color>
+                        <Color red="0.6324599981307983" green="0.13279999792575836" blue="0.8299999833106995" opacity="0.5934650301933289" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </MenuButton>
          </children>
         </AnchorPane>
     </left>
