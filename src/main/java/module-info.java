@@ -9,6 +9,8 @@ module com.example.affariyetii {
     requires com.google.api.client.json.jackson2;
     requires com.google.api.client.auth;
     requires google.api.client;
+    requires org.controlsfx.controls;
+    requires commons.lang3;
 
 
     opens com.example.affariyetii to javafx.fxml;

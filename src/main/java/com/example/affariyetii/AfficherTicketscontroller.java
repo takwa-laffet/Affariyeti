@@ -1,108 +1,135 @@
 package com.example.affariyetii;
 
+import com.example.affariyetii.models.Enchere;
 import com.example.affariyetii.services.TicketPaimentService;
+import javafx.animation.ScaleTransition;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
- public class AfficherTicketscontroller {
+import java.io.IOException;
+import java.util.List;
 
-    private TicketPaimentService ticketPaimentService;
-/*
-    public AfficherTicketsController(TicketPaimentService ticketPaimentService) {
-        this.ticketPaimentService = ticketPaimentService;
-    }
+public class AfficherTicketscontroller  {
 
-    @FXML
-    private TextField clientPrenomTextField;
 
-    @FXML
-    private TextField clientNomTextField;
+   @FXML
+        private Text titleText;
 
-    @FXML
-    private Label resultLabel;
+        @FXML
+        private HBox productBox;
+        @FXML
+        private TextField id;
+        @FXML
+        private TextField chercher;
+private final TicketPaimentService ticketPaimentService = new TicketPaimentService();
 
-    @FXML
-    private HBox productBox;
 
-    @FXML
-    private TextField chercher;
+        @FXML
+        private void afficherTousLesAuctions() {
+            List<Enchere> topSaleAuctions = ticketPaimentService.getEnchereIdsByClientId(Integer.parseInt(id.getText()));
+            displayAuctions(topSaleAuctions);
+        }
 
-    @FXML
-    public void initialize(URL location, ResourceBundle resources) {
-        afficherTousLesAuctions();
-    }
+        private void displayAuctions(List<Enchere> auctions) {
+            productBox.getChildren().clear(); // Clear the existing items
 
-    private void afficherTousLesAuctions() {
-        List<Enchere> topSaleAuctions = ticketPaimentService.getEncheresParticipatedByUser(clientNomTextField.getText(), clientPrenomTextField.getText());
-        displayAuctions(topSaleAuctions);
-    }
+            for (Enchere enchere : auctions) {
+                ImageView imageView = new ImageView(enchere.getImage());
+                imageView.setFitWidth(100);
+                imageView.setFitHeight(100);
+                enchere.getEnchereId();
+                Text itemNameText = new Text(enchere.getNom_enchere());
+                itemNameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
 
-    void displayAuctions(List<Enchere> auctions) {
-        productBox.getChildren().clear(); // Clear the existing items
+                Text itemPriceText = new Text("Montant initial: " + enchere.getMontantInitial() + " dt");
 
-        for (Enchere enchere : auctions) {
-            ImageView imageView = new ImageView(enchere.getImage());
-            imageView.setFitWidth(100);
-            imageView.setFitHeight(100);
+                VBox textContainer = new VBox(itemNameText, itemPriceText);
+                textContainer.setAlignment(Pos.CENTER);
 
-            Text itemNameText = new Text(enchere.getNom_enchere());
-            itemNameText.setFont(Font.font("Arial", FontWeight.BOLD, 12));
+                VBox contentContainer = new VBox(imageView, textContainer);
+                contentContainer.setAlignment(Pos.CENTER);
 
-            Text itemPriceText = new Text("Montant initial: " + enchere.getMontantInitial() + " dt");
+                // Add zoom effect on mouse hover
+                contentContainer.setOnMouseEntered(event -> {
+                    ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), contentContainer);
+                    scaleTransition.setToX(1.2);
+                    scaleTransition.setToY(1.2);
+                    scaleTransition.play();
+                });
 
-            VBox textContainer = new VBox(itemNameText, itemPriceText);
+                // Remove zoom effect on mouse exit
+                contentContainer.setOnMouseExited(event -> {
+                    ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), contentContainer);
+                    scaleTransition.setToX(1.0);
+                    scaleTransition.setToY(1.0);
+                    scaleTransition.play();
+                });
 
-            VBox contentContainer = new VBox(imageView, textContainer);
+                productBox.getChildren().add(contentContainer);
+            }
+        }
 
-            // Add zoom effect on mouse hover
-            contentContainer.setOnMouseEntered(event -> {
-                ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), contentContainer);
-                scaleTransition.setToX(1.2);
-                scaleTransition.setToY(1.2);
-                scaleTransition.play();
-            });
+        private void showAlert(String error, String message) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle(error);
+            alert.setHeaderText(null);
+            alert.setContentText(message);
+            alert.showAndWait();
+        }
 
-            // Remove zoom effect on mouse exit
-            contentContainer.setOnMouseExited(event -> {
-                ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(200), contentContainer);
-                scaleTransition.setToX(1.0);
-                scaleTransition.setToY(1.0);
-                scaleTransition.play();
-            });
 
-            productBox.getChildren().add(contentContainer);
+        @FXML
+        void openAjouterEnchere(ActionEvent event) throws IOException {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterEnchere.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        void openModifierEnchere(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("/ModifierEnchere.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        void openAjouterTickect(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("/AjouterTickect.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        void openTicket(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("/AfficherTicketclient.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+
+        @FXML
+        void openAcher(ActionEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("/AcheterTickect.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
         }
     }
-
-
-    @FXML
-    void openAjouterEnchere(ActionEvent event) {
-        // Your implementation for opening the "AjouterEnchere" view
-    }
-
-    @FXML
-    void openModifierEnchere(ActionEvent event) {
-        // Your implementation for opening the "ModifierEnchere" view
-    }
-
-    @FXML
-    void openAjouterTickect(ActionEvent event) {
-        // Your implementation for opening the "AjouterTickect" view
-    }
-
-    @FXML
-    void openTicket(ActionEvent event) {
-        // Your implementation for opening the "AfficherTicketclient" view
-    }
-
-    @FXML
-    void openAcher(ActionEvent event) {
-        // Your implementation for opening the "AcheterTickect" view
-    }
-
-    private void showAlert(String error, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(error);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-*/}

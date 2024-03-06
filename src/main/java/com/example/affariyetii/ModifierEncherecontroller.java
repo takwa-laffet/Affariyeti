@@ -48,6 +48,7 @@ public class ModifierEncherecontroller {
                 String nouvelleDateDebut = nouvelleDateDebutTextField.getText();
                 String nouvelleDateFin = nouvelleDateFinTextField.getText();
                 String nouveauMontantInitial = nouveauMontantInitialTextField.getText();
+
                 EnchereService enchereService = new EnchereService();
                 if (id == enchereService.rechercherIdParNom(nomEnchere)) {
                         enchereService = new EnchereService();

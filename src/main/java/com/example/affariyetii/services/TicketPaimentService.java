@@ -146,8 +146,20 @@ public class TicketPaimentService implements Tpservice<TicketPaiment> {
         }
         return participatedEncheres;
     }
+//ajouterTicketPaiment
+public void ajouterTicketPaiment(int ticketId ,int clientId, int enchereId) {
+    // SQL query to insert ticket payment details
+    String query = "INSERT INTO ticketp (ticket_id,client_id, enchere_id) VALUES (?,?, ?)";
 
-    public List<Integer> getUnlinkedTicketIds() {
+    try (PreparedStatement statement = connection.prepareStatement(query)) {
+        statement.setInt(1, ticketId);
+        statement.setInt(2, clientId);
+        statement.setInt(3, enchereId);
+        statement.executeUpdate(); // Execute the insert query
+    } catch (SQLException e) {
+        e.printStackTrace(); // Handle the exception properly in your application
+    }
+} public List<Integer> getUnlinkedTicketIds() {
         List<Integer> unlinkedTicketIds = new ArrayList<>();
         String query = "SELECT te.ticket_id FROM ticket_enchere te " +
                 "LEFT JOIN ticketp t ON te.ticket_id = t.ticket_id " +
@@ -218,6 +230,36 @@ public class TicketPaimentService implements Tpservice<TicketPaiment> {
         }
         return count;
     }
+    public List<Enchere> getEnchereIdsByClientId(int clientId) {
+        List<Enchere> encheres = new ArrayList<>();
+        try {
+            String query = "SELECT e.*\n" +
+                    "FROM user u\n" +
+                    "INNER JOIN ticketp t ON u.id = t.client_id\n" +
+                    "INNER JOIN enchere e ON t.enchere_id = e.enchere_id\n" +
+                    "WHERE u.id = ? ;\n";
 
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, clientId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
 
+                Enchere enchere = new Enchere();
+                enchere.setImage(rs.getString("image"));
+                enchere.setMontantInitial(rs.getString("montant_initial"));
+                enchere.setNom_enchere(rs.getString("nom_enchere"));
+                enchere.setDateDebut(rs.getString("date_debut"));
+                enchere.setHeured(rs.getString("heured"));
+                enchere.setDateFin(rs.getString("date_fin"));
+                enchere.setHeuref(rs.getString("heuref"));
+                enchere.setMontant_final(rs.getString("montant_final"));
+                enchere.setIdclcreree(rs.getInt("idclcreree"));
+                encheres.add(enchere);
+            }
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return encheres;
+
+}
 }

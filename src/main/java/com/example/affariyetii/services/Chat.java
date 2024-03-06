@@ -21,7 +21,7 @@ public class Chat {
     // Method to send email
     public String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "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";
+        String apiKey = "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";
         String model = "gpt-3.5-turbo";
 
 
@@ -95,6 +95,19 @@ public class Chat {
         String question = "Pouvez-vous me fournir des suggestions personnalisées en fonction de " + donneesUtilisateur + " ?";
         String completion = chatGPT(question);
         return completion;
+    }
+// function badword
+
+    public String badword(String message) {
+        String question = "detecter si le discours de contenu de la publication est haineux ou non si il ya haineux votre reponse doit etre 100% correcte afficher 1 si non afficher 0 just dit 0 ou 1 idont need anything else  " + message ;
+        try {
+            String completion = chatGPT(question);
+            return completion;
+        } catch (RuntimeException e) {
+            // Gérer les erreurs liées à l'API ChatGPT
+            System.err.println("Erreur lors de la détection de mots grossiers : " + e.getMessage());
+            return "-1";
+        }
     }
 
 }

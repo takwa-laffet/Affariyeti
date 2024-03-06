@@ -2,6 +2,7 @@ package com.example.affariyetii;
 
 import com.example.affariyetii.models.Enchere;
 import com.example.affariyetii.models.Ticket;
+import com.example.affariyetii.services.Chat;
 import com.example.affariyetii.services.EnchereService;
 import com.example.affariyetii.services.TicketService;
 import javafx.event.ActionEvent;
@@ -46,8 +47,9 @@ public class AjouterEncherecontroller implements Initializable {
     private TextField nomField;
     @FXML
     private TextField prenomField;
-
+    @FXML
     private EnchereService enchereService;
+
 
 
     @FXML
@@ -57,27 +59,82 @@ public class AjouterEncherecontroller implements Initializable {
         String nom = nomField.getText();
         String prenom = prenomField.getText();
 
+        // Vérifier si les champs obligatoires sont remplis
+        if (nomField.getText().isEmpty() || prenomField.getText().isEmpty() || nomEnchereTextField.getText().isEmpty() || dateDebutPicker.getValue() == null || heureDebutTextField.getText().isEmpty() || dateFinPicker.getValue() == null || heureFinTextField.getText().isEmpty() || montantInitialTextField.getText().isEmpty()) {
+            showAlert(AlertType.ERROR, "Champs obligatoires", "Veuillez remplir tous les champs obligatoires.");
+            return;
+        }
+
+        // Vérifier le format de la date
+        try {
+            // Tentative de conversion de la date en format String
+            enchere.setDateDebut(dateDebutPicker.getValue().toString());
+            enchere.setDateFin(dateFinPicker.getValue().toString());
+        } catch (Exception e) {
+            showAlert(AlertType.ERROR, "Format de date invalide", "Veuillez entrer des dates valides.");
+            return;
+        }
+
+        // Vérifier le montant initial
+        try {
+            // Tentative de conversion du montant initial en double
+            Double.parseDouble(montantInitialTextField.getText());
+        } catch (NumberFormatException e) {
+            showAlert(AlertType.ERROR, "Montant initial invalide", "Veuillez entrer un montant initial valide.");
+            return;
+        }
+
+        // Vérifier les valeurs numériques positives si nécessaire
+        if (Double.parseDouble(montantInitialTextField.getText()) <= 0) {
+            showAlert(AlertType.ERROR, "Montant initial invalide", "Le montant initial doit être supérieur à zéro.");
+            return;
+        }
 
         enchere.setNom_enchere(nomEnchereTextField.getText());
+        String contenu = nomEnchereTextField.getText();
+        // Utiliser le service Chat pour détecter les mots haineux dans le contenu de la publication
+        Chat chat = new Chat();
+        String resultatDetection = chat.badword(contenu);
+
         enchere.setIdclcreree(enchereService.getUserIdByNomAndPrenom(nom, prenom));
-        enchere.setDateDebut(dateDebutPicker.getValue().toString());
+
+        // Check if dateDebutPicker's value is not null before accessing it
+        if (dateDebutPicker.getValue() != null) {
+            enchere.setDateDebut(dateDebutPicker.getValue().toString());
+        }
+
         enchere.setHeured(heureDebutTextField.getText());
-        enchere.setDateFin(dateFinPicker.getValue().toString());
+
+        // Check if dateFinPicker's value is not null before accessing it
+        if (dateFinPicker.getValue() != null) {
+            enchere.setDateFin(dateFinPicker.getValue().toString());
+        }
+        if (dateDebutPicker.getValue().isAfter(dateFinPicker.getValue())) {
+            showAlert(AlertType.ERROR, "Erreur", "La date de fin doit être après la date de début.");
+            return;
+        }
+
         enchere.setHeuref(heureFinTextField.getText());
         enchere.setMontantInitial(montantInitialTextField.getText());
+        enchere.setMontant_final(montantInitialTextField.getText());
         enchere.setImage(image.getText()); // Set the image URL
+        if (resultatDetection.equals("1"))
+        { Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Le contenu de la nom Enchere contient un discours haineux. Veuillez le modifier.");
+        alert.showAndWait();
+    } else if (resultatDetection.equals("0")) {
         try {
             enchereService.ajouter(enchere);
             showAlert(AlertType.INFORMATION, "Enchere Ajoutée", "L'enchere a été ajoutée avec succès.");
-        }catch (Exception e){
+        } catch (Exception e) {
             showAlert(AlertType.ERROR, "Erreur", "Une erreur est survenue lors de l'ajout de l'enchere : " + e.getMessage());
-
         }
         int enchereId = enchereService.rechercherIdParNom(nomEnchereTextField.getText());
 
         // Create TicketService instance to add tickets
         TicketService ticketService = new TicketService();
-
         // Add the specified number of tickets for the given Enchere ID
         for (int i = 0; i < 10; i++) {
             Ticket ticket = new Ticket();
@@ -87,7 +144,8 @@ public class AjouterEncherecontroller implements Initializable {
             ticketService.ajouter(ticket);
         }
 
-        System.out.println( " tickets added successfully for the auction: " );
+        System.out.println(" tickets added successfully for the auction: ");
+    }
     }
 
     @FXML
@@ -124,9 +182,6 @@ public class AjouterEncherecontroller implements Initializable {
         alert.showAndWait();
     }
 
-    public static class AcheterTicketcontroller {
-    }
-
     @FXML
     void openAjouterEnchere(ActionEvent event) throws IOException {
         // Load the Ajouter Enchere interface
@@ -154,10 +209,7 @@ public class AjouterEncherecontroller implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
         }catch (IOException e)
-        {            e.printStackTrace();
-
-
-        }
+        {            e.printStackTrace(); }
     }
 
     @FXML
@@ -170,10 +222,7 @@ public class AjouterEncherecontroller implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
         }catch (IOException e)
-        {            e.printStackTrace();
-
-
-        }
+        {e.printStackTrace();}
     }
 
     @FXML
@@ -205,7 +254,8 @@ public class AjouterEncherecontroller implements Initializable {
 
 
         }
-    }@FXML
+    }
+    @FXML
     void openAcher(ActionEvent event) throws IOException {
         // Load the Chercher Enchere interface
         try {

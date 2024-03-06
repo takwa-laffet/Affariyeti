@@ -64,7 +64,8 @@
                 <TextField fx:id="encherenomTextField" layoutX="129.0" layoutY="67.0" prefHeight="28.0" prefWidth="162.0" promptText="Enchere nom"> <font>
                     <Font name="Andalus" size="12.0" />
                 </font></TextField>
-                <Button layoutX="150.0" layoutY="186.0" mnemonicParsing="false" onAction="#ajouterTicketPaiment" text="Ajouter Ticket Paiement"> <font>
+                <Button layoutX="150.0" layoutY="186.0"
+                        mnemonicParsing="false" onAction="#ajouterTicketPaiment" text="Ajouter Ticket Paiement"> <font>
                     <Font name="Andalus" size="12.0" />
                 </font> </Button>
 

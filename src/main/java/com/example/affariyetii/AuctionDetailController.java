@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class AuctionDetailController {
     @FXML
@@ -55,9 +56,16 @@ public class AuctionDetailController {
     }
     @FXML
     private void deleteAction() {
-        Enchere enchere = new Enchere(); // Remove this line
         EnchereService enchereService = new EnchereService();
-        enchereService.supprimer(enchere.getEnchereId()); // Pass the correct ID to delete
-    }
+        List<Enchere> allEncheres = enchereService.reuperer(); // Retrieve all auctions
+        List<String> ticketpEnchereIds = enchereService.getTicketpEnchereIds(); // Retrieve IDs of auctions in ticketp
 
+        for (Enchere enchere : allEncheres) {
+            String enchereId = String.valueOf(enchere.getEnchereId());
+            if (!ticketpEnchereIds.contains(enchereId)) { // If the auction ID is not in ticketp
+                enchereService.supprimer(Integer.parseInt(enchereId)); // Delete the auction
+            }
+        }
+
+    }
 }

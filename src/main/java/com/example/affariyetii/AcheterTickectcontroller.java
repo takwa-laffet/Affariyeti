@@ -48,11 +48,15 @@ private     Enchere enchere = new Enchere();
             }
             int ticketId = unlinkedTicketIds.get(0);
 
-            showAlert("Ticket Payment Added Successfully! An email confirmation has been sent to the client.", Alert.AlertType.INFORMATION);
+
+            ticketPaimentService.ajouterTicketPaiment(ticketId, clientId, enchereId);
+
+            showAlert("Ticket Payment Added Successfully!", Alert.AlertType.INFORMATION);
         } catch (NumberFormatException e) {
             showAlert("Please enter valid values for nom prenom and enchere nom.", Alert.AlertType.ERROR);
         }
     }
+
 
     private void showAlert(String message, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);

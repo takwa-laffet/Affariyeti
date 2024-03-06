@@ -29,26 +29,15 @@
                     </graphic>
                 </Menu>
                 <Menu mnemonicParsing="false" onAction="#openAjouterEnchere" text="Crée Enchére">
-                    <font>
-                        <Font name="Andalus" size="12.0" />
-                    </font>
 
                 </Menu>
                 <Menu mnemonicParsing="false" text="Enchére">
-                    <font>
-                        <Font name="Andalus" size="12.0" />
-                    </font>
 
                 </Menu>
                 <Menu mnemonicParsing="false" text="Participer Enchere">
-                    <font>
-                        <Font name="Andalus" size="12.0" />
-                    </font>
+
                 </Menu>
                 <Menu mnemonicParsing="false" onAction="#openChercherEnchere" text="Chercher Enchére">
-                    <font>
-                        <Font name="Andalus" size="12.0" />
-                    </font>
 
                 </Menu>
             </menus>
