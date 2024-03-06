@@ -23,12 +23,6 @@ import java.util.ResourceBundle;
 
 
 public class CodePromoList implements Initializable {
-    @FXML
-    private Button addCodePromoButton;
-    @FXML
-    private Button deleteCodePromoButton;
-    @FXML
-    private Button editCodePromoButton;
 
     @FXML
     private ListView<CodePromo> list;
@@ -74,16 +68,16 @@ public class CodePromoList implements Initializable {
 
 
                             // Create edit and delete buttons
-                            Button editButton = new Button("Edit");
+                           // Button editButton = new Button("Edit");
                             Button deleteButton = new Button("Delete");
 
                             // Set actions for edit and delete buttons
-                            editButton.setOnAction(event -> {
+                          /*  editButton.setOnAction(event -> {
                                 // Handle edit action here
 
                                 editCodePromo(codePromo.getIdCode());
                             });
-
+*/
                             deleteButton.setOnAction(event -> {
                                 // Handle delete action here
                                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -99,7 +93,7 @@ public class CodePromoList implements Initializable {
                             });
 
                             // Create an HBox to hold the action buttons
-                            HBox actionButtons = new HBox(5, editButton, deleteButton);
+                            HBox actionButtons = new HBox(5, deleteButton);
 
                             // Add action buttons to the "Actions" column
                             gridPane.add(actionButtons, 5, 1);
@@ -137,6 +131,7 @@ public class CodePromoList implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
     public void addCodePromo() {
         //GestionCodePromo gs = new GestionCodePromo();
         try {
@@ -153,4 +148,29 @@ public class CodePromoList implements Initializable {
     }
 
 
+    @FXML
+    public void BackToDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/dashboardAdmin.fxml"));
+            Parent profileInterface = loader.load();
+
+            // Get the controller instance
+
+            // Initialize data using the controller's method
+
+            Scene profileScene = new Scene(profileInterface);
+            Stage profileStage = new Stage();
+            profileStage.setScene(profileScene);
+
+            // Close the current stage (assuming loginButton is accessible from here)
+            Stage currentStage = (Stage) list.getScene().getWindow();
+            currentStage.close();
+
+            // Show the profile stage
+            profileStage.show();
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
+
+    }
 }

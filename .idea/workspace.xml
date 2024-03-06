@@ -5,19 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/EditUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/main/HelloApplicationUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/main/HelloApplicationUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/EditUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/EditUserOld.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,22 +72,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "gestionUser",
-    "last_opened_file_path": "C:/Users/LENOVO/Documents/GitHub/Affariyeti/src/main/java/com/example/test/gui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;gestionUser&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/LENOVO/Documents/GitHub/Affariyeti/src/main/java/com/example/test/gui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\LENOVO\Documents\GitHub\Affariyeti\src\main\java\com\example\test\gui" />
@@ -116,7 +124,9 @@
       <option name="presentableId" value="Default" />
       <updated>1707843001533</updated>
       <workItem from="1709022470924" duration="2117000" />
-      <workItem from="1709025330950" duration="22875000" />
+      <workItem from="1709025330950" duration="35581000" />
+      <workItem from="1709714221547" duration="882000" />
+      <workItem from="1709715259436" duration="7192000" />
     </task>
     <servers />
   </component>

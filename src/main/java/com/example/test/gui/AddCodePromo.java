@@ -9,9 +9,13 @@ import com.example.test.services.GestionUser;
 import com.example.test.utils.Session;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.net.URL;
@@ -31,7 +35,7 @@ public class AddCodePromo implements Initializable {
 
     private CodePromo codePromo;
 
-    @FXML
+    @Deprecated
     public void initialize(URL url, ResourceBundle resourceBundle) {
         GestionCategorieCodePromo gs = new GestionCategorieCodePromo();
         System.out.println(gs.findAll());
@@ -67,4 +71,28 @@ public class AddCodePromo implements Initializable {
     }
 
 
+    @FXML
+    public void BackToAffichageCodePromo() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/CodePromoList.fxml"));
+            Parent profileInterface = loader.load();
+
+            // Get the controller instance
+
+            // Initialize data using the controller's method
+
+            Scene profileScene = new Scene(profileInterface);
+            Stage profileStage = new Stage();
+            profileStage.setScene(profileScene);
+
+            // Close the current stage (assuming loginButton is accessible from here)
+            Stage currentStage = (Stage) userComboBox.getScene().getWindow();
+            currentStage.close();
+
+            // Show the profile stage
+            profileStage.show();
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
+    }
 }

@@ -28,6 +28,7 @@ public class SelectCodePROMO {
         GestionCodePromo cp = new GestionCodePromo();
         CodePromo c = new CodePromo();
         c=cp.findByCode(String.valueOf(code.getText()));
+        System.out.println(cp.findByCode(String.valueOf(code.getText())));
         if(c!=null){
 
            if (cp.checkCodePromoByName(c,this.ccp)==1) {
@@ -38,12 +39,14 @@ public class SelectCodePROMO {
                gc.update(this.ccp);
 
         }else {
+               System.out.println("aaaaaa");
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Code Promo expired ");
             alert.setHeaderText("Code Promo  expired");
             alert.setContentText("can you try again?");
 
             Optional<ButtonType> result = alert.showAndWait();
+
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 // Call delete method if "OK" is clicked
 

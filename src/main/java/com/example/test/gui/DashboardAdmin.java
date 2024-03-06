@@ -27,7 +27,8 @@ private Button add;
     private PieChart pieChart;
     public void initialize() {
         GestionUser userService = new GestionUser();
-        // Call getUserDataByDate() from UserService
+        // Call getUs
+        // qerDataByDate() from UserService
         Map<java.sql.Date, Integer> userDataByDate = userService.getUserDataByDate();
 
         // Create a series for the line chart
@@ -57,6 +58,7 @@ private Button add;
 
 
 
+    @FXML
     public void openChefList() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/AffichageCcp.fxml"));
         Parent root = loader.load();
@@ -67,6 +69,7 @@ private Button add;
         newStage.show();
     }
 
+    @FXML
     public void addChefList() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/codePromoList.fxml"));
         Parent root = loader.load();
@@ -89,6 +92,7 @@ private Button add;
 
     }
 
+    @FXML
     public void openNutList() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/UsersList.fxml"));
         Parent root = loader.load();
@@ -100,4 +104,27 @@ private Button add;
 
     }
 
+    @FXML
+    public void BackToLogin() {try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/login.fxml"));
+        Parent profileInterface = loader.load();
+
+        // Get the controller instance
+
+        // Initialize data using the controller's method
+
+        Scene profileScene = new Scene(profileInterface);
+        Stage profileStage = new Stage();
+        profileStage.setScene(profileScene);
+
+        // Close the current stage (assuming loginButton is accessible from here)
+        Stage currentStage = (Stage) lineChart.getScene().getWindow();
+        currentStage.close();
+
+        // Show the profile stage
+        profileStage.show();
+    }catch (Exception e ){
+        System.out.println(e.getMessage());
+    }
+    }
 }

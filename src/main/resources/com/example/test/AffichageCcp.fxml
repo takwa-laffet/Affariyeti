@@ -14,6 +14,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #8C9EE0;">
                <children>
                   <Button layoutX="68.0" layoutY="199.0" mnemonicParsing="false" onAction="#goToAdd" text="Add" />
+                  <Button layoutX="67.0" layoutY="234.0" mnemonicParsing="false" onAction="#backToDashboard" text="Back" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

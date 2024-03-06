@@ -155,6 +155,7 @@ public class AffichageCcp  implements Initializable {
         codeList.addAll(gestionCodePromo.findAll());
     }
 
+@FXML
 public void goToAdd(){
 
     try {
@@ -175,5 +176,30 @@ public void goToAdd(){
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initializeListView();
         populateListView();
+    }
+
+    @FXML
+    public void backToDashboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/dashboardAdmin.fxml"));
+            Parent profileInterface = loader.load();
+
+            // Get the controller instance
+
+            // Initialize data using the controller's method
+
+            Scene profileScene = new Scene(profileInterface);
+            Stage profileStage = new Stage();
+            profileStage.setScene(profileScene);
+
+            // Close the current stage (assuming loginButton is accessible from here)
+            Stage currentStage = (Stage) listView.getScene().getWindow();
+            currentStage.close();
+
+            // Show the profile stage
+            profileStage.show();
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
     }
 }

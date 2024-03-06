@@ -4,11 +4,15 @@ import com.example.test.services.GestionUser;
 import com.example.test.utils.MailUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -40,6 +44,7 @@ public class ForgetPassword {
     private ImageView imageView;
 
 
+    @FXML
     public void getVerificationCode(ActionEvent event){
         emailTextfield.setDisable(true);
         GestionUser us = new GestionUser();
@@ -60,6 +65,7 @@ public class ForgetPassword {
 
         }
     }
+    @FXML
     public void changePassword(ActionEvent event){
         GestionUser us = new GestionUser();
         String code = us.getVerificationCodeByEmail(emailTextfield.getText());
@@ -78,6 +84,7 @@ public class ForgetPassword {
             invalidText.setVisible(true);
         }
     }
+    @FXML
     public void updatePassword(ActionEvent event){
         GestionUser us = new GestionUser();
         String code = us.getVerificationCodeByEmail(emailTextfield.getText());
@@ -93,5 +100,31 @@ public class ForgetPassword {
             System.out.printf(hashedPassword);
             us.changePasswordByEmail(emailTextfield.getText(), hashedPassword);
         }
+    }
+
+    @FXML
+    public void BackToLogin(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/login.fxml"));
+            Parent profileInterface = loader.load();
+
+            // Get the controller instance
+
+            // Initialize data using the controller's method
+
+            Scene profileScene = new Scene(profileInterface);
+            Stage profileStage = new Stage();
+            profileStage.setScene(profileScene);
+
+            // Close the current stage (assuming loginButton is accessible from here)
+            Stage currentStage = (Stage) loginButton.getScene().getWindow();
+            currentStage.close();
+
+            // Show the profile stage
+            profileStage.show();
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
+
     }
 }

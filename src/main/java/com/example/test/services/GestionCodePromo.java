@@ -147,6 +147,7 @@ public class GestionCodePromo implements Fonctions<CodePromo> {
         CodePromo codePromo = null;
         try {
             String sql = "SELECT c.idCode , c.userId, c.idCategorieCode FROM codepromo c , categoriecodepromo cc WHERE cc.code=? AND c.idCategorieCode= cc.idCcp";
+
             GestionUser gu = new GestionUser();
             GestionCategorieCodePromo  ccp = new GestionCategorieCodePromo();
             try (PreparedStatement st = this.cnx.prepareStatement(sql)) {

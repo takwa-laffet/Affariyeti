@@ -146,7 +146,7 @@ Session.StartSession(user);
     }
     public void goToProfile() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/profile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/AffichageCcpClient.fxml"));
             Parent profileInterface = loader.load();
 
             // Get the controller instance

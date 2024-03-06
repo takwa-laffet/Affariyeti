@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.test.gui.EditCodePromo"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.test.gui.EditCodePromo">
     <children>
-        <Label layoutX="34.0" layoutY="40.0" text="Value:" />
-        <TextField fx:id="valueTextField" layoutX="120.0" layoutY="40.0" />
-        <Label layoutX="34.0" layoutY="80.0" text="Code:" />
-        <TextField fx:id="codeTextField" layoutX="120.0" layoutY="80.0" />
-        <Label layoutX="34.0" layoutY="120.0" text="User:" />
-        <ComboBox fx:id="userComboBox" layoutX="120.0" layoutY="120.0" />
-        <Button layoutX="170.0" layoutY="160.0" mnemonicParsing="false" onAction="#saveChanges" text="Save Changes" />
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #8C9EE0;" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                    <Button layoutX="195.0" layoutY="214.0" mnemonicParsing="false" text="Save Changes" />
+                    <ComboBox fx:id="userComboBox" layoutX="145.0" layoutY="174.0" />
+                    <Label layoutX="59.0" layoutY="174.0" text="User:" />
+                    <TextField fx:id="codeTextField" layoutX="145.0" layoutY="134.0" />
+                    <Label layoutX="59.0" layoutY="134.0" text="Code:" />
+                    <TextField fx:id="valueTextField" layoutX="145.0" layoutY="94.0" />
+                    <Label layoutX="59.0" layoutY="94.0" text="Value:" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <ImageView fitHeight="150.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/logo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

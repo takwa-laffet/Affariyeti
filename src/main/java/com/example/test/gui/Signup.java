@@ -39,58 +39,82 @@ public class Signup {
     private Label welcome;
 
     @FXML
+
     public void register(ActionEvent event) {
         error.setText("");
-        error.setText("");
+
+        // Récupérer les valeurs des champs
         String email = inputEmail.getText();
         String password = passwordField.getText();
         String cpassword = confirmPassword.getText();
         String name = inputName.getText();
         String firstname = inputFirstName.getText();
 
+        // Vérifier si tous les champs sont remplis
         if (email.isEmpty() || password.isEmpty() || name.isEmpty() || firstname.isEmpty() || cpassword.isEmpty()) {
-            error.setText("Les champs sont obligatoires");}
-            else {
+            error.setText("Les champs sont obligatoires");
+        } else {
+            // Vérifier si les mots de passe correspondent
             if (!password.equals(cpassword)) {
                 error.setText("Les mots de passe ne sont pas identiques");
             } else if (gs.userExists(name, firstname, password, email)) {
                 error.setText("Cet utilisateur existe déjà");
             } else {
-                // Ajoutez une vérification de la forme de l'e-mail
-                if (isValidEmail(email)) {
+                // Vérifier la complexité du mot de passe
+                if (isValidPassword(password)) {
+                    // Hasher le mot de passe avant de le stocker
                     String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
                     System.out.printf(hashedPassword);
-                    // Utilisez ces variables pour créer un utilisateur ou effectuer d'autres actions
-                    User user = new User(email, hashedPassword, false, name, firstname,"client");
+
+                    // Créer un utilisateur et l'ajouter à la base de données
+                    User user = new User(email, hashedPassword, false, name, firstname, "client");
                     gs.Create(user);
+
+                    // Afficher un message de réussite
                     welcome.setText("Utilisateur créé avec succès!");
-                    // Vous pouvez également réinitialiser les champs de saisie ou effectuer d'autres actions après la création
+
+                    // Réinitialiser les champs de saisie
                     inputEmail.clear();
                     passwordField.clear();
                     confirmPassword.clear();
                     inputName.clear();
                     inputFirstName.clear();
                 } else {
-                    error.setText("Veuillez entrer une adresse e-mail valide");
+                    error.setText("Veuillez choisir un mot de passe valide (au moins une majuscule, un nombre, un caractère spécial et une longueur minimale de 10 caractères)");
                 }
             }
         }
     }
 
-    // Validation de la forme de l'e-mail
-    private boolean isValidEmail(String email) {
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+(com|tn|esprit\\.tn)$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        Matcher matcher = pattern.matcher(email);
+    // Vérification de la complexité du mot de passe
+    private boolean isValidPassword(String password) {
+        // Utiliser une expression régulière pour vérifier la complexité du mot de passe
+        String passwordRegex = "^(?=.*[A-Z])(?=.*\\d)(?=.*[@#$%^&*()_+{}:;,.<>?/\\\\|\\[\\]~]).{10,}$";
+        Pattern pattern = Pattern.compile(passwordRegex);
+        Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
-    public void backAction(ActionEvent event) throws IOException {
-        Stage signupStage = new Stage();
-        Parent signupInterface = FXMLLoader.load(getClass().getResource("/com/example/test/login.fxml"));
-        Scene signupScene = new Scene(signupInterface);
-        signupStage.setScene(signupScene);
-        Stage currentStage = (Stage) passwordField.getScene().getWindow();
-        currentStage.close();
-        signupStage.show();
+    public void backAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/test/login.fxml"));
+            Parent profileInterface = loader.load();
+
+            // Get the controller instance
+
+            // Initialize data using the controller's method
+
+            Scene profileScene = new Scene(profileInterface);
+            Stage profileStage = new Stage();
+            profileStage.setScene(profileScene);
+
+            // Close the current stage (assuming loginButton is accessible from here)
+            Stage currentStage = (Stage) inputEmail.getScene().getWindow();
+            currentStage.close();
+
+            // Show the profile stage
+            profileStage.show();
+        }catch (Exception e ){
+            System.out.println(e.getMessage());
+        }
     }
 }
