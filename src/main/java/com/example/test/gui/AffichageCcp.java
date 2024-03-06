@@ -102,6 +102,8 @@ public class AffichageCcp  implements Initializable {
 
                                     try {
                                         deleteCodePromo(codePromo.getIdCcp());
+                                        initializeListView();
+                                        populateListView();
                                     } catch (IOException e) {
                                         throw new RuntimeException(e);
                                     }

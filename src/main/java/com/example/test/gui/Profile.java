@@ -146,12 +146,14 @@ private User user;
         nom.setText(user.getNom());
         prenom.setText(user.getPrenom());
         email.setText(user.getEmail());
-
-if(!user.getImage().isEmpty()) {
+        String imageUrl = "/static/images/" + user.getImage(); // Assuming user.getImage() returns the image filename
+        Image image = new Image(getClass().getResource(imageUrl).toExternalForm());
+        profileImageView.setImage(image);
+/*if(!user.getImage().isEmpty() && user.getImage()!=null) {
     String imageUrl = "/static/images/" + user.getImage(); // Assuming user.getImage() returns the image filename
     Image image = new Image(getClass().getResource(imageUrl).toExternalForm());
     profileImageView.setImage(image);
-}
+}*/
 
         System.out.println(user);
         populateProfileInformation(user);

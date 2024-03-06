@@ -67,6 +67,7 @@ public class AddCodePromo implements Initializable {
      GestionCodePromo gs = new GestionCodePromo();
      gs.Create(codePromo);
 
+        BackToAffichageCodePromo();
 
     }
 

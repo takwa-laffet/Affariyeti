@@ -34,7 +34,10 @@ public class CodePromoList implements Initializable {
         initializeListView();
         populateListView();
     }
-
+    public void initData (){
+        initializeListView();
+        populateListView();
+    }
     private void initializeListView() {
         codeList = FXCollections.observableArrayList();
         list.setItems(codeList);

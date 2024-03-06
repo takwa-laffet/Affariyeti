@@ -43,7 +43,7 @@ public class GestionUser implements Fonctions<User> {
                 .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                 .toString();
         try {
-            String sql = "INSERT INTO user(email, mdp, status, nom, prenom,verificationCode,role) VALUES (?, ?, ?, ?, ?,?,?)";
+            String sql = "INSERT INTO user(email, mdp, status, nom, prenom,verificationCode,role,image) VALUES (?, ?, ?, ?, ?,?,?,?)";
             try (PreparedStatement st = this.cnx.prepareStatement(sql)) {
                 st.setString(1, user.getEmail());
                 st.setString(2, user.getMdp());
@@ -52,6 +52,7 @@ public class GestionUser implements Fonctions<User> {
                 st.setString(5, user.getPrenom());
                 st.setString(6, generatedString);
                 st.setString(7, user.getRole());
+                st.setString(8, "avatar.png");
                 st.executeUpdate();
                 System.out.println("User created successfully.");
             }
