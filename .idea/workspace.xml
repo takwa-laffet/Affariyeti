@@ -6,9 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/affariyetii/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/affariyetii/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AcheterTickectcontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AcheterTickectcontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AfficherTicketscontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AfficherTicketscontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AjouterEncherecontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AjouterEncherecontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionControllerclientcontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionControllerclientcontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionControllerenchere.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionControllerenchere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionDetailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/AuctionDetailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/CharcherEncherecontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/CharcherEncherecontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/ChatbotController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/ChatbotController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/HomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/MainJavafx.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/MainJavafx.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/ModifierEncherecontroller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/ModifierEncherecontroller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/NotificationFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/NotificationFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/StatistiqueAdmine.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/StatistiqueAdmine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/affariyetii/services/SocialMediaSharing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/affariyetii/services/SocialMediaSharing.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
