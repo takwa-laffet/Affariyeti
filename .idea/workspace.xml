@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AddCodePromo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/AffichageCcp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/CodePromoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/DashboardAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/ForgetPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/SelectCodePROMO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/Signup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/gui/UsersList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/test/services/GestionCodePromo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AddCodePromo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/AffichageCcpClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/DashboardAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/ForgetPassword.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/SelectCodePROMO.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/codePromoList.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editCodePromo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/editUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/test/usersList.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="b3ab608f-c70a-400e-88e6-5b3919df4d86" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +27,29 @@
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1709722718" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="enchere" />
+                    <option name="lastUsedInstant" value="1709722717" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
