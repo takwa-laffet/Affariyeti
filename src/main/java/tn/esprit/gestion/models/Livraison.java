@@ -1,35 +1,38 @@
 package tn.esprit.gestion.models;
 
-
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.time.LocalDate;
-import java.util.Objects;
 
 public class Livraison {
-
     private int id;
     private String adresselivraison;
     private Timestamp datecommande;
     private Date datelivraison;
     private String statuslivraison;
     private int iddepot;
-    private Depot depot; // Add a Depot property
+    private float longitude;
+    private float latitude;
 
-    public Livraison(int id, String adresselivraison, Timestamp datecommande, Date datelivraison, String statuslivraison, int iddepot) {
+
+    public Livraison() {
+    }
+
+    public Livraison(int id, String adresselivraison, Timestamp datecommande, Date datelivraison, String statuslivraison, int iddepot, float longitude, float latitude) {
         this.id = id;
         this.adresselivraison = adresselivraison;
         this.datecommande = datecommande;
         this.datelivraison = datelivraison;
         this.statuslivraison = statuslivraison;
         this.iddepot = iddepot;
+        this.longitude = longitude;
+        this.latitude = latitude;
+
     }
 
-    public Livraison() {
-
+    public Livraison(String text, Timestamp timestamp, Date date, String string, int iddepot, float latitude, float longitude) {
     }
 
-
+    // Getters and setters
     public int getId() {
         return id;
     }
@@ -78,26 +81,20 @@ public class Livraison {
         this.iddepot = iddepot;
     }
 
-
-
-    public Depot getDepot() {
-        return depot;
+    public float getLongitude() {
+        return longitude;
     }
 
-    public void setDepot(Depot depot) {
-        this.depot = depot;
+    public void setLongitude(float longitude) {
+        this.longitude = longitude;
     }
 
-    public String getAdresse() {
-        return this.getAdresse();
+    public float getLatitude() {
+        return latitude;
     }
+
+    public void setLatitude(float latitude) {
+        this.latitude = latitude;
+    }
+
 }
-
-
-
-
-
-
-
-
-

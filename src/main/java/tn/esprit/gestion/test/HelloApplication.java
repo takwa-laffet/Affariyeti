@@ -16,7 +16,10 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("GESTION DES LIVRAISONS!");
         stage.setScene(scene);
+        stage.setWidth(stage.getWidth()+50);
+        stage.setHeight(stage.getHeight()+50);
         stage.show();
+
     }
 
     public static void main(String[] args) {

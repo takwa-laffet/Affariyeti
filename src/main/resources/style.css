@@ -1,0 +1,42 @@
+/* Apply styles to the ListView */
+#LVcmd {
+    -fx-cell-size: 40px; /* Adjust the cell height as needed */
+}
+
+/* Apply styles to each cell in the ListView */
+#LVcmd .list-cell {
+    -fx-padding: 5px;
+    -fx-border-color: #ddd; /* Optional: Add border for better visibility */
+}
+
+/* Apply styles to the first row (titles) */
+
+
+/* Apply styles to individual attributes within each cell */
+#LVcmd .list-cell .attribute {
+    -fx-font-weight: bold;
+    -fx-padding: 2px 0;
+}
+
+/* Apply styles to individual values within each cell */
+#LVcmd .list-cell .value {
+    -fx-padding: 2px 0;
+}
+.button {
+    -fx-background-color: linear-gradient(to bottom, #e4d1f8, rgba(153, 172, 231, 0.99)); /* Gradient from light green to dark green */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: rgba(132, 139, 219, 0.99);
+    -fx-border-width: 1px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to bottom, #d4bce8, #e4d1f8); /* Darken gradient on hover */
+    -fx-border-color: #a04386; /* Darken border on hover */
+    -fx-text-fill: #fff; /* Change text color to white on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 2, 0, 0); /* Add drop shadow on hover */
+}

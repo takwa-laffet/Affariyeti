@@ -10,38 +10,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="AnchorPaneajout" prefHeight="600.0" prefWidth="750.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gestion.controllers.Editlivraison">
 
    <children>
-      <AnchorPane layoutY="96.0" prefHeight="512.0" prefWidth="282.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
-         <children>
-            <Button fx:id="USER" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion des utilisateurs">
-               <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </padding>
-            </Button>
-            <Button fx:id="PRODUITS" layoutX="14.0" layoutY="140.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </Button>
-            <Button fx:id="COMMANDES" layoutX="14.0" layoutY="189.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text=" Gestion des commandes">
-               <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </padding>
-            </Button>
-            <Button fx:id="LIVRAISON" layoutX="14.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="GESTION DE LIVRAISON">
-               <padding>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </padding>
-            </Button>
-            <Button fx:id="AVIS" layoutX="18.0" layoutY="298.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #b9abe0;" text="Gestion des avis et demandes" />
-            <Button fx:id="ENCHERE" layoutX="18.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #b9abe0;" text="Gestion  d’enchères " />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="GESTIONDELIVRAISON" cache="true" layoutX="279.0" prefHeight="608.0" prefWidth="601.0" style="-fx-background-color: #F9F9F9;">
+      <AnchorPane fx:id="GESTIONDELIVRAISON" cache="true" layoutX="269.0" prefHeight="628.0" prefWidth="638.0" style="-fx-background-color: #F9F9F9;">
          <children>
             <Label layoutX="112.0" layoutY="37.0" prefHeight="18.0" prefWidth="362.0" text="MODIFIER LIVRAISON" textFill="#89408c">
                <font>
@@ -65,9 +41,13 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="463.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="110.0" text="modifier">
+            <Button layoutX="463.0" layoutY="371.0" mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #b9abe0;" text="modifier">
                <graphic>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@tn/esprit/gestion/change.png" />
+                     </image>
+                  </ImageView>
                </graphic></Button>
             <ComboBox fx:id="depotComboBox" layoutX="197.0" layoutY="304.0" prefHeight="30.0" prefWidth="250.0" />
 
@@ -79,19 +59,53 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-3.0" prefHeight="98.0" prefWidth="281.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+      <AnchorPane prefHeight="628.0" prefWidth="270.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" />
+      <VBox layoutX="-1.0" prefHeight="628.0" prefWidth="270.0" stylesheets="@path.css">
          <children>
-            <Label layoutX="91.0" layoutY="26.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
-               <font>
-                  <Font name="Amiri Bold" size="27.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="-4.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0">
-               <image>
-                  <Image url="@logo.png" />
-               </image>
-            </ImageView>
+            <HBox prefHeight="95.0" prefWidth="257.0" styleClass="hbox">
+               <VBox.margin>
+                  <Insets bottom="50.0" />
+               </VBox.margin>
+               <children>
+                  <AnchorPane prefHeight="78.0" prefWidth="280.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+                     <children>
+                        <Label layoutX="65.0" layoutY="16.0" prefHeight="55.0" prefWidth="191.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Amiri Bold" size="27.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="79.0" fitWidth="90.0" layoutX="-10.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <Button fx:id="COMMANDES" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text=" Gestion des commandes">
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </Button>
+            <Button fx:id="AVIS" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des avis et demandes" />
+            <Button fx:id="LIVRAISON" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des livraisons">
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </Button>
+            <Button fx:id="ENCHERE" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion  d’enchères " />
+            <Button fx:id="PRODUITS" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="USER" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des utilisateurs">
+               <padding>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </padding>
+            </Button>
          </children>
-      </AnchorPane>
+      </VBox>
    </children>
 </AnchorPane>

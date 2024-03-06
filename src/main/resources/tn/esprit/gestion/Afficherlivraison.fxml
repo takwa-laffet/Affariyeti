@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="AnchorPaneaff" prefHeight="653.0" prefWidth="936.0" style="-fx-background-color: F9F9F9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gestion.controllers.Afficherlivraison">
+<AnchorPane fx:id="AnchorPaneaff" prefHeight="640.0" prefWidth="1252.0" style="-fx-background-color: F9F9F9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gestion.controllers.Afficherlivraison">
    <children>
       <!-- Header Label -->
       <Label alignment="TOP_CENTER" layoutX="384.0" layoutY="20.0" prefHeight="39.0" prefWidth="408.0" text="AFFICHER LIVRAISON" textFill="#89408c">
@@ -21,7 +21,7 @@
       </Label>
 
       <!-- Side Menu -->
-      <AnchorPane layoutY="100.0" prefHeight="555.0" prefWidth="263.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+      <AnchorPane layoutY="100.0" prefHeight="540.0" prefWidth="263.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
          <children>
             <Button fx:id="USER" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion des utilisateurs">
                <padding>
@@ -72,7 +72,7 @@
       <!-- Logo -->
       <AnchorPane prefHeight="103.0" prefWidth="263.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
          <children>
-            <Label layoutX="91.0" layoutY="26.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textFill="#ffffff">
+            <Label layoutX="91.0" layoutY="26.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textFill="#150000">
                <font>
                   <Font name="Amiri Bold" size="27.0" />
                </font>
@@ -86,12 +86,12 @@
       </AnchorPane>
 
       <!-- Buttons -->
-      <Button layoutX="798.0" layoutY="115.0" mnemonicParsing="false" onAction="#trier" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #b9abe0;" text="Trier">
+      <Button layoutX="483.0" layoutY="145.0" mnemonicParsing="false" onAction="#trier" prefHeight="35.0" prefWidth="66.0" style="-fx-background-color: #b9abe0;" text=" Trier">
          <font>
             <Font name="Ebrima" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="759.0" layoutY="484.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #b9abe0;" text="Supprimer">
+      <Button layoutX="891.0" layoutY="594.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #b9abe0;" text="Supprimer">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -103,25 +103,48 @@
             <Font name="Ebrima" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="301.0" layoutY="458.0" mnemonicParsing="false" onAction="#VersModifier" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #b9abe0;" text="Modifier">
+      <Button layoutX="923.0" layoutY="146.0" mnemonicParsing="false" onAction="#VersModifier" prefHeight="35.0" prefWidth="110.0" style="-fx-background-color: #b9abe0;" text="Modifier">
          <graphic>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@change.png" />
+               </image></ImageView>
          </graphic>
       </Button>
 
       <!-- ListView and Search -->
-      <ListView fx:id="LVcmd" layoutX="278.0" layoutY="184.0" prefHeight="259.0" prefWidth="619.0" />
+      <ListView fx:id="LVcmd" layoutX="270.0" layoutY="193.0" prefHeight="332.0" prefWidth="774.0">
+         <cellFactory>
+          
+         </cellFactory>
+      </ListView>
+
+
+
       <TextField fx:id="searchtext" layoutX="323.0" layoutY="146.0" onAction="#searchLivraison" prefHeight="35.0" prefWidth="160.0" promptText="Search by address..." />
       <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="289.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@search.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="806.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="483.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@sort.png" />
          </image>
       </ImageView>
-      <Button layoutX="759.0" layoutY="542.0" mnemonicParsing="false" onAction="#toStat" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #b9abe0;" text="Statistique" />
+      <Button layoutX="891.0" layoutY="546.0" mnemonicParsing="false" onAction="#toStat" prefHeight="35.0" prefWidth="143.0" style="-fx-background-color: #b9abe0;" text="      Statistique" />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="912.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@analytics.png" />
+         </image>
+
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="36.0" onMouseClicked="#pdf" pickOnBounds="true" preserveRatio="true" />
+
+      <Button layoutX="259.0" layoutY="604.0" mnemonicParsing="false" onAction="#ToMailing" prefHeight="35.0" prefWidth="110.0" text="mailing" />
+      <Button fx:id="pdfButton" text="Générer PDF" onAction="#pdf" />
+
+
+
    </children>
 </AnchorPane>

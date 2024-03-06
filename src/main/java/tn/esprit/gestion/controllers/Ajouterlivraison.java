@@ -6,18 +6,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import tn.esprit.gestion.models.Depot;
 import tn.esprit.gestion.models.Livraison;
 import tn.esprit.gestion.services.DepotService;
 import tn.esprit.gestion.services.LivraisonService;
+import tn.esprit.gestion.test.HelloApplication;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -25,18 +27,22 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Optional;
+
+
+import static javafx.fxml.FXMLLoader.load;
 
 public class Ajouterlivraison {
 
-    public ComboBox<Depot> depotComboBox;
+
     @FXML
     private AnchorPane GESTIONDELIVRAISON;
 
     @FXML
     private TextField adresselivraison;
 
-    @FXML
-    private TextField datecommande;
+    static float latitude;
+    static float longitude;
 
     @FXML
     private DatePicker datelivraison;
@@ -47,16 +53,18 @@ public class Ajouterlivraison {
     @FXML
     private AnchorPane AnchorPaneajout;
 
+    @FXML
+    private ComboBox<Depot> depotComboBox;
 
-    // Your other methods...
+
+    private LivraisonService livraisonService = new LivraisonService();
+
 
     @FXML
     void initialize() {
-        // Initialize the ComboBox with the predefined values
-        statuslivraison.getItems().addAll("En attente", "En cours", "livree", "Annulee");
+        statuslivraison.getItems().addAll("En attente", "En cours", "Livree", "Annulee");
         populateDepotComboBox();
 
-        // Set the default date format for the DatePicker
         String pattern = "dd-MM-yyyy";
         datelivraison.setPromptText(pattern.toLowerCase());
         datelivraison.setConverter(new StringConverter<LocalDate>() {
@@ -64,29 +72,22 @@ public class Ajouterlivraison {
 
             @Override
             public String toString(LocalDate date) {
-                if (date != null) {
-                    return dateFormatter.format(date);
-                } else {
-                    return "";
-                }
+                return (date != null) ? dateFormatter.format(date) : "";
             }
 
             @Override
             public LocalDate fromString(String string) {
-                if (string != null && !string.isEmpty()) {
-                    return LocalDate.parse(string, dateFormatter);
-                } else {
-                    return null;
-                }
+                return (string != null && !string.isEmpty()) ? LocalDate.parse(string, dateFormatter) : null;
             }
         });
     }
+
+
     private void populateDepotComboBox() {
         DepotService depotService = new DepotService();
         ObservableList<Depot> depots = FXCollections.observableArrayList();
 
         try {
-            // Fetch the depots from your data source
             List<Depot> retrievedDepots = depotService.recuperer();
             depots.addAll(retrievedDepots);
         } catch (SQLException e) {
@@ -98,78 +99,106 @@ public class Ajouterlivraison {
         depotComboBox.setConverter(new StringConverter<Depot>() {
             @Override
             public String toString(Depot depot) {
-                // Convert Depot object to display its name
-                return depot != null ? depot.getNomdepot() : "";
+                return (depot != null) ? depot.getNomdepot() : "";
             }
 
             @Override
             public Depot fromString(String string) {
-                // Implement this method if needed
                 return null;
             }
         });
     }
-    @FXML
-    void ajouterLivraison(ActionEvent event) {
-        LivraisonService livraisonService = new LivraisonService();
-        Livraison livraison = new Livraison();
 
-        // Vérification des champs obligatoires
-        if (adresselivraison.getText().isEmpty() || datelivraison.getValue() == null || statuslivraison.getValue() == null || depotComboBox.getValue() == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText(null);
-            alert.setContentText("Veuillez remplir tous les champs obligatoires.");
-            alert.showAndWait();
-            return; // Arrête l'exécution de la méthode si les champs obligatoires ne sont pas remplis
+    @FXML
+    void ajouterLivraison(ActionEvent event) throws SQLException {
+        if(latitude==0||longitude==0)
+        {
+            showAlert("Erreur","Tu dois selectionner la localisation avec le carte.");
+            return;
+        }
+        // Validation of input fields
+        if (adresselivraison.getText().isEmpty() || datelivraison.getValue() == null ||
+                statuslivraison.getValue() == null || depotComboBox.getValue() == null) {
+            showAlert("Erreur", "Veuillez remplir tous les champs obligatoires.");
+            return;
         }
 
-        livraison.setAdresselivraison(adresselivraison.getText());
-
-        LocalDateTime currentDateTime = LocalDateTime.now();
-        Timestamp timestamp = Timestamp.valueOf(currentDateTime);
-
-        livraison.setDatecommande(Timestamp.valueOf(currentDateTime));
-
-        String dateLivraisonStr = datelivraison.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        livraison.setDatelivraison(Date.valueOf(LocalDate.parse(dateLivraisonStr, DateTimeFormatter.ofPattern("dd-MM-yyyy"))));
-        livraison.setStatuslivraison(statuslivraison.getValue());
-
-        // Set the selected depot's iddepot
+        Livraison livraison = new Livraison();
+//        livraison.setAdresselivraison(adresselivraison.getText());
+//        livraison.setDatecommande(Timestamp.valueOf(LocalDateTime.now()));
+//        livraison.setDatelivraison(Date.valueOf(datelivraison.getValue()));
+//        livraison.setStatuslivraison(statuslivraison.getValue());
+//
         Depot selectedDepot = depotComboBox.getValue();
         livraison.setIddepot(selectedDepot.getIddepot());
 
+        Livraison liv = new Livraison(adresselivraison.getText(), Timestamp.valueOf(LocalDateTime.now()), Date.valueOf(datelivraison.getValue()), statuslivraison.getValue().toString(), selectedDepot.getIddepot(), latitude, longitude);
+        //livraisonService.ajouter(liv);
+        // Set longitude and latitude
+
+
         try {
-            livraisonService.ajouter(livraison);
-
-            // Show a success alert
-            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-            successAlert.setTitle("Succès");
-            successAlert.setHeaderText(null);
-            successAlert.setContentText("Livraison ajoutée avec succès.");
-            successAlert.showAndWait();
-
-            // Clear the input fields
-            adresselivraison.setText("");
-            datelivraison.setValue(null);
-            statuslivraison.setValue("");
-
+            livraisonService.ajouter(liv);
+            showAlert("Succès", "Livraison ajoutée avec succès.");
+            String number = "25377666";
+            String message = "Votre livraison  " +statuslivraison.getValue().toString() + " est effectuée le "+ datelivraison.getValue().toString();
+            SmsSender.sendSms(number, message);
+            clearFields();
         } catch (SQLException e) {
-            // Handle the exception, show an error alert or log the error
             e.printStackTrace();
-            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-            errorAlert.setTitle("Erreur");
-            errorAlert.setHeaderText(null);
-            errorAlert.setContentText("Erreur lors de l'ajout de la livraison : " + e.getMessage());
-            errorAlert.showAndWait();
+            showAlert("Erreur", "Erreur lors de l'ajout de la livraison : " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
+
+
+    private void showAlert(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(content);
+
+        // Ajouter un bouton personnalisé
+        ButtonType voirListeButton = new ButtonType("Voir la liste", ButtonBar.ButtonData.OK_DONE);
+        alert.getButtonTypes().add(voirListeButton);
+
+        Optional<ButtonType> result = alert.showAndWait();
+
+        // Vérifier si l'utilisateur a cliqué sur le bouton "Voir la liste"
+        if (result.isPresent() && result.get() == voirListeButton) {
+            // Naviguer vers AfficherLivraison.fxml ici
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/gestion/Afficherlivraison.fxml"));
+                Parent root = fxmlLoader.load();
+                // Vous pouvez récupérer le contrôleur de la vue ici si nécessaire
+                // AfficherLivraisonController controller = fxmlLoader.getController();
+                // Faire des opérations supplémentaires si nécessaire
+
+                // Créer la scène et afficher la nouvelle fenêtre
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                showAlert("Erreur", "Erreur lors de la navigation vers Afficherlivraison.fxml : " + e.getMessage());
+            }
+        }
+    }
+
+
+    private void clearFields() {
+        adresselivraison.clear();
+        datelivraison.setValue(null);
+        statuslivraison.getSelectionModel().clearSelection();
+        depotComboBox.getSelectionModel().clearSelection();
+
     }
 
     @FXML
     public void toaffiche(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/gestion/Afficherlivraison.fxml"));
-            Parent root = fxmlLoader.load();
+            Parent root = load(getClass().getResource("/tn/esprit/gestion/Afficherlivraison.fxml"));
             AnchorPaneajout.getChildren().setAll(root);
         } catch (IOException e) {
             e.printStackTrace();
@@ -177,23 +206,76 @@ public class Ajouterlivraison {
         }
     }
 
-    private void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
-
-
     @FXML
     public void todepot(ActionEvent event) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/tn/esprit/gestion/Ajouterdepot.fxml"));
-            Parent root = fxmlLoader.load();
+            Parent root = load(getClass().getResource("/tn/esprit/gestion/Ajouterdepot.fxml"));
             AnchorPaneajout.getChildren().setAll(root);
         } catch (IOException e) {
             e.printStackTrace();
             showAlert("Erreur", "Erreur lors du chargement de l'interface Ajouterdepot : " + e.getMessage());
         }
     }
+
+    public void showWindow() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL resourceUrl = getClass().getClassLoader().getResource("tn/esprit/gestion/webview.fxml");
+            if (resourceUrl == null) {
+                throw new IOException("FXML file not found");
+            }
+            fxmlLoader.setLocation(resourceUrl);
+            fxmlLoader.setController(this); // Set the controller
+            Parent root = fxmlLoader.load();
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+    private void showWarningAlert(String warning, String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle(warning);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private void showSucessAlert(String success, String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(success);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    @FXML
+    public void openmap(ActionEvent actionEvent) throws IOException {
+        tn.esprit.gestion.controllers.MapController m=new MapController();
+        m.showWindow();
+        Stage stage=new Stage();
+
+        FXMLLoader fxmlLoader = new FXMLLoader((HelloApplication.class.getResource("/webvieww.fxml")));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("localiser la livraison");
+        stage.setScene(scene);
+        stage.show();
+        // khw wfew l houloul
+
+    }
+    public void savecoords(String latitude, String longitude) {
+
+        Ajouterlivraison.latitude =Float.parseFloat(latitude);
+        Ajouterlivraison.longitude =Float.parseFloat(longitude);
+        System.out.println("LANG LAT FROM CONTROLLER Livraison"+latitude+"  "+latitude);
+    }
+
+
+
+
 }
+

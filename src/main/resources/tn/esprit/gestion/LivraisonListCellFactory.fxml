@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="tn.esprit.gestion.controllers.LivraisonListCellFactory">
+
+    <VBox fx:id="infoBox" spacing="5">
+        <!-- Add labels for Livraison information here -->
+        <Label fx:id="addressLabel"/>
+        <Label fx:id="dateCommandeLabel"/>
+        <Label fx:id="dateLivraisonLabel"/>
+        <Label fx:id="statusLabel"/>
+        <Label fx:id="depotLabel"/>
+    </VBox>
+
+    <ImageView fx:id="qrCodeImage" />
+    <Button fx:id="detailsButton" text="Details" />
+</HBox>

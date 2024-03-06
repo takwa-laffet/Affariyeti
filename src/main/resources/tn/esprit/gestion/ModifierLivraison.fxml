@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="AnchorPanesupp" prefHeight="646.0" prefWidth="848.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.gestion.controllers.ModifierLivraison">
    <children>
-      <AnchorPane layoutY="113.0" prefHeight="545.0" prefWidth="278.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+      <AnchorPane layoutY="113.0" prefHeight="566.0" prefWidth="278.0" stylesheets="@../../../path.css">
          <children>
             <Button fx:id="USER" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion des utilisateurs">
                <padding>
@@ -71,9 +71,9 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="278.0" prefHeight="658.0" prefWidth="570.0">
+      <AnchorPane layoutX="278.0" prefHeight="678.0" prefWidth="570.0">
          <children>
-            <Button layoutX="211.0" layoutY="426.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="26.0" prefWidth="109.0" text="UPDATE" textFill="#200a0a" />
+            <Button layoutX="246.0" layoutY="424.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="30.0" prefWidth="110.0" text="UPDATE" textFill="#200a0a" />
             <Label layoutX="73.0" layoutY="44.0" prefHeight="51.0" prefWidth="405.0" text="      MODIFIER LIVRAISON" textFill="#89408c">
                <font>
                   <Font name="Amiri Regular" size="26.0" />
@@ -125,6 +125,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="254.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@change.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

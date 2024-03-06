@@ -5,9 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import tn.esprit.gestion.controllers.ModifyDepot;
 import tn.esprit.gestion.models.Depot;
 import tn.esprit.gestion.services.DepotService;
 
@@ -20,9 +20,6 @@ public class Afficherdepot {
     @FXML
     private ListView<Depot> depotListView;
 
-    public Button modifier;
-    public Button supprimer;
-
     private DepotService depotService;
 
     @FXML
@@ -30,7 +27,8 @@ public class Afficherdepot {
         depotService = new DepotService();
         refreshDepotList();
 
-
+        // Utilisez la cellule personnalisée
+        depotListView.setCellFactory(param -> new DepotListCell());
     }
 
     @FXML

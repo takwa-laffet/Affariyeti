@@ -38,7 +38,7 @@
             <Button fx:id="ENCHERE" layoutX="18.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #b9abe0;" text="Gestion  d’enchères " />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="-2.0" prefHeight="126.0" prefWidth="278.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+      <AnchorPane layoutY="-2.0" prefHeight="126.0" prefWidth="278.0" style="-fx-background-image:/depot.png">
          <children>
             <Label layoutX="91.0" layoutY="26.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
                <font>
@@ -52,21 +52,32 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="278.0" prefHeight="627.0" prefWidth="584.0" style="-fx-background-color: #F9F9F9;">
+      <AnchorPane layoutX="278.0" prefHeight="627.0" prefWidth="642.0" style="-fx-background-image: src/main/resources/depot.pngsrc/main/resources/depot.png;">
          <children>
-            <TextField fx:id="nomdepot" layoutX="142.0" layoutY="207.0" />
-            <TextField fx:id="adressedepot" layoutX="142.0" layoutY="258.0" />
-            <Label fx:id="nom" layoutX="19.0" layoutY="211.0" text="NOM DE DEPOT" />
-            <Label fx:id="adr" layoutX="19.0" layoutY="261.0" prefHeight="18.0" prefWidth="109.0" text="ADRESSE DEPOT" />
-            <Label layoutX="19.0" layoutY="58.0" prefHeight="46.0" prefWidth="278.0" text="      AJOUTER DEPOT" textFill="#89408c">
+            <ImageView fitHeight="516.0" fitWidth="642.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../depot.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nomdepot" layoutX="275.0" layoutY="172.0" prefHeight="30.0" prefWidth="180.0" />
+            <TextField fx:id="adressedepot" layoutX="275.0" layoutY="259.0" prefHeight="30.0" prefWidth="180.0" />
+            <Label fx:id="nom" layoutX="137.0" layoutY="177.0" prefHeight="19.0" prefWidth="137.0" text="    NOM DE DEPOT">
+               <font>
+                  <Font name="Cambria Math" size="16.0" />
+               </font></Label>
+            <Label fx:id="adr" layoutX="137.0" layoutY="265.0" prefHeight="19.0" prefWidth="123.0" text="   ADRESSE DEPOT">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font></Label>
+            <Label layoutX="152.0" layoutY="46.0" prefHeight="46.0" prefWidth="278.0" text="      AJOUTER DEPOT" textFill="#89408c">
                <font>
                   <Font name="Amiri Regular" size="23.0" />
                </font>
             </Label>
-            <Button layoutX="375.0" layoutY="380.0" mnemonicParsing="false" onAction="#navigateToAfficherDepot" prefHeight="38.0" prefWidth="110.0" text="Afficher Depots" />
+            <Button layoutX="487.0" layoutY="371.0" mnemonicParsing="false" onAction="#navigateToAfficherDepot" prefHeight="38.0" prefWidth="123.0" style="-fx-background-color: #b9abe0;" text="Afficher Depots" />
 
-            <Button layoutX="391.0" layoutY="325.0" mnemonicParsing="false" onAction="#ajoutdepot" prefHeight="38.0" prefWidth="86.0" text="      Ajouter" />
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="391.0" layoutY="332.0" pickOnBounds="true" preserveRatio="true">
+            <Button layoutX="487.0" layoutY="327.0" mnemonicParsing="false" onAction="#ajoutdepot" prefHeight="38.0" prefWidth="123.0" style="-fx-background-color: #b9abe0;" text="      Ajouter" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="497.0" layoutY="334.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@add-product.png" />
                </image>

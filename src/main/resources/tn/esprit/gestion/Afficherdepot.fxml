@@ -14,7 +14,7 @@
    <children>
       <AnchorPane layoutY="123.0" prefHeight="504.0" prefWidth="259.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
          <children>
-            <Button fx:id="USER" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text="Gestion des utilisateurs">
+            <Button fx:id="USER" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion des utilisateurs">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding>
@@ -22,7 +22,7 @@
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button fx:id="PRODUITS" layoutX="14.0" layoutY="140.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text="Gestion prod et catég" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+            <Button fx:id="PRODUITS" layoutX="14.0" layoutY="140.0" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="Gestion prod et catég" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
@@ -30,7 +30,7 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="COMMANDES" layoutX="14.0" layoutY="189.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text=" Gestion des commandes">
+            <Button fx:id="COMMANDES" layoutX="14.0" layoutY="189.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text=" Gestion des commandes">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding>
@@ -38,7 +38,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="LIVRAISON" layoutX="14.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" text="GESTION DE LIVRAISON">
+            <Button fx:id="LIVRAISON" layoutX="14.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="214.0" style="-fx-background-color: #b9abe0;" text="GESTION DE LIVRAISON">
                <padding>
                   <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
                </padding>
@@ -46,12 +46,12 @@
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button fx:id="AVIS" layoutX="18.0" layoutY="298.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" text="Gestion des avis et demandes">
+            <Button fx:id="AVIS" layoutX="18.0" layoutY="298.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="205.0" style="-fx-background-color: #b9abe0;" text="Gestion des avis et demandes">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="ENCHERE" layoutX="18.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" text="Gestion  d’enchères ">
+            <Button fx:id="ENCHERE" layoutX="18.0" layoutY="350.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="206.0" style="-fx-background-color: #b9abe0;" text="Gestion  d’enchères ">
                <font>
                   <Font size="15.0" />
                </font>
@@ -73,14 +73,18 @@
          </children>
       </AnchorPane>
       <ListView fx:id="depotListView" layoutX="284.0" layoutY="126.0" prefHeight="383.0" prefWidth="540.0" />
-      <Label layoutX="314.0" layoutY="22.0" prefHeight="18.0" prefWidth="298.0" text="       AFFICHER DEPOT" textFill="#89408c">
+      <Label layoutX="413.0" layoutY="34.0" prefHeight="18.0" prefWidth="298.0" text="       AFFICHER DEPOT" textFill="#89408c">
          <font>
             <Font name="Amiri Regular" size="21.0" />
          </font>
       </Label>
       <Button fx:id="modifier" layoutX="485.0" layoutY="555.0" mnemonicParsing="false" onAction="#modifyDepot" prefHeight="40.0" prefWidth="110.0" text="MODIFIER">
          <graphic>
-            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@change.png" />
+               </image>
+            </ImageView>
          </graphic></Button>
 
       <Button fx:id="suprrimer" layoutX="640.0" layoutY="555.0" mnemonicParsing="false" onAction="#supprimerDepot" prefHeight="40.0" prefWidth="110.0" text="SUPPRIMER">

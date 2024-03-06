@@ -9,11 +9,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import tn.esprit.gestion.models.Depot;
 import tn.esprit.gestion.services.DepotService;
 import tn.esprit.gestion.test.HelloApplication;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -32,6 +32,8 @@ public class ModifyDepot {
     private Button modifyButton;
 
     private DepotService depotService;
+    @FXML
+    private AnchorPane LVdepot;
 
     private int depotId;
 
@@ -89,10 +91,10 @@ public class ModifyDepot {
         alert.showAndWait();
     }
     @FXML
-    void ToAffiche(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("AfficheDepot.fxml"));
+    void ToAffiche(ActionEvent event) {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/tn/esprit/gestion/Afficherdepot.fxml"));
         try {
-            nomdepot.getScene().setRoot(fxmlLoader.load());
+            adressedepot.getScene().setRoot(fxmlLoader.load());
         } catch (IOException e) {
             System.err.println(e.getMessage());
             throw new RuntimeException(e);

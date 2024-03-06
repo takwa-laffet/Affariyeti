@@ -1,31 +1,31 @@
 package tn.esprit.gestion.services;
+
 import tn.esprit.gestion.models.Depot;
 import tn.esprit.gestion.models.Livraison;
 import tn.esprit.gestion.utils.MyDatabase;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.*;
+import javax.mail.internet.*;
+import java.io.File;
 import java.sql.*;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.sql.Date;
+import java.util.*;
 
 public class LivraisonService implements Lservice<Livraison> {
 
-
     private Connection connection;
-
 
     public LivraisonService() {
         connection = MyDatabase.getInstance().getConnection();
     }
 
-
-
     @Override
     public List<Livraison> recuperer() throws SQLException {
         List<Livraison> livraisons = new ArrayList<>();
-        String req = "SELECT livraison.id, livraison.adresselivraison, livraison.datecommande, livraison.datelivraison, livraison.statuslivraison, depot.iddepot, depot.nomdepot, depot.adresse " +
+        String req = "SELECT livraison.id, livraison.adresselivraison, livraison.datecommande, livraison.datelivraison, livraison.statuslivraison,livraison.latitude,livraison.longitude, depot.iddepot, depot.nomdepot, depot.adresse " +
                 "FROM livraison " +
                 "LEFT JOIN depot ON livraison.iddepot = depot.iddepot";
 
@@ -39,6 +39,9 @@ public class LivraisonService implements Lservice<Livraison> {
                 livraison.setDatecommande(rs.getTimestamp("datecommande"));
                 livraison.setDatelivraison(rs.getDate("datelivraison"));
                 livraison.setStatuslivraison(rs.getString("statuslivraison"));
+
+                livraison.setLatitude(rs.getFloat("latitude"));
+                livraison.setLongitude(rs.getFloat("longitude"));
 
                 // Check if the iddepot is null
                 int iddepot = rs.getInt("iddepot");
@@ -66,22 +69,23 @@ public class LivraisonService implements Lservice<Livraison> {
         return livraisons;
     }
 
-
     private Livraison createLivraisonFromResultSet(ResultSet rs) throws SQLException {
-       Livraison livraison = new Livraison(
-               rs.getInt("id"),
-               rs.getString("adresselivraison"),
-               rs.getTimestamp("datecommande"),
-               rs.getDate("datelivraison"),
-               rs.getString("statuslivraison"),
-               rs.getInt("iddepot")
-       );
-       return livraison;
+        Livraison livraison = new Livraison(
+                rs.getInt("id"),
+                rs.getString("adresselivraison"),
+                rs.getTimestamp("datecommande"),
+                rs.getDate("datelivraison"),
+                rs.getString("statuslivraison"),
+                rs.getInt("iddepot"),
+                rs.getFloat("latitude"),
+                rs.getFloat("longitude")
+        );
+        return livraison;
     }
 
     @Override
     public void modifier(Livraison livraison) throws SQLException {
-        String req = "UPDATE livraison SET adresselivraison = ?, datecommande = ?, datelivraison = ?, statuslivraison = ?, iddepot = ? WHERE id = ?";
+        String req = "UPDATE livraison SET adresselivraison = ?, datecommande = ?, datelivraison = ?, statuslivraison = ?, iddepot = ?, latitude = ?, longitude = ? WHERE id = ?";
         try {
             PreparedStatement pst = connection.prepareStatement(req);
             pst.setString(1, livraison.getAdresselivraison());
@@ -89,7 +93,10 @@ public class LivraisonService implements Lservice<Livraison> {
             pst.setDate(3, new Date(livraison.getDatelivraison().getTime()));
             pst.setString(4, livraison.getStatuslivraison());
             pst.setInt(5, livraison.getIddepot());
-            pst.setInt(6, livraison.getId());
+            pst.setFloat(6, livraison.getLatitude());
+            pst.setFloat(7, livraison.getLongitude());
+            pst.setInt(8, livraison.getId());
+
             pst.executeUpdate();
 
             System.out.println("Livraison modifiée avec succès");
@@ -97,7 +104,6 @@ public class LivraisonService implements Lservice<Livraison> {
             e.printStackTrace();
         }
     }
-
 
     @Override
     public void supprimer(int id) throws SQLException {
@@ -110,10 +116,9 @@ public class LivraisonService implements Lservice<Livraison> {
         System.out.println("Livraison supprimée avec succès");
     }
 
-
     @Override
     public void ajouter(Livraison livraison) throws SQLException {
-        String req = "INSERT INTO livraison (adresselivraison, datecommande, datelivraison, statuslivraison, iddepot) VALUES (?, ?, ?, ?, ?)";
+        String req = "INSERT INTO livraison (adresselivraison, datecommande, datelivraison, statuslivraison, iddepot , latitude, longitude) VALUES (?, ?, ?, ?, ?,?,?)";
 
         PreparedStatement st = connection.prepareStatement(req);
         st.setString(1, livraison.getAdresselivraison());
@@ -121,13 +126,14 @@ public class LivraisonService implements Lservice<Livraison> {
         st.setTimestamp(3, new Timestamp(livraison.getDatelivraison().getTime()));
         st.setString(4, livraison.getStatuslivraison());
         st.setInt(5, livraison.getIddepot());
+        st.setFloat(6, livraison.getLatitude());
+        st.setFloat(7, livraison.getLongitude());
 
         st.executeUpdate();
 
         System.out.println("Livraison ajoutée avec succès");
         System.out.println(livraison);
     }
-
 
     public void close() {
     }
@@ -167,7 +173,7 @@ public class LivraisonService implements Lservice<Livraison> {
     @Override
     public List<Livraison> recherche(int id) throws SQLException {
         List<Livraison> elements = new ArrayList<>();
-        String req = "SELECT l.id, l.adresselivraison, l.datecommande, l.datelivraison, l.statuslivraison, "
+        String req = "SELECT l.id, l.adresselivraison, l.datecommande, l.datelivraison, l.statuslivraison,l.laltitude, l.longitude,"
                 + "d.iddepot, d.nomdepot, d.adresse "
                 + "FROM livraison l LEFT JOIN depot d ON l.iddepot = d.iddepot WHERE l.id = ?";
         try (PreparedStatement ps = connection.prepareStatement(req)) {
@@ -189,7 +195,50 @@ public class LivraisonService implements Lservice<Livraison> {
         return elements;
     }
 
+    public void envoyerEmailRecuperation(String email, String subject, String message, String attachedFilePath) {
+        // Configuration des propriétés SMTP
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com"); // Serveur SMTP Gmail
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587"); // Port SMTP
+        props.put("mail.smtp.starttls.enable", "true"); // Activation du chiffrement TLS
+
+        // Création d'une session avec l'authentification
+        Session session = Session.getInstance(props,
+                new javax.mail.Authenticator() {
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication("manideliro@gmail.com", "qjkw tpnc sryq dzku");
+                    }
+                });
+
+        try {
+            MimeMessage emailMessage = new MimeMessage(session);
+            Multipart multipart = new MimeMultipart();
+
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setText(message);
+            multipart.addBodyPart(messageBodyPart);
+
+            if (attachedFilePath != null && !attachedFilePath.isEmpty()) {
+                MimeBodyPart attachmentBodyPart = new MimeBodyPart();
+                DataSource source = new FileDataSource(attachedFilePath);
+                attachmentBodyPart.setDataHandler(new DataHandler(source));
+                attachmentBodyPart.setFileName(new File(attachedFilePath).getName());
+                multipart.addBodyPart(attachmentBodyPart);
+            }
+
+            emailMessage.setFrom(new InternetAddress("manideliro@gmail.com"));
+            emailMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email)); // Adresse e-mail de destination
+            emailMessage.setSubject(subject); // Sujet de l'e-mail
+            emailMessage.setContent(multipart);
+
+            // Envoi du message
+            Transport.send(emailMessage);
+
+            System.out.println("Email with attachment sent successfully to " + email);
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
-
-
-
