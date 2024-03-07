@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="AnchorPaneaff" prefHeight="670.0" prefWidth="1302.0" style="-fx-background-color: F9F9F9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.Afficherlivraison">
+   <children>
+      <!-- Header Label -->
+      <Label alignment="TOP_CENTER" layoutX="447.0" layoutY="17.0" prefHeight="39.0" prefWidth="408.0" text="AFFICHER LIVRAISON" textFill="#89408c">
+         <font>
+            <Font name="Amiri Regular" size="32.0" />
+         </font>
+      </Label>
+
+      <!-- Side Menu -->
+      <AnchorPane layoutX="-8.0" layoutY="104.0" prefHeight="568.0" prefWidth="269.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+         <children>
+            <VBox layoutX="14.0" layoutY="64.0" prefHeight="332.0" prefWidth="254.0" stylesheets="@path.css">
+               <children>
+                  <Button fx:id="COMMANDES" mnemonicParsing="false" prefHeight="40.0" prefWidth="246.0" text=" Gestion des commandes">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="AVIS" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des avis et demandes" />
+                  <Button fx:id="LIVRAISON" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des livraisons">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="USER" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des utilisateurs">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="ENCHERE" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion  d’enchères " />
+                  <Button fx:id="PRODUITS" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+
+      <!-- Buttons -->
+      <Button layoutX="483.0" layoutY="145.0" mnemonicParsing="false" onAction="#trier" opacity="0.0" prefHeight="35.0" prefWidth="66.0" style="-fx-background-color: #fffff;" text=" Trier">
+         <font>
+            <Font name="Ebrima" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="673.0" layoutY="522.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="138.0" stylesheets="@path.css" text="Supprimer">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@delete-product.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Ebrima" size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="1054.0" layoutY="146.0" mnemonicParsing="false" opacity="0.0" prefHeight="38.0" prefWidth="56.0" stylesheets="@path.css" />
+
+      <Button layoutX="483.0" layoutY="522.0" mnemonicParsing="false" onAction="#VersModifier" prefHeight="40.0" prefWidth="122.0" stylesheets="@path.css" text="Modifier">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@change.png" />
+               </image></ImageView>
+         </graphic>
+      </Button>
+
+      <!-- ListView and Search -->
+      <ListView fx:id="LVcmd" layoutX="270.0" layoutY="193.0" prefHeight="332.0" prefWidth="863.0">
+         <cellFactory>
+
+         </cellFactory>
+      </ListView>
+
+
+
+      <TextField fx:id="searchtext" layoutX="323.0" layoutY="146.0" onAction="#searchLivraison" prefHeight="35.0" prefWidth="160.0" promptText="Search by address..." />
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="289.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@search.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="504.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@sort.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="920.0" layoutY="524.0" mnemonicParsing="false" onAction="#toStat" prefHeight="40.0" prefWidth="138.0" stylesheets="@path.css" text="      Statistique">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="922.0" layoutY="532.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@analytics.png" />
+         </image>
+
+      </ImageView>
+
+      <Button layoutX="1011.0" layoutY="147.0" mnemonicParsing="false" onAction="#ToMailing" opacity="0.0" prefHeight="35.0" prefWidth="56.0" style="-fx-background-color: #b9abe0;" />
+      <Button fx:id="pdfButton" alignment="TOP_CENTER" layoutX="955.0" layoutY="144.0" onAction="#pdf" opacity="0.0" prefHeight="40.0" prefWidth="56.0" />
+      <AnchorPane prefHeight="104.0" prefWidth="262.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+         <children>
+            <Label layoutX="65.0" layoutY="16.0" prefHeight="55.0" prefWidth="191.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="Amiri Bold" size="27.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="79.0" fitWidth="90.0" layoutX="-10.0" layoutY="-23.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0">
+               <image>
+                  <Image url="@../../../logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="35.0" fitWidth="45.0" layoutX="972.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pdficon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="35.0" layoutX="1024.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@gmail.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="25.0" fitWidth="41.0" layoutX="1070.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@mapsicon.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="266.0" layoutY="11.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="56.0" />
+      <ImageView fitHeight="18.0" fitWidth="35.0" layoutX="282.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bouton-retour.png" />
+         </image>
+      </ImageView>
+
+
+
+   </children>
+</AnchorPane>

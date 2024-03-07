@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.DashboardAdmin">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="600.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="45.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="39.0" layoutY="5.0" prefHeight="35.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children>
+                  </AnchorPane>
+               </top>
+               <left>
+                  <AnchorPane prefHeight="555.0" prefWidth="211.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="204.0" fitWidth="200.0" layoutX="6.0" layoutY="-55.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAF.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="56.0" layoutY="128.0" text="WELCOME ">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="41.0" layoutY="156.0" text="TO AFFARIETY">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Line endX="83.59999084472656" layoutX="106.0" layoutY="200.0" startX="-80.19999694824219" />
+                        <ImageView fitHeight="73.0" fitWidth="100.0" layoutX="-6.0" layoutY="-73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imageAF.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="62.0" layoutY="-29.0" text="Dépot Vente Meuble">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="28.0" layoutY="219.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="158.0" text="Home">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                     </children>
+
+                  </AnchorPane>
+               </left>
+               <center>
+                  <AnchorPane prefHeight="554.0" prefWidth="782.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="12.0" layoutY="240.0" prefHeight="300.0" prefWidth="664.0" style="-fx-background-color: rgba(248,248,255);">
+                           <children>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <LineChart fx:id="lineChart" layoutX="14.0" layoutY="21.0" prefHeight="178.0" prefWidth="390.0" title="New Users By Date">
+                                       <xAxis>
+                                          <CategoryAxis side="BOTTOM" />
+                                       </xAxis>
+                                       <yAxis>
+                                          <NumberAxis side="LEFT" />
+                                       </yAxis>
+                                    </LineChart>
+                                    <PieChart fx:id="pieChart" layoutX="33.0" layoutY="199.0" prefHeight="150.0" prefWidth="352.0" title="Active  / Inactive Users" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane  layoutX="26.0" layoutY="21.0" prefHeight="202.0" prefWidth="287.0" style="-fx-background-color: rgba(248,248,255);">
+                           <children>
+                              <Label layoutX="77.0" layoutY="160.0" prefHeight="27.0" prefWidth="133.0" text="Total Catégories">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="total_c" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="14.0" text="0">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="381.0" layoutY="40.0" prefHeight="200.0" prefWidth="200.0" />
+                        <AnchorPane layoutX="365.0" layoutY="21.0" prefHeight="202.0" prefWidth="287.0" style="-fx-background-color: rgba(248,248,255);">
+                           <children>
+                              <Label layoutX="77.0" layoutY="160.0" prefHeight="27.0" prefWidth="133.0" text="Total Produits">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="total_p" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="14.0" text="0">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

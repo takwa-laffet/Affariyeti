@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="598.0" prefWidth="866.0" stylesheets="@CardDesign.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.DetailsProduits">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+        <ScrollPane layoutY="66.4" prefHeight="532.0" prefWidth="866.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <content>
+            <Pane prefHeight="529.0" prefWidth="734.0">
+               <children>
+                  <Label layoutX="398.0" layoutY="66.0" prefHeight="46.0" prefWidth="127.0" text="Nom Produit:" textFill="#b96b6b">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="398.0" layoutY="174.0" prefHeight="46.0" prefWidth="127.0" text="Prix:" textFill="#b96b6b">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="398.0" layoutY="121.0" prefHeight="46.0" prefWidth="127.0" text="Nom Catégorie:" textFill="#b96b6b">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="idImage" fitHeight="313.0" fitWidth="357.0" layoutX="14.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="398.0" layoutY="225.0" prefHeight="46.0" prefWidth="105.0" text="Description:" textFill="#b96b6b">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idNom" layoutX="537.0" layoutY="66.0" prefHeight="46.0" prefWidth="163.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Prix" layoutX="539.0" layoutY="174.0" prefHeight="46.0" prefWidth="171.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="idcategory" layoutX="537.0" layoutY="121.0" prefHeight="46.0" prefWidth="174.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="iddescription" layoutX="538.0" layoutY="223.0" prefHeight="50.0" prefWidth="173.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Rating fx:id="raitingid" layoutX="405.0" layoutY="321.0" onMouseClicked="#handleRatingClick" />
+               </children>
+            </Pane>
+         </content>
+        </ScrollPane>
+      <AnchorPane prefHeight="66.0" prefWidth="865.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+         <children>
+            <AnchorPane layoutX="207.0" prefHeight="58.0" prefWidth="251.0">
+               <children>
+                  <TextField fx:id="searchField" layoutX="11.0" layoutY="13.0" prefHeight="34.0" prefWidth="213.0" promptText="🔎 Rechercher des publications..." />
+               </children>
+            </AnchorPane>
+            <Label layoutX="53.0" layoutY="14.0" prefHeight="32.0" prefWidth="127.0" text="AFFARIETY">
+               <font>
+                  <Font name="Andalus" size="26.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-12.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imageAF.png" />
+               </image>
+            </ImageView>
+            <MenuBar layoutX="449.0" layoutY="13.0" prefHeight="35.0" prefWidth="414.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="Acceuil">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Tous les articles">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Demande ">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Enchère">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Aide">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </children>
+      </AnchorPane>
+
+
+    </children>
+</AnchorPane>

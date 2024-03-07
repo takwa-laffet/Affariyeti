@@ -1,0 +1,98 @@
+/* Styling the left pane */
+.left-pane {
+    -fx-background-color: rgba(132, 151, 219, 0.9375);
+    -fx-padding: 20px;
+}
+
+.logo {
+    -fx-margin-bottom: 20px;
+}
+
+/* Styling the center pane */
+.center-pane {
+    -fx-padding: 20px;
+}
+
+.search-field {
+    -fx-pref-width: 100%;
+    -fx-padding: 10px;
+    -fx-margin-bottom: 20px;
+    -fx-border-width: 1px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-box-sizing: border-box;
+}
+
+.publication {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20px;
+    -fx-margin-bottom: 20px;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+
+.publication img {
+    -fx-max-width: 100%;
+    -fx-fit-height: auto;
+    -fx-border-radius: 5px;
+    -fx-margin-bottom: 10px;
+}
+
+.likes-dislikes {
+    -fx-margin-bottom: 10px;
+}
+
+/* Styling the buttons */
+.button {
+    -fx-padding: 10px 20px;
+    -fx-text-fill: black; /* Texte en noir */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
+}
+
+.button:hover {
+    -fx-background-color: #b19cd9; /* Violet pastel plus foncé au survol */
+}
+
+
+
+.menu-button {
+    -fx-padding: 7px 10px; /* Violet pastel */
+    -fx-text-fill: black; /* Texte en noir */
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+
+}
+
+.menu-button:hover {
+    -fx-background-color: #b19cd9; /* Violet pastel plus foncé au survol */
+}
+
+/* Styling the notification box */
+.notification-box {
+    -fx-padding: 20px;
+    -fx-background-color: #f2f2f2;
+    -fx-border-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+    -fx-margin-top: 20px;
+}
+.tool-bar {
+    -fx-background-color: rgba(132, 151, 219, 0.9375); /* Couleur de fond */
+
+}
+.tool-bar > .container {
+    -fx-alignment: center-right;
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
+}
+
+
+.text-field {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */
+}
+.text-area{  -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0, 0); /* Effet d'ombre */}

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.UserComments">
+    <left>
+        <AnchorPane prefHeight="330.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="199.0" fitWidth="164.0" layoutX="4.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@82250-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="20.0" layoutY="49.0" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="124.0" text="Tous les publications">
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <effect>
+                  <InnerShadow radius="21.1125" width="65.45">
+                     <color>
+                        <Color red="0.3799999952316284" green="0.4146193563938141" blue="1.0" />
+                     </color>
+                  </InnerShadow>
+               </effect>
+            </Button>
+            <MenuButton layoutX="19.0" layoutY="4.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="126.0" text="filtrer par date">
+               <items>
+                  <MenuItem onAction="#filtrerParPlusRecentes" text="Les plus récentes" />
+                  <MenuItem onAction="#filtrerParPlusAnciennes" text="Les plus anciennes" />
+                  <MenuItem onAction="#clearFilter" text=" " />
+               </items>
+               <font>
+                  <Font size="8.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Capture_d_écran_2024-03-04_122315-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+            <ImageView fitHeight="120.0" fitWidth="129.0" layoutX="38.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@commentaires.png" />
+               </image>
+            </ImageView>
+         </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <ScrollPane fitToWidth="true" prefWidth="450.0">
+            <content>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10">
+                    <HBox alignment="CENTER" spacing="10">
+                  <AnchorPane prefHeight="69.0" prefWidth="422.0">
+                     <children>
+                        <ImageView fitHeight="62.0" fitWidth="399.0" layoutX="4.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Top_Card.png" />
+                           </image>
+                        </ImageView>
+                        <Button layoutX="332.0" layoutY="13.0" onAction="#ajouterCommentaire" prefHeight="18.0" prefWidth="62.0">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@v793-ning-06-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></Button>
+                        <TextArea fx:id="commentTextArea" layoutX="58.0" layoutY="12.0" prefHeight="46.0" prefWidth="268.0" promptText="Entrez un commentaire" />
+                        <TextField fx:id="idclientfield" layoutX="10.0" layoutY="21.0" prefHeight="26.0" prefWidth="44.0" promptText="id_client">
+                           <font>
+                              <Font size="7.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+                    </HBox>
+                    <!-- Replace ListView with a VBox -->
+                    <VBox fx:id="commentContainer" prefHeight="106.0" prefWidth="437.0" spacing="10">
+                        <MenuButton prefHeight="43.0" prefWidth="109.0" text="Options">
+                            <items>
+                                <MenuItem onAction="#SupprimerCommentaire" text="Supprimer" />
+                                <MenuItem onAction="#ModifierCommentaire" text="modifier" />
+                            </items>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@reglages.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                        </MenuButton>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    <!-- Boîte de notification -->
+    <right>
+        <VBox fx:id="notificationsBox" alignment="CENTER" />
+    </right>
+   <top>
+      <AnchorPane prefHeight="44.0" prefWidth="600.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-12.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@imageAF.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="60.0" layoutY="23.0" prefHeight="23.0" prefWidth="127.0" text="AFFARIETY">
+               <font>
+                  <Font name="Andalus" size="26.0" />
+               </font>
+            </Label>
+            <MenuButton layoutX="519.0" layoutY="15.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="42.0">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Articles" />
+                  <MenuItem mnemonicParsing="false" text="Panier" />
+                  <MenuItem mnemonicParsing="false" text="Livraison" />
+                  <MenuItem mnemonicParsing="false" text="Enchère" />
+                  <MenuItem mnemonicParsing="false" text="Demande" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@buttonoption.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

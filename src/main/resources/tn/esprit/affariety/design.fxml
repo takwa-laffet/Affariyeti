@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="822.0"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+    <left>
+        <AnchorPane prefHeight="392.0" prefWidth="216.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="375.0" fitWidth="218.0" layoutX="7.0" layoutY="33.0">
+
+                </ImageView>
+                <MenuButton layoutX="75.0" layoutY="3.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="146.0" text="filtrer par date">
+                    <items>
+
+                    </items>
+                    <font>
+                        <Font size="10.0" />
+                    </font>
+                    <graphic>
+
+
+                    </graphic>
+                </MenuButton>
+                <Button layoutX="-5.0" layoutY="48.0" mnemonicParsing="false"  prefHeight="38.0" prefWidth="225.0" text="Obtenir Ticket enchère gratuitement" />
+            </children></AnchorPane>
+    </left>
+    <center>
+        <ScrollPane>
+            <content>
+                <VBox>
+                    <VBox prefHeight="126.0" prefWidth="387.0">
+                        <children>
+                            <AnchorPane prefHeight="196.0" prefWidth="387.0">
+                                <children>
+                                    <ImageView fitHeight="166.0" fitWidth="381.0" layoutX="6.0" layoutY="5.0">
+
+                                    </ImageView>
+                                    <TextField fx:id="idclientTF" layoutX="31.0" layoutY="14.0" prefHeight="17.0" prefWidth="47.0" promptText="id_client">
+                                        <font>
+                                            <Font size="8.0" />
+                                        </font>
+                                    </TextField>
+                                    <TextArea fx:id="pubTF" layoutX="31.0" layoutY="36.0" prefHeight="55.0" prefWidth="339.0" promptText="Vous cherchez quoi?" />
+                                    <Button layoutX="42.0" layoutY="96.0" mnemonicParsing="false"  text="photo">
+                                        <graphic>
+                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                    <Button layoutX="252.0" layoutY="96.0" mnemonicParsing="false"  text="publier">
+                                        <graphic>
+                                            <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                            </ImageView>
+                                        </graphic>
+                                    </Button>
+                                    <Label fx:id="cheminphoto" layoutX="21.0" layoutY="142.0" prefHeight="16.0" prefWidth="311.0">
+                                        <font>
+                                            <Font size="11.0" />
+                                        </font>
+                                    </Label>
+                                </children>
+                            </AnchorPane>
+                        </children>
+                    </VBox>
+                    <VBox fx:id="publicationContainer" prefHeight="506.0" prefWidth="387.0" spacing="40">
+                        <!-- Content Label -->
+                        <Label fx:id="content" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font name="Arial Black" size="13.0" />
+                            </font>
+                        </Label>
+
+                        <!-- Image View -->
+                        <ImageView fx:id="imagePublication" fitHeight="200" fitWidth="306.0" preserveRatio="true" />
+                        <HBox spacing="10">
+                            <children>
+                                <Label fx:id="likes" />
+                                <Label fx:id="dislikes" />
+                            </children>
+                        </HBox>
+
+                        <!-- Like and Dislike Labels and Buttons -->
+                        <HBox spacing="10">
+                            <Button text="j'aime">
+                                <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                    </ImageView>
+                                </graphic></Button>
+                            <Button  text="j'aime pas">
+                                <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                    </ImageView>
+                                </graphic></Button>
+                        </HBox>
+                        <HBox spacing="10">
+                            <Button text="Comments">
+                                <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                    </ImageView>
+                                </graphic></Button>
+                            <MenuButton text="Options">
+                                <items>
+                                    <MenuItem  text="Supprimer" />
+                                    <MenuItem  text="modifier" />
+                                </items>
+                                <graphic>
+                                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+
+                                    </ImageView>
+                                </graphic>
+                            </MenuButton>
+                        </HBox>
+
+                        <!-- Date Label -->
+                        <Label fx:id="Date" prefHeight="18.0" prefWidth="218.0" />
+
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    <!-- Boîte de notification -->
+    <right>
+        <VBox fx:id="notificationBox" alignment="CENTER" />
+    </right>
+    <top>
+        <AnchorPane prefHeight="42.0" prefWidth="600.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane layoutX="207.0" prefHeight="58.0" prefWidth="251.0">
+                    <children>
+                        <TextField fx:id="searchField" layoutX="35.0" layoutY="13.0" prefHeight="33.0" prefWidth="194.0" promptText="🔎 Rechercher des publications..." />
+                    </children>
+                </AnchorPane>
+                <Label layoutX="51.0" layoutY="16.0" prefHeight="32.0" prefWidth="127.0" text="AFFARIETY">
+                    <font>
+                        <Font name="Andalus" size="26.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="80.0" fitWidth="116.0" layoutX="-22.0" layoutY="-31.0" pickOnBounds="true" preserveRatio="true">
+
+                </ImageView>
+                <MenuBar layoutX="449.0" layoutY="13.0" prefHeight="32.0" prefWidth="373.0">
+                    <menus>
+                        <Menu mnemonicParsing="false" text="Acceuil">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Tous les articles">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Delete" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Demande ">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="About" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Enchère">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Aide">
+                            <items>
+                                <MenuItem mnemonicParsing="false" text="Close" />
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </children>
+        </AnchorPane>
+    </top>
+</BorderPane>

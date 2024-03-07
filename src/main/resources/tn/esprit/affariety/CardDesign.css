@@ -1,0 +1,21 @@
+/* Updated CSS for Cards */
+.card-pane {
+    -fx-border-width: 1px;
+    -fx-border-color: #CCCCCC;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f8f8f8); /* Gradient from white to light gray */
+    -fx-padding: 10px; /* Add padding for spacing inside the card */
+    -fx-spacing: 10px; /* Add spacing between cards */
+    -fx-margin: 10px; /* Add margin for spacing outside the card */
+}
+
+.card-pane:focused {
+    -fx-border-color: #9e46b6; /* Teal border when focused */
+}
+
+.card-pane:hover {
+    -fx-background-color: linear-gradient(to bottom, #f5efff, rgba(153, 169, 239, 0.99)); /* Light gradient on hover */
+}
+
+/* You can customize the above properties according to your design preferences */

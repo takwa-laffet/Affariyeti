@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="659.0" prefWidth="850.0" stylesheets="@admin.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.affariety.controllers.AfficherDetailsCommande">
+   <children>
+      <Label layoutX="388.0" layoutY="83.0" prefHeight="35.0" prefWidth="287.0" text="Listes des details Commandes">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <ListView fx:id="lvdCmd" layoutX="296.0" layoutY="165.0" prefHeight="262.0" prefWidth="471.0" />
+      <AnchorPane layoutY="-2.0" prefHeight="659.0" prefWidth="238.0" style="-fx-background-color: rgba(132, 151, 219, 0.9375);">
+         <children>
+            <VBox layoutY="1.0" prefHeight="659.0" prefWidth="236.0">
+               <children>
+                  <HBox prefHeight="70.0" prefWidth="216.0" styleClass="hbox">
+                     <children>
+                        <AnchorPane prefHeight="75.0" prefWidth="235.0" style="-fx-background-color: rgba(150, 163, 207, 0.9375);">
+                           <children>
+                              <Label layoutX="65.0" layoutY="16.0" prefHeight="52.0" prefWidth="169.0" text="AFFARIYETI" textOverrun="WORD_ELLIPSIS">
+                                 <font>
+                                    <Font name="Amiri Bold" size="27.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="-30.0" layoutY="-42.0" pickOnBounds="true" preserveRatio="true" x="4.0" y="9.0" />
+                              <ImageView fitHeight="58.0" fitWidth="70.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@422005695_1067403267916521_708312912658606799_n-removebg-preview.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="50.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Button fx:id="COMMANDES" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text=" Gestion des commandes">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="AVIS" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des avis et demandes" />
+                  <Button fx:id="ENCHERE" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion  d’enchères " />
+                  <Button fx:id="LIVRAISON" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des livraisons">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="PRODUITS" maxHeight="1.7976931348623157E308" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion produits et catégories " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="USER" mnemonicParsing="false" prefHeight="38.0" prefWidth="246.0" text="Gestion des utilisateurs">
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
